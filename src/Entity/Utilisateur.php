@@ -39,17 +39,13 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50)]
     private ?string $prenom = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Utilisateur')]
-    #[ORM\JoinColumn(nullable: false)]
+
+    #[ORM\OneToOne(mappedBy: 'utilisateur', cascade: ['persist', 'remove'])]
     private ?Client $client = null;
 
-    #[ORM\OneToMany(targetEntity: Employe::class, mappedBy: 'utilisateur')]
-    private Collection $Employe;
+    #[ORM\OneToOne(mappedBy: 'Utilisateur', cascade: ['persist', 'remove'])]
+    private ?Employe $employe = null;
 
-    public function __construct()
-    {
-        $this->Employe = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -155,39 +151,31 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->client;
     }
 
-    public function setClient(?Client $client): static
+    public function setClient(Client $client): static
     {
+        // set the owning side of the relation if necessary
+        if ($client->getUtilisateur() !== $this) {
+            $client->setUtilisateur($this);
+        }
+
         $this->client = $client;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, Employe>
-     */
-    public function getEmploye(): Collection
+    public function getEmploye(): ?Employe
     {
-        return $this->Employe;
+        return $this->employe;
     }
 
-    public function addEmploye(Employe $employe): static
+    public function setEmploye(Employe $employe): static
     {
-        if (!$this->Employe->contains($employe)) {
-            $this->Employe->add($employe);
+        // set the owning side of the relation if necessary
+        if ($employe->getUtilisateur() !== $this) {
             $employe->setUtilisateur($this);
         }
 
-        return $this;
-    }
-
-    public function removeEmploye(Employe $employe): static
-    {
-        if ($this->Employe->removeElement($employe)) {
-            // set the owning side to null (unless already changed)
-            if ($employe->getUtilisateur() === $this) {
-                $employe->setUtilisateur(null);
-            }
-        }
+        $this->employe = $employe;
 
         return $this;
     }

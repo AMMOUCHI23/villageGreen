@@ -39,9 +39,11 @@ class Employe
     #[ORM\OneToMany(targetEntity: Client::class, mappedBy: 'Employe')]
     private Collection $clients;
 
-    #[ORM\ManyToOne(inversedBy: 'Employe')]
+    #[ORM\OneToOne(inversedBy: 'employe', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Utilisateur $utilisateur = null;
+    private ?Utilisateur $Utilisateur = null;
+
+  
 
     public function __construct()
     {
@@ -169,13 +171,15 @@ class Employe
 
     public function getUtilisateur(): ?Utilisateur
     {
-        return $this->utilisateur;
+        return $this->Utilisateur;
     }
 
-    public function setUtilisateur(?Utilisateur $utilisateur): static
+    public function setUtilisateur(Utilisateur $Utilisateur): static
     {
-        $this->utilisateur = $utilisateur;
+        $this->Utilisateur = $Utilisateur;
 
         return $this;
     }
+
+   
 }

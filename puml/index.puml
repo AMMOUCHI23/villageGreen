@@ -1,0 +1,143 @@
+class Livraison {
+	id
+	numero_bon_livraison
+	date_livraison
+	observation
+	**ligneLivraisons**
+	**Commande**
+}
+
+class Client {
+	id
+	reference_client
+	nom
+	prenom
+	sexe
+	email
+	adresse
+	CP
+	ville
+	telephone
+	type
+	coefficient
+	reduction
+	**Employe**
+	**utilisateur**
+	**commandes**
+}
+
+class Fournisseur {
+	id
+	numero_siret
+	nom_entreprise
+	categorie_fournisseur
+	adresse
+	email
+	telephone
+	**Produit**
+}
+
+class LigneLivraison {
+	id
+	quantite_livree
+	**Produit**
+	**Livraison**
+}
+
+class Employe {
+	id
+	nom
+	prenom
+	email
+	poste
+	telephone
+	sexe
+	adresse
+	**clients**
+	**Utilisateur**
+}
+
+class Utilisateur {
+	id
+	email
+	roles
+	password
+	nom
+	prenom
+	**client**
+	**employe**
+}
+
+class Produit {
+	id
+	reference
+	libelle
+	dimenssion
+	couleur
+	description
+	prix_achat
+	photo
+	actif
+	quantite_stock
+	stock_alert
+	**fournisseur**
+	**Categorie**
+	**ligneCommande**
+	**ligneLivraison**
+}
+
+class LigneCommande {
+	id
+	quantite
+	libelle
+	prix_vente
+	**Produit**
+	**Commande**
+}
+
+class Commande {
+	id
+	numero_facture
+	date_facture
+	date_commande
+	total_commande
+	adresse_livraison
+	cp_livraison
+	ville_livraison
+	adresse_facturation
+	cp_facturation
+	ville_facturation
+	statut
+	payee
+	mode_paiement
+	total_paye
+	**ligneCommandes**
+	**livraisons**
+	**Client**
+}
+
+class Categorie {
+	id
+	nom_categorie
+	photo
+	**produits**
+	**parent**
+	**categories**
+}
+
+Livraison "1"--"*" LigneLivraison
+Client "1"--"*" Commande
+Fournisseur "1"--"*" Produit
+LigneLivraison "1"--"*" Produit
+Employe "1"--"*" Client
+LigneCommande "1"--"*" Produit
+Commande "1"--"*" LigneCommande
+Commande "1"--"*" Livraison
+Categorie "1"--"*" Produit
+Categorie "*"--"1" Categorie
+Categorie "1"--"*" Categorie
+
+
+hide methods
+hide circle
+

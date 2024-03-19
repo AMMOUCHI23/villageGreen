@@ -56,12 +56,17 @@ class Client
     #[ORM\JoinColumn(nullable: false)]
     private ?Employe $Employe = null;
 
-    #[ORM\OneToMany(targetEntity: Utilisateur::class, mappedBy: 'client')]
-    private Collection $Utilisateur;
+    #[ORM\OneToOne(inversedBy: 'client', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Utilisateur $utilisateur = null;
 
+    #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'Client')]
+    private Collection $commandes;
+
+ 
     public function __construct()
     {
-        $this->Utilisateur = new ArrayCollection();
+        $this->commandes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -225,33 +230,46 @@ class Client
         return $this;
     }
 
-    /**
-     * @return Collection<int, Utilisateur>
-     */
-    public function getUtilisateur(): Collection
+    public function getUtilisateur(): ?Utilisateur
     {
-        return $this->Utilisateur;
+        return $this->utilisateur;
     }
 
-    public function addUtilisateur(Utilisateur $utilisateur): static
+    public function setUtilisateur(Utilisateur $utilisateur): static
     {
-        if (!$this->Utilisateur->contains($utilisateur)) {
-            $this->Utilisateur->add($utilisateur);
-            $utilisateur->setClient($this);
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): static
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes->add($commande);
+            $commande->setClient($this);
         }
 
         return $this;
     }
 
-    public function removeUtilisateur(Utilisateur $utilisateur): static
+    public function removeCommande(Commande $commande): static
     {
-        if ($this->Utilisateur->removeElement($utilisateur)) {
+        if ($this->commandes->removeElement($commande)) {
             // set the owning side to null (unless already changed)
-            if ($utilisateur->getClient() === $this) {
-                $utilisateur->setClient(null);
+            if ($commande->getClient() === $this) {
+                $commande->setClient(null);
             }
         }
 
         return $this;
     }
+
 }

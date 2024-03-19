@@ -64,6 +64,10 @@ class Commande
     #[ORM\OneToMany(targetEntity: Livraison::class, mappedBy: 'Commande')]
     private Collection $livraisons;
 
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Client $Client = null;
+
     public function __construct()
     {
         $this->ligneCommandes = new ArrayCollection();
@@ -299,6 +303,18 @@ class Commande
                 $livraison->setCommande(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getClient(): ?Client
+    {
+        return $this->Client;
+    }
+
+    public function setClient(?Client $Client): static
+    {
+        $this->Client = $Client;
 
         return $this;
     }
