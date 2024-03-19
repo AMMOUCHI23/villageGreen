@@ -16,9 +16,6 @@ class Livraison
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $numero_bon_livraison = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_livraison = null;
 
@@ -40,18 +37,6 @@ class Livraison
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNumeroBonLivraison(): ?int
-    {
-        return $this->numero_bon_livraison;
-    }
-
-    public function setNumeroBonLivraison(int $numero_bon_livraison): static
-    {
-        $this->numero_bon_livraison = $numero_bon_livraison;
-
-        return $this;
     }
 
     public function getDateLivraison(): ?\DateTimeInterface

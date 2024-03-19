@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -54,11 +56,19 @@ class Produit
 
     #[ORM\ManyToOne(inversedBy: 'Produit')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?LigneCommande $ligneCommande = null;
-
-    #[ORM\ManyToOne(inversedBy: 'Produit')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?LigneLivraison $ligneLivraison = null;
+
+    #[ORM\OneToMany(targetEntity: LigneCommande::class, mappedBy: 'Produit')]
+    private Collection $ligneCommandes;
+
+    #[ORM\OneToMany(targetEntity: LigneLivraison::class, mappedBy: 'Produit')]
+    private Collection $ligneLivraisons;
+
+    public function __construct()
+    {
+        $this->ligneCommandes = new ArrayCollection();
+        $this->ligneLivraisons = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -209,18 +219,6 @@ class Produit
         return $this;
     }
 
-    public function getLigneCommande(): ?LigneCommande
-    {
-        return $this->ligneCommande;
-    }
-
-    public function setLigneCommande(?LigneCommande $ligneCommande): static
-    {
-        $this->ligneCommande = $ligneCommande;
-
-        return $this;
-    }
-
     public function getLigneLivraison(): ?LigneLivraison
     {
         return $this->ligneLivraison;
@@ -229,6 +227,66 @@ class Produit
     public function setLigneLivraison(?LigneLivraison $ligneLivraison): static
     {
         $this->ligneLivraison = $ligneLivraison;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LigneCommande>
+     */
+    public function getLigneCommandes(): Collection
+    {
+        return $this->ligneCommandes;
+    }
+
+    public function addLigneCommande(LigneCommande $ligneCommande): static
+    {
+        if (!$this->ligneCommandes->contains($ligneCommande)) {
+            $this->ligneCommandes->add($ligneCommande);
+            $ligneCommande->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLigneCommande(LigneCommande $ligneCommande): static
+    {
+        if ($this->ligneCommandes->removeElement($ligneCommande)) {
+            // set the owning side to null (unless already changed)
+            if ($ligneCommande->getProduit() === $this) {
+                $ligneCommande->setProduit(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LigneLivraison>
+     */
+    public function getLigneLivraisons(): Collection
+    {
+        return $this->ligneLivraisons;
+    }
+
+    public function addLigneLivraison(LigneLivraison $ligneLivraison): static
+    {
+        if (!$this->ligneLivraisons->contains($ligneLivraison)) {
+            $this->ligneLivraisons->add($ligneLivraison);
+            $ligneLivraison->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLigneLivraison(LigneLivraison $ligneLivraison): static
+    {
+        if ($this->ligneLivraisons->removeElement($ligneLivraison)) {
+            // set the owning side to null (unless already changed)
+            if ($ligneLivraison->getProduit() === $this) {
+                $ligneLivraison->setProduit(null);
+            }
+        }
 
         return $this;
     }

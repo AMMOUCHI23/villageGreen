@@ -25,17 +25,13 @@ class LigneCommande
     #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
     private ?string $prix_vente = null;
 
-    #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'ligneCommande')]
-    private Collection $Produit;
-
     #[ORM\ManyToOne(inversedBy: 'ligneCommandes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Commande $Commande = null;
 
-    public function __construct()
-    {
-        $this->Produit = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(inversedBy: 'ligneCommandes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Produit $Produit = null;
 
     public function getId(): ?int
     {
@@ -78,36 +74,6 @@ class LigneCommande
         return $this;
     }
 
-    /**
-     * @return Collection<int, Produit>
-     */
-    public function getProduit(): Collection
-    {
-        return $this->Produit;
-    }
-
-    public function addProduit(Produit $produit): static
-    {
-        if (!$this->Produit->contains($produit)) {
-            $this->Produit->add($produit);
-            $produit->setLigneCommande($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProduit(Produit $produit): static
-    {
-        if ($this->Produit->removeElement($produit)) {
-            // set the owning side to null (unless already changed)
-            if ($produit->getLigneCommande() === $this) {
-                $produit->setLigneCommande(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getCommande(): ?Commande
     {
         return $this->Commande;
@@ -116,6 +82,18 @@ class LigneCommande
     public function setCommande(?Commande $Commande): static
     {
         $this->Commande = $Commande;
+
+        return $this;
+    }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->Produit;
+    }
+
+    public function setProduit(?Produit $Produit): static
+    {
+        $this->Produit = $Produit;
 
         return $this;
     }

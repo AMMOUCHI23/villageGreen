@@ -4,8 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Categorie;
 use App\Entity\Client;
+use App\Entity\Commande;
 use App\Entity\Employe;
 use App\Entity\Fournisseur;
+use App\Entity\LigneCommande;
+use App\Entity\LigneLivraison;
+use App\Entity\Livraison;
 use App\Entity\Produit;
 use App\Entity\Utilisateur;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -27,7 +31,8 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        //Fournisseur 1
+        // Fournisseur 1
+
         $fournisseur1 = new Fournisseur;
         $fournisseur1->setNumeroSiret("12345678901234")
             ->setNomEntreprise("Meubles Excellence")
@@ -348,6 +353,7 @@ class AppFixtures extends Fixture
         $manager->persist($categorie8);
 
         /**Ajouter des produits */
+        // Produit 1
         $pr1 = new Produit();
         $pr1->setReference("REF001")
             ->setLibelle("Buffet")
@@ -523,10 +529,12 @@ class AppFixtures extends Fixture
 
         // Utilisateur 2
         $user2 = new Utilisateur();
-        $user2->setNom('DUPONT')
-            ->setPrenom('Jean')
-            ->setRoles(['ROLE_COMMERCIAL'])
-            ->setEmail('user1@example.com');
+        $user2->setNom("Dupont")
+            ->setPrenom("Jean")
+
+
+            ->setRoles(['ROLE_CLIENT'])
+            ->setEmail("jean.dupont@example.com");
         $password = $this->hasher->hashPassword($user2, 'pass1234');
         $user2->setPassword($password);
         $manager->persist($user2);
@@ -535,17 +543,18 @@ class AppFixtures extends Fixture
         $user3 = new Utilisateur();
         $user3->setNom('DURAND')
             ->setPrenom('Marie')
-            ->setRoles(['ROLE_COMMERCIAL'])
-            ->setEmail('user2@example.com');
+            ->setRoles(['ROLE_CLIENT'])
+            ->setEmail("marie.durand@example.com");
         $password = $this->hasher->hashPassword($user3, 'pass1234');
         $user3->setPassword($password);
         $manager->persist($user3);
 
         // Utilisateur 4
         $user4 = new Utilisateur();
-        $user4->setNom('MARTIN')
-            ->setPrenom('Sophie')
-            ->setRoles(['ROLE_USER'])
+        $user4->setNom("Martin")
+            ->setPrenom("Philippe")
+            ->setEmail("philippe.martin@example.com")
+            ->setRoles(['ROLE_CLIENT'])
             ->setEmail('user3@example.com');
         $password = $this->hasher->hashPassword($user4, 'pass1234');
         $user4->setPassword($password);
@@ -553,70 +562,234 @@ class AppFixtures extends Fixture
 
         // Utilisateur 5
         $user5 = new Utilisateur();
-        $user5->setNom('ROBERT')
-            ->setPrenom('Nicolas')
-            ->setRoles(['ROLE_USER'])
-            ->setEmail('user4@example.com');
+        $user5->setNom("Garcia")
+            ->setPrenom("Sophie")
+            ->setEmail("sophie.garcia@example.com")
+            ->setRoles(['ROLE_CLIENT'])
+            ->setEmail("john.smith@example.com");
         $password = $this->hasher->hashPassword($user5, 'pass1234');
         $user5->setPassword($password);
         $manager->persist($user5);
 
+        // Utilisateur 6
+        $user6 = new Utilisateur();
+        $user6->setNom("Smith")
+            ->setPrenom("John")
+            ->setRoles(['ROLE_ADMIN'])
+            ->setEmail('user4@example.com');
+        $password = $this->hasher->hashPassword($user6, 'pass1234');
+        $user6->setPassword($password);
+        $manager->persist($user6);
+        // Utilisateur 7
+        $user7 = new Utilisateur();
+        $user7->setNom("Johnson")
+            ->setPrenom("Emma")
+            ->setRoles(['ROLE_COMMERTIAL'])
+            ->setEmail("emma.johnson@example.com");
+        $password = $this->hasher->hashPassword($user7, 'pass1234');
+        $user7->setPassword($password);
+        $manager->persist($user7);
+
+        // Utilisateur 8
+        $user8 = new Utilisateur();
+        $user8->setNom("Williams")
+            ->setPrenom("Michael")
+            ->setRoles(['ROLE_COMMERCIAL'])
+            ->setEmail("michael.williams@example.com");
+        $password = $this->hasher->hashPassword($user8, 'pass1234');
+        $user8->setPassword($password);
+        $manager->persist($user8);
+
+        // Utilisateur 9
+        $user9 = new Utilisateur();
+        $user9->setNom("Lefebvre")
+            ->setPrenom("Pierre")
+            ->setEmail("pierre.lefebvre@example.com")
+            ->setRoles(['ROLE_COMMERCIAL'])
+            ->setEmail("michael.williams@example.com");
+        $password = $this->hasher->hashPassword($user9, 'pass1234');
+        $user9->setPassword($password);
+        $manager->persist($user9);
+
         //*************************************************************Ajouter des Employe
         // Employé 1
-$em1 = new Employe();
-$em1->setNom("Smith")
-    ->setPrenom("John")
-    ->setSexe("Homme")
-    ->setEmail("john.smith@example.com")
-    ->setPoste("Directeur des ventes")
-    ->setTelephone("1234567891")
-    ->setAdresse("123 Rue des Fleurs")
-    ->setUtilisateur($user1); 
-$manager->persist($em1);
+        $em1 = new Employe();
+        $em1->setNom("Smith")
+            ->setPrenom("John")
+            ->setSexe("Homme")
+            ->setEmail("john.smith@example.com")
+            ->setPoste("Directeur des ventes")
+            ->setTelephone("1234567891")
+            ->setAdresse("123 Rue des Fleurs")
+            ->setUtilisateur($user6);
+        $manager->persist($em1);
 
-// Employé 2
-$em2 = new Employe($user2);
-$em2->setNom("Johnson")
-    ->setPrenom("Emma")
-    ->setSexe("Femme")
-    ->setEmail("emma.johnson@example.com")
-    ->setPoste("Responsable des achats")
-    ->setTelephone("1234567892")
-    ->setAdresse("456 Avenue des Arbres")
-    ->setUtilisateur($user2); 
-$manager->persist($em2);
+        // Employé 2
+        $em2 = new Employe($user2);
+        $em2->setNom("Johnson")
+            ->setPrenom("Emma")
+            ->setSexe("Femme")
+            ->setEmail("emma.johnson@example.com")
+            ->setPoste("Service Commercial")
+            ->setTelephone("1234567892")
+            ->setAdresse("456 Avenue des Arbres")
+            ->setUtilisateur($user7);
+        $manager->persist($em2);
 
-// Employé 3
-$em3 = new Employe();
-$em3->setNom("Williams")
-    ->setPrenom("Michael")
-    ->setSexe("Homme")
-    ->setEmail("michael.williams@example.com")
-    ->setPoste("Chef de projet")
-    ->setTelephone("1234567893")
-    ->setAdresse("789 Boulevard des Étoiles")
-    ->setUtilisateur($user3); 
-$manager->persist($em3);
+        // Employé 3
+        $em3 = new Employe();
+        $em3->setNom("Williams")
+            ->setPrenom("Michael")
+            ->setSexe("Homme")
+            ->setEmail("michael.williams@example.com")
+            ->setPoste("Service Commercial")
+            ->setTelephone("1234567893")
+            ->setAdresse("789 Boulevard des Étoiles")
+            ->setUtilisateur($user8);
+        $manager->persist($em3);
 
- //*************************************************************Ajouter des Clients
-// Client 1
-$em3 = new Client();
-$em3->setReferenceClient("")
-     ->setNom("")
-    ->setPrenom("")
-    ->setSexe("")
-    ->setEmail("")
-    ->setAdresse("")
-    ->setCP("")
-    ->setVille("")
-    ->setTelephone("")
-    ->setType("")
-    ->setCoefficient("")
-    ->setReduction("")
-    ->setEmploye()
-    ->setUtilisateur();
-    
-$manager->persist($em3);
+        //*************************************************************Ajouter des Clients
+        // Client 1
+        $client1 = new Client();
+        $client1->setReferenceClient("C000001")
+            ->setNom("Dupont")
+            ->setPrenom("Jean")
+            ->setSexe("Homme")
+            ->setEmail("jean.dupont@example.com")
+            ->setAdresse("123 Rue de la Liberté")
+            ->setCP("75001")
+            ->setVille("Paris")
+            ->setTelephone("0123456789")
+            ->setType("Particulier")
+            ->setCoefficient(1.5)
+            ->setReduction(10)
+            ->setEmploye($em2)
+            ->setUtilisateur($user2);
+        $manager->persist($client1);
+
+        // Client 2
+        $client2 = new Client();
+        $client2->setReferenceClient("C000002")
+            ->setNom("Durand")
+            ->setPrenom("Marie")
+            ->setSexe("Femme")
+            ->setEmail("marie.durand@example.com")
+            ->setAdresse("456 Avenue des Roses")
+            ->setCP("69002")
+            ->setVille("Lyon")
+            ->setTelephone("0234567891")
+            ->setType("Particulier")
+            ->setCoefficient(1.2)
+            ->setReduction(5)
+            ->setEmploye($em2)
+            ->setUtilisateur($user3);
+        $manager->persist($client2);
+
+        // Client 3
+        $client3 = new Client();
+        $client3->setReferenceClient("C000003")
+            ->setNom("Martin")
+            ->setPrenom("Philippe")
+            ->setSexe("Homme")
+            ->setEmail("philippe.martin@example.com")
+            ->setAdresse("789 Boulevard de la Paix")
+            ->setCP("33000")
+            ->setVille("Bordeaux")
+            ->setTelephone("0345678912")
+            ->setType("Particulier")
+            ->setCoefficient(1.0)
+            ->setReduction(0)
+            ->setEmploye($em2)
+            ->setUtilisateur($user4);
+        $manager->persist($client3);
+
+        // Client 4
+        $client4 = new Client();
+        $client4->setReferenceClient("P000001")
+            ->setNom("Garcia")
+            ->setPrenom("Sophie")
+            ->setSexe("Femme")
+            ->setEmail("sophie.garcia@example.com")
+            ->setAdresse("1010 Rue du Soleil")
+            ->setCP("59000")
+            ->setVille("Lille")
+            ->setTelephone("0456789123")
+            ->setType("Particulier")
+            ->setCoefficient(1.3)
+            ->setReduction(8)
+            ->setEmploye($em3)
+            ->setUtilisateur($user5);
+        $manager->persist($client4);
+
+        // Client 5
+        $client5 = new Client();
+        $client5->setReferenceClient("P000002")
+            ->setNom("Lefebvre")
+            ->setPrenom("Pierre")
+            ->setSexe("Homme")
+            ->setEmail("pierre.lefebvre@example.com")
+            ->setAdresse("1111 Avenue de la Joie")
+            ->setCP("44000")
+            ->setVille("Nantes")
+            ->setTelephone("0567891234")
+            ->setType("Particulier")
+            ->setCoefficient(1.8)
+            ->setReduction(12)
+            ->setEmploye($em3)
+            ->setUtilisateur($user9);
+        $manager->persist($client5);
+
+        //*************************************************************Ajouter des Commandes
+        //Commande 1
+        $commande1 = new Commande();
+        $commande1->setNumeroFacture(1)
+            ->setDateFacture('2024-02-23 18:02:53')
+            ->setDateCommande('2024-02-23 18:02:53')
+            ->setTotalCommande()
+            ->setAdresseLivraison()
+            ->setCpLivraison()
+            ->setVilleLivraison()
+            ->setAdresseFacturation()
+            ->setCpFacturation()
+            ->setVilleFacturation()
+            ->setStatut()
+            ->setPayee()
+            ->setModePaiement()
+            ->setTotalPaye()
+            ->setClient();
+        $manager->persist($client5);
+
+
+        //*************************************************************Ajouter des lignes Commande
+        //Ligne_Commande 1     
+        $lCommande1 = new LigneCommande();
+        $lCommande1->setLibelle()
+            ->setQuantite()
+            ->setPrixVente()
+            ->setProduit()
+            ->setCommande();
+        $manager->persist($lCommande1);
+
+
+
+
+        //*************************************************************Ajouter des livraison
+        //Livraison 1     
+        $livraison1 = new Livraison();
+        $livraison1->setDateLivraison()
+                   ->setObservation()
+                   ->setCommande();
+        $manager->persist($livraison1);
+        //*************************************************************Ajouter des lignes de livraison
+        //Ligne_Livraison 1    
+        $lLivraison1= new LigneLivraison();
+        $lLivraison1-> setLibelle()
+                    ->setQuantiteLivree()
+                    ->setPrixVente()
+                    ->setLivraison()
+                    ->setProduit();
+                    $manager->persist($lLivraison1);
+
         $manager->flush();
     }
 }

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\LigneLivraisonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LigneLivraisonRepository::class)]
@@ -18,18 +19,21 @@ class LigneLivraison
     #[ORM\Column]
     private ?int $quantite_livree = null;
 
-    #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'ligneLivraison')]
-    private Collection $Produit;
-
-    #[ORM\ManyToOne(inversedBy: 'ligneLivraisons')]
+       #[ORM\ManyToOne(inversedBy: 'ligneLivraisons')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Livraison $Livraison = null;
 
-    public function __construct()
-    {
-        $this->Produit = new ArrayCollection();
-    }
+       #[ORM\ManyToOne(inversedBy: 'ligneLivraisons')]
+       #[ORM\JoinColumn(nullable: false)]
+       private ?Produit $Produit = null;
 
+       #[ORM\Column(length: 255)]
+       private ?string $libelle = null;
+
+       #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
+       private ?string $prix_vente = null;
+
+   
     public function getId(): ?int
     {
         return $this->id;
@@ -47,35 +51,7 @@ class LigneLivraison
         return $this;
     }
 
-    /**
-     * @return Collection<int, Produit>
-     */
-    public function getProduit(): Collection
-    {
-        return $this->Produit;
-    }
-
-    public function addProduit(Produit $produit): static
-    {
-        if (!$this->Produit->contains($produit)) {
-            $this->Produit->add($produit);
-            $produit->setLigneLivraison($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProduit(Produit $produit): static
-    {
-        if ($this->Produit->removeElement($produit)) {
-            // set the owning side to null (unless already changed)
-            if ($produit->getLigneLivraison() === $this) {
-                $produit->setLigneLivraison(null);
-            }
-        }
-
-        return $this;
-    }
+ 
 
     public function getLivraison(): ?Livraison
     {
@@ -85,6 +61,42 @@ class LigneLivraison
     public function setLivraison(?Livraison $Livraison): static
     {
         $this->Livraison = $Livraison;
+
+        return $this;
+    }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->Produit;
+    }
+
+    public function setProduit(?Produit $Produit): static
+    {
+        $this->Produit = $Produit;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(string $libelle): static
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getPrixVente(): ?string
+    {
+        return $this->prix_vente;
+    }
+
+    public function setPrixVente(string $prix_vente): static
+    {
+        $this->prix_vente = $prix_vente;
 
         return $this;
     }
