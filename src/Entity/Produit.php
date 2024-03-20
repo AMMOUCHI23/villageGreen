@@ -54,10 +54,6 @@ class Produit
     #[ORM\JoinColumn(nullable: false)]
     private ?Categorie $Categorie = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Produit')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?LigneLivraison $ligneLivraison = null;
-
     #[ORM\OneToMany(targetEntity: LigneCommande::class, mappedBy: 'Produit')]
     private Collection $ligneCommandes;
 
@@ -215,18 +211,6 @@ class Produit
     public function setCategorie(?Categorie $Categorie): static
     {
         $this->Categorie = $Categorie;
-
-        return $this;
-    }
-
-    public function getLigneLivraison(): ?LigneLivraison
-    {
-        return $this->ligneLivraison;
-    }
-
-    public function setLigneLivraison(?LigneLivraison $ligneLivraison): static
-    {
-        $this->ligneLivraison = $ligneLivraison;
 
         return $this;
     }

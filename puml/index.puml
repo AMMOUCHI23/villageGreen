@@ -1,6 +1,5 @@
 class Livraison {
 	id
-	numero_bon_livraison
 	date_livraison
 	observation
 	**ligneLivraisons**
@@ -40,8 +39,10 @@ class Fournisseur {
 class LigneLivraison {
 	id
 	quantite_livree
-	**Produit**
 	**Livraison**
+	**Produit**
+	libelle
+	prix_vente
 }
 
 class Employe {
@@ -82,8 +83,9 @@ class Produit {
 	stock_alert
 	**fournisseur**
 	**Categorie**
-	**ligneCommande**
 	**ligneLivraison**
+	**ligneCommandes**
+	**ligneLivraisons**
 }
 
 class LigneCommande {
@@ -91,8 +93,8 @@ class LigneCommande {
 	quantite
 	libelle
 	prix_vente
-	**Produit**
 	**Commande**
+	**Produit**
 }
 
 class Commande {
@@ -128,13 +130,12 @@ class Categorie {
 Livraison "1"--"*" LigneLivraison
 Client "1"--"*" Commande
 Fournisseur "1"--"*" Produit
-LigneLivraison "1"--"*" Produit
 Employe "1"--"*" Client
-LigneCommande "1"--"*" Produit
+Produit "1"--"*" LigneCommande
+Produit "1"--"*" LigneLivraison
 Commande "1"--"*" LigneCommande
 Commande "1"--"*" Livraison
 Categorie "1"--"*" Produit
-Categorie "*"--"1" Categorie
 Categorie "1"--"*" Categorie
 
 

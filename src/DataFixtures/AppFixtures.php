@@ -12,8 +12,10 @@ use App\Entity\LigneLivraison;
 use App\Entity\Livraison;
 use App\Entity\Produit;
 use App\Entity\Utilisateur;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use PhpParser\Node\Expr\New_;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
@@ -377,7 +379,7 @@ class AppFixtures extends Fixture
             ->setDimenssion("")
             ->setCouleur("123 Rue des Meubles")
             ->setDescription("contact@meublesexcellence.com")
-            ->setPrixAchat(123456789)
+            ->setPrixAchat(352.20)
             ->setPhoto("Constructeur")
             ->setActif(true)
             ->setQuantiteStock(10)
@@ -604,9 +606,8 @@ class AppFixtures extends Fixture
         $user9 = new Utilisateur();
         $user9->setNom("Lefebvre")
             ->setPrenom("Pierre")
-            ->setEmail("pierre.lefebvre@example.com")
             ->setRoles(['ROLE_COMMERCIAL'])
-            ->setEmail("michael.williams@example.com");
+            ->setEmail("pierre.lefebvre@example.com");
         $password = $this->hasher->hashPassword($user9, 'pass1234');
         $user9->setPassword($password);
         $manager->persist($user9);
@@ -662,7 +663,7 @@ class AppFixtures extends Fixture
             ->setTelephone("0123456789")
             ->setType("Particulier")
             ->setCoefficient(1.5)
-            ->setReduction(10)
+            ->setReduction(0)
             ->setEmploye($em2)
             ->setUtilisateur($user2);
         $manager->persist($client1);
@@ -679,8 +680,8 @@ class AppFixtures extends Fixture
             ->setVille("Lyon")
             ->setTelephone("0234567891")
             ->setType("Particulier")
-            ->setCoefficient(1.2)
-            ->setReduction(5)
+            ->setCoefficient(1.5)
+            ->setReduction(0)
             ->setEmploye($em2)
             ->setUtilisateur($user3);
         $manager->persist($client2);
@@ -697,7 +698,7 @@ class AppFixtures extends Fixture
             ->setVille("Bordeaux")
             ->setTelephone("0345678912")
             ->setType("Particulier")
-            ->setCoefficient(1.0)
+            ->setCoefficient(1.5)
             ->setReduction(0)
             ->setEmploye($em2)
             ->setUtilisateur($user4);
@@ -716,7 +717,7 @@ class AppFixtures extends Fixture
             ->setTelephone("0456789123")
             ->setType("Particulier")
             ->setCoefficient(1.3)
-            ->setReduction(8)
+            ->setReduction(0.1)
             ->setEmploye($em3)
             ->setUtilisateur($user5);
         $manager->persist($client4);
@@ -733,8 +734,8 @@ class AppFixtures extends Fixture
             ->setVille("Nantes")
             ->setTelephone("0567891234")
             ->setType("Particulier")
-            ->setCoefficient(1.8)
-            ->setReduction(12)
+            ->setCoefficient(1.2)
+            ->setReduction(0.2)
             ->setEmploye($em3)
             ->setUtilisateur($user9);
         $manager->persist($client5);
@@ -743,32 +744,42 @@ class AppFixtures extends Fixture
         //Commande 1
         $commande1 = new Commande();
         $commande1->setNumeroFacture(1)
-            ->setDateFacture('2024-02-23 18:02:53')
-            ->setDateCommande('2024-02-23 18:02:53')
-            ->setTotalCommande()
-            ->setAdresseLivraison()
-            ->setCpLivraison()
-            ->setVilleLivraison()
-            ->setAdresseFacturation()
-            ->setCpFacturation()
-            ->setVilleFacturation()
-            ->setStatut()
-            ->setPayee()
-            ->setModePaiement()
-            ->setTotalPaye()
-            ->setClient();
-        $manager->persist($client5);
+            ->setDateFacture(new DateTime('2024-02-23 18:02:53'))
+            ->setDateCommande(new DateTime('2024-02-23 18:02:53'))
+            ->setTotalCommande(850)
+            ->setAdresseLivraison("123 Rue de la Liberté")
+            ->setCpLivraison("75001")
+            ->setVilleLivraison("Paris")
+            ->setAdresseFacturation("123 Rue de la Liberté")
+            ->setCpFacturation("75001")
+            ->setVilleFacturation("Paris")
+            ->setStatut("Livrée")
+            ->setPayee(1)
+            ->setModePaiement("Carte_de_cridit")
+            ->setTotalPaye(850)
+            ->setClient($client1);
+        $manager->persist($commande1);
 
 
         //*************************************************************Ajouter des lignes Commande
         //Ligne_Commande 1     
         $lCommande1 = new LigneCommande();
-        $lCommande1->setLibelle()
-            ->setQuantite()
-            ->setPrixVente()
-            ->setProduit()
-            ->setCommande();
+        $lCommande1->setLibelle("Buffet")
+            ->setQuantite(1)
+            ->setPrixVente(250)
+            ->setProduit($pr1)
+            ->setCommande($commande1);
         $manager->persist($lCommande1);
+
+        //Ligne_Commande 2    
+        $lCommande1 = new LigneCommande();
+        $lCommande1->setLibelle("Canapé LOMOCO")
+            ->setQuantite(1)
+            ->setPrixVente(600)
+            ->setProduit($pr6)
+            ->setCommande($commande1);
+        $manager->persist($lCommande1);
+
 
 
 
@@ -776,19 +787,29 @@ class AppFixtures extends Fixture
         //*************************************************************Ajouter des livraison
         //Livraison 1     
         $livraison1 = new Livraison();
-        $livraison1->setDateLivraison()
-                   ->setObservation()
-                   ->setCommande();
+        $livraison1->setDateLivraison(new DateTime('2024-03-5 18:02:53'))
+            ->setObservation("Rien à signaler")
+            ->setCommande($commande1);
         $manager->persist($livraison1);
         //*************************************************************Ajouter des lignes de livraison
         //Ligne_Livraison 1    
-        $lLivraison1= new LigneLivraison();
-        $lLivraison1-> setLibelle()
-                    ->setQuantiteLivree()
-                    ->setPrixVente()
-                    ->setLivraison()
-                    ->setProduit();
-                    $manager->persist($lLivraison1);
+        $ligneLivraison1 = new LigneLivraison();
+        $ligneLivraison1->setLibelle("Buffet")
+            ->setQuantiteLivree(1)
+            ->setPrixVente(250)
+            ->setLivraison($livraison1)
+            ->setProduit($pr1);
+        $manager->persist($ligneLivraison1);
+
+
+        //Ligne_Livraison 1  
+        $ligneLivraison2 = new LigneLivraison();
+        $ligneLivraison2->setLibelle("Canapé LOMOCO")
+            ->setQuantiteLivree(1)
+            ->setPrixVente(600)
+            ->setLivraison($livraison1)
+            ->setProduit($pr6);
+        $manager->persist($ligneLivraison2);
 
         $manager->flush();
     }
