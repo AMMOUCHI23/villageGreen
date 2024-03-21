@@ -4,7 +4,16 @@
 {% endblock %}
 
 {% block body %}
+
 	<div class="container mt-3">
+    <div class="row justify-content-center">
+        {# {% for sousCat in sousCategorie %}
+            <div class="col-6 col-md-3 my-4 survol">
+                <a href="{{ path('Sous_categorie', {id: sousCat.id}) }}"><img class="img-thumbnail rounded-circle" src="{{ asset('assets/images/' ~ sousCat.photo) }}" style="height: 200px;"></a>
+                <h3 class="nomCategorie my-2">{{ sousCat.nomCategorie }}</h3>
+            </div>
+        {% endfor %} #}
+    </div>
     <h1 class="text-center">{{ sousCategorie.nomCategorie }}</h1>
     <div class="row justify-content-center">
         {% for produit in produits %}
