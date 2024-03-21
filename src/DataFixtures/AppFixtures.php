@@ -141,7 +141,7 @@ class AppFixtures extends Fixture
         /*Catégorie Séjour */
         $categorie1 = new Categorie();
         $categorie1->setNomCategorie("Séjour");
-        $categorie1->setPhoto("photo_sejour");
+        $categorie1->setPhoto("sejour.jpg");
         $manager->persist($categorie1);
 
         /*Sous Catégories Séjours */
@@ -185,7 +185,7 @@ class AppFixtures extends Fixture
         /**Catégorie Cuisine */
         $categorie2 = new Categorie();
         $categorie2->setNomCategorie("Cuisine");
-        $categorie2->setPhoto("photo_cuisine");
+        $categorie2->setPhoto("cuisine.jpg");
         $manager->persist($categorie2);
 
         /**Sous catégories cuisine */
@@ -216,7 +216,7 @@ class AppFixtures extends Fixture
         /**Catégorie chambre adulte */
         $categorie3 = new Categorie();
         $categorie3->setNomCategorie("Chambre Adulte");
-        $categorie3->setPhoto("photo_Chambre_adulte");
+        $categorie3->setPhoto("chambre_adulte.jpg");
         $manager->persist($categorie3);
 
         /**Sous categories chambre adulte */
@@ -248,8 +248,8 @@ class AppFixtures extends Fixture
         /**Catégorie chambre enfant et bébé*/
 
         $categorie4 = new Categorie();
-        $categorie4->setNomCategorie("Chambre Enfant et Bébé");
-        $categorie4->setPhoto("photo_cambreen");
+        $categorie4->setNomCategorie("chambre Enfant et Bébé");
+        $categorie4->setPhoto("chambre_enfant.jpg");
         $manager->persist($categorie4);
 
         /**Sous catégories chambre enfant */
@@ -287,14 +287,14 @@ class AppFixtures extends Fixture
         /**Ctégorie Bureau */
         $categorie5 = new Categorie();
         $categorie5->setNomCategorie("Bureau");
-        $categorie5->setPhoto("photo_bureau");
+        $categorie5->setPhoto("bureau.jpg");
         $manager->persist($categorie5);
 
         /**Sous catégories Bureau */
 
         $categorie51 = new Categorie;
         $categorie51->setNomCategorie("Bureaux");
-        $categorie51->setPhoto("photo_b1");
+        $categorie51->setPhoto("bureau.jpg");
         $categorie51->setParent($categorie5);
         $manager->persist($categorie51);
 
@@ -319,7 +319,7 @@ class AppFixtures extends Fixture
         /**Catégorie Salle de bain */
         $categorie6 = new Categorie();
         $categorie6->setNomCategorie("Salle de Bain");
-        $categorie6->setPhoto("photo_sdb");
+        $categorie6->setPhoto("salle_de_bain.jpg");
         $manager->persist($categorie6);
 
         /**Sous Catégories Salle de bain */
@@ -345,13 +345,13 @@ class AppFixtures extends Fixture
         /**Catégorie Promos */
         $categorie7 = new Categorie();
         $categorie7->setNomCategorie("Promos");
-        $categorie7->setPhoto("photo_promos");
+        $categorie7->setPhoto("promos.jpg");
         $manager->persist($categorie7);
 
         /**Catégorie Nouveautés */
         $categorie8 = new Categorie();
         $categorie8->setNomCategorie("Nouveautés");
-        $categorie8->setPhoto("photo_nv");
+        $categorie8->setPhoto("nouveautes.jpg");
         $manager->persist($categorie8);
 
         /**Ajouter des produits */

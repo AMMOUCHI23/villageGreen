@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Produits
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-3">
+    <h1 class="text-center">{{ sousCategorie.nomCategorie }}</h1>
+    <div class="row justify-content-center">
+        {% for produit in produits %}
+            <div class="card  col-sm-6 col-md-3 m-2">
+                <img src="" class="card-img-top" alt="{{ produit.libelle }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ produit.libelle }}</h5>
+                    <a href="#">
+                        <small class="card-text">Cliquer pour plus de détails</small>
+                    </a>
+                    <h4 class="prix">{{ produit.getPrixAchat }} €</h4>
+                    <a href="#" class="btn btn-primary mx-3">Ajouter au panier</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
