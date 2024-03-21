@@ -38,4 +38,19 @@ class CatalogueController extends AbstractController
             'produits' => $produits
         ]);
     }
+
+
+     // Afficher le détail d'un produit 
+     #[Route('/categorie/produit/details/{id}', name: 'details_produit')]
+     public function afficheDétails( ProduitRepository $produitRepository, int $id): Response
+     {
+         $produit = $produitRepository->find($id);
+         //dd($produit);
+    
+ 
+         return $this->render('catalogue/details.html.twig', [
+             
+             'produit' => $produit
+         ]);
+     }
 }

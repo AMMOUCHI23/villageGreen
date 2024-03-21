@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plats{% endblock %}
+
+{% block body %}
+
+ <div class="container  mt-5">
+  <h1 class="text-center text-primary my-4"> Détail du Produit </h1>
+        <div class="row justify-content-center mt-4 ">
+ 
+    
+
+             <div class="col-md-4 mx-3">
+                    <img src="" class="card-img-top mt-4" alt="...">
+                    </div>
+                    <div class="col-md-5 mx-3">';
+                    <h2 class="text">{{ produit.libelle }}</h2>
+                    <h4 class="prix py-3">{{ produit.prixAchat }} €</h4>
+                    <h5 class="text-primary mt-3">Description :</h5>
+                    <p>{{ produit.description }}</p>
+                    <a href=""><input type="submit" class="btn btn-primary  my-2" value="Ajouter au panier" name="addpanier"> <br></a>
+                    <a href="{{path('accueil')}}" class="btn btn-lg btn-primary my-5 ">Continuer les achats </a>
+                    <a href="" class="btn btn-lg btn-success  ms-md-5 ">Passer la commande </a>
+                   </div>
+                    
+                     
+                  
+   
+       
+    </div>
+    </div>
+{% endblock %}
