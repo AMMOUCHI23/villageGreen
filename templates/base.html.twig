@@ -9,8 +9,9 @@
 		<link rel="icon" href="">
 		{% block stylesheets %}
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+			
 		{% endblock %}
-<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 		{% block javascripts %}
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		{% endblock %}
@@ -24,7 +25,7 @@
             <input class="form-control me-2" type="search" placeholder="Cherche" aria-label="Search">
         </form>
         <div class="nav-item ms-auto m-2">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{path('app_register')}}">
                 <img src="{{asset("assets/images/utilisateur.png")}}" width="30" height="30" alt="Compte">
                 <span class="d-block">Compte</span>
             </a>
@@ -60,11 +61,11 @@
 						<h2>Moyens de paiement</h2>
 
 						<div class="payment-images mt-4">
-							<img src="{{ asset('assets/img/logo-cb.jpg') }}" alt="cb">
-							<img src="{{ asset('assets/img/logo-visa.jpg') }}" alt="visa">
-							<img src="{{ asset('assets/img/logo-mastercard.jpg') }}" alt="MasterCard">
-							<img src="{{ asset('assets/img/logo-paypal.jpg') }}" alt="payPal">
-							<img src="{{ asset('assets/img/logo-paylib.jpg') }}" alt="payLib">
+							<img src="{{ asset('assets/images/sans-contact.png') }}" alt="cb">
+							<img src="{{ asset('assets/images/visa.png') }}" alt="visa">
+							<img src="{{ asset('assets/images/logo-mastercard.jpg') }}" alt="MasterCard">
+							<img src="{{ asset('assets/images/logo-paypal.jpg') }}" alt="payPal">
+							<img src="{{ asset('assets/images/logo-paylib.jpg') }}" alt="payLib">
 
 						</div>
 
@@ -90,11 +91,11 @@
 						<h2>Suivez nous!</h2>
 						<p>Restez connecté avec nous sur les réseaux sociaux pour les dernières mises à jour et promotions.</p>
 						<div class="payment-images my-4">
-							<img src="{{ asset('assets/images/facebook.png') }}" class="survol" alt="cb">
-							<img src="{{ asset('assets/images/instagram.png') }}" class="survol" alt="visa">
-							<img src="{{ asset('assets/imsges/twitter.png') }}" class="survol" alt="MasterCard">
-							<img src="{{ asset('assets/imsges/whatsapp.png') }}" class="survol" alt="payPal">
-							<img src="{{ asset('assets/imsges/snapchat.png') }}" class="survol" alt="payLib">
+							<img src="{{ asset('assets/images/facebook.png') }}" class="survol" alt="facebook">
+							<img src="{{ asset('assets/images/instagram.png') }}" class="survol" alt="visinstagram">
+							<img src="{{ asset('assets/images/twitter.png') }}" class="survol" alt="twitter">
+							<img src="{{ asset('assets/images/whatsapp.png') }}" class="survol" alt="whatsapp">
+							<img src="{{ asset('assets/images/snapchat.png') }}" class="survol" alt="snapchat">
 
 						</div>
 					</div>
