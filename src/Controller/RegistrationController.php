@@ -82,4 +82,11 @@ class RegistrationController extends AbstractController
 
         return $this->redirectToRoute('app_register');
     }
+
+    // controller qui renvoie vers une page de connexion
+    #[Route('/connexion', name:'connexion')]
+    public function connexion(): Response
+    {
+    return $this->render('registration/connexion.html.twig');
+    }
 }
