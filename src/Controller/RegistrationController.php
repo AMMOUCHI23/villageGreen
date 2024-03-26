@@ -37,7 +37,7 @@ class RegistrationController extends AbstractController
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('password')->getData()
                 )
             );
 
@@ -83,10 +83,5 @@ class RegistrationController extends AbstractController
         return $this->redirectToRoute('app_register');
     }
 
-    // controller qui renvoie vers une page de connexion
-    #[Route('/connexion', name:'connexion')]
-    public function connexion(): Response
-    {
-    return $this->render('registration/connexion.html.twig');
-    }
+  
 }

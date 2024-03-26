@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,47 +11,52 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class CatalogueController extends AbstractController
 {
+    // afficher toutes les catégories parents
+    #[Route('/', name: 'accueil')]
+    public function afficheCategorie(CategorieRepository $categorieRepository): Response
+    {
+
+        $categories = $categorieRepository->findBy(["parent" => null]);
+
+
+        return $this->render('accueil/index.html.twig', [
+            "categories" => $categories
+        ]);
+    }
+
     // Afficher les sous_catégories d'une catégorie
     #[Route('/categorie/{id}', name: 'Sous_categorie')]
-    public function index(CategorieRepository $categorieRepository, int $id): Response
+    public function index(Categorie $categorie, int $id): Response
     {
-        $categorie = $categorieRepository->find($id);
-        $sousCategories = $categorie->getCategories();
-        //dd($sousCategories);
 
         return $this->render('catalogue/index.html.twig', [
-            'categorie' => $categorie,
-            'sousCategories' => $sousCategories,
+            'categorie' => $categorie
         ]);
     }
+
     // Afficher les produis d'une sous catégorie
-    #[Route('/categorie/produit/{id}', name: 'produits')]
-    public function afficheProduits(CategorieRepository $categorieRepository, ProduitRepository $produitRepository, int $id): Response
+    #[Route('/produit/{id}', name: 'produits')]
+    public function afficheProduits(Categorie $categorie, int $id): Response
     {
-        $sousCategorie = $categorieRepository->find($id);
-        //dd($sousCategorie);
-        $produits =$produitRepository->findBy(['Categorie'=>$sousCategorie]);
-       
-        //dd($sousCategories);
 
         return $this->render('catalogue/produits.html.twig', [
-            'sousCategorie' => $sousCategorie,
-            'produits' => $produits
+            'categorie' => $categorie
+
         ]);
     }
 
 
-     // Afficher le détail d'un produit 
-     #[Route('/categorie/produit/details/{id}', name: 'details_produit')]
-     public function afficheDétails( ProduitRepository $produitRepository, int $id): Response
-     {
-         $produit = $produitRepository->find($id);
-         //dd($produit);
-    
- 
-         return $this->render('catalogue/details.html.twig', [
-             
-             'produit' => $produit
-         ]);
-     }
+    //  // Afficher le détail d'un produit 
+    #[Route('/details/{id}', name: 'details_produit')]
+    public function afficheDétails(ProduitRepository $produitRepository, int $id): Response
+    {
+        $produit = $produitRepository->find($id);
+
+
+
+        return $this->render('catalogue/details.html.twig', [
+
+            'produit' => $produit
+        ]);
+    }
 }

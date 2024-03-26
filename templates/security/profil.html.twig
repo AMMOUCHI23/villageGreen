@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="text-center mt-4">Mon profil</h1>
+		<h3 class="text-center text-primary">Bonjour
+			{{ utilisateur.prenom }}</h3>
+		<div>
+			<h4 class="text mt-3">Mes Coordonnées</h4>
+			<p class="text-primary m-3 ">
+				<strong>Nom:</strong>
+				{{ utilisateur.nom }}</p>
+			<p class="text-primary m-3">
+				<strong>Prénom:</strong>
+				{{ utilisateur.prenom }}</p>
+			<p class="text-primary m-3">
+				<strong>Téléphone:</strong>
+				{{ utilisateur.telephone }}</p>
+			<p class="text-primary m-3">
+				<strong>Email:</strong>
+				{{ utilisateur.email }}</p>
+			<p></p>
+		</div>
+		<h4 class="text mt-4">Mes Achats</h4>
+		<div></div>
+
+		<a href="{{ path('app_logout') }}">
+			<div class="col mt-4 ">
+				<a href="{{path('app_login')}}">
+					<button class="btn text-info btn-lg  " type="button">Modifier mes coordonées
+					</button>
+				</a>
+			</div>
+			<div class="col mt-4 d-flex justify-content-end">
+				<a href="{{ path('app_logout') }}">
+					<button type="submit" class="btn btn-danger btn-lg">Déconnexion</button>
+				</a>
+
+			</div>
+
+		</div>
+	{% endblock %}

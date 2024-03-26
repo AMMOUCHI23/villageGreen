@@ -12,9 +12,9 @@ class SecurityController extends AbstractController
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+         if ($this->getUser()) {
+            return $this->redirectToRoute('app_profil');
+         }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -29,4 +29,28 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+
+   // controller qui renvoie vers une page de connexion
+   #[Route('/connexion', name:'connexion')]
+   public function connexion(): Response
+   {
+    if ($this->getUser()) {
+        return $this->redirectToRoute('app_profil');
+     }
+   return $this->render('registration/connexion.html.twig');
+   }
+
+    // créer une fonction pour afficher la page profil
+    #[Route(path: '/profil', name: 'app_profil')]
+    public function afficheProfil(): response
+    {
+        $utilisateur =$this->getUser(); 
+    
+    return $this->render('security/profil.html.twig', [
+        'utilisateur'=> $utilisateur
+    ]);
+
+        
+    }
+
 }

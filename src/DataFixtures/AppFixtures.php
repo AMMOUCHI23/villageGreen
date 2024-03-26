@@ -524,7 +524,8 @@ class AppFixtures extends Fixture
         $user1->setNom('BERNARD')
             ->setPrenom('Christophe')
             ->setRoles(['ROLE_ADMIN']) // Notez que les rôles sont définis dans un tableau
-            ->setEmail('admin@example.com');
+            ->setEmail('admin@example.com')
+            ->setSexe('Homme');
         $password = $this->hasher->hashPassword($user1, 'pass1234');
         $user1->setPassword($password);
         $manager->persist($user1);
@@ -536,7 +537,8 @@ class AppFixtures extends Fixture
 
 
             ->setRoles(['ROLE_CLIENT'])
-            ->setEmail("jean.dupont@example.com");
+            ->setEmail("jean.dupont@example.com")
+            ->setSexe('Homme');
         $password = $this->hasher->hashPassword($user2, 'pass1234');
         $user2->setPassword($password);
         $manager->persist($user2);
@@ -546,7 +548,8 @@ class AppFixtures extends Fixture
         $user3->setNom('DURAND')
             ->setPrenom('Marie')
             ->setRoles(['ROLE_CLIENT'])
-            ->setEmail("marie.durand@example.com");
+            ->setEmail("marie.durand@example.com")
+            ->setSexe('Femme');
         $password = $this->hasher->hashPassword($user3, 'pass1234');
         $user3->setPassword($password);
         $manager->persist($user3);
@@ -557,7 +560,8 @@ class AppFixtures extends Fixture
             ->setPrenom("Philippe")
             ->setEmail("philippe.martin@example.com")
             ->setRoles(['ROLE_CLIENT'])
-            ->setEmail('user3@example.com');
+            ->setEmail('user3@example.com')
+            ->setSexe('Homme');
         $password = $this->hasher->hashPassword($user4, 'pass1234');
         $user4->setPassword($password);
         $manager->persist($user4);
@@ -568,7 +572,8 @@ class AppFixtures extends Fixture
             ->setPrenom("Sophie")
             ->setEmail("sophie.garcia@example.com")
             ->setRoles(['ROLE_CLIENT'])
-            ->setEmail("john.smith@example.com");
+            ->setEmail("john.smith@example.com")
+            ->setSexe('Femme');
         $password = $this->hasher->hashPassword($user5, 'pass1234');
         $user5->setPassword($password);
         $manager->persist($user5);
@@ -578,7 +583,8 @@ class AppFixtures extends Fixture
         $user6->setNom("Smith")
             ->setPrenom("John")
             ->setRoles(['ROLE_ADMIN'])
-            ->setEmail('user4@example.com');
+            ->setEmail('user4@example.com')
+            ->setSexe('Homme');
         $password = $this->hasher->hashPassword($user6, 'pass1234');
         $user6->setPassword($password);
         $manager->persist($user6);
@@ -587,7 +593,8 @@ class AppFixtures extends Fixture
         $user7->setNom("Johnson")
             ->setPrenom("Emma")
             ->setRoles(['ROLE_COMMERTIAL'])
-            ->setEmail("emma.johnson@example.com");
+            ->setEmail("emma.johnson@example.com")
+            ->setSexe('Femme');
         $password = $this->hasher->hashPassword($user7, 'pass1234');
         $user7->setPassword($password);
         $manager->persist($user7);
@@ -597,7 +604,8 @@ class AppFixtures extends Fixture
         $user8->setNom("Williams")
             ->setPrenom("Michael")
             ->setRoles(['ROLE_COMMERCIAL'])
-            ->setEmail("michael.williams@example.com");
+            ->setEmail("michael.williams@example.com")
+            ->setSexe('Homme');
         $password = $this->hasher->hashPassword($user8, 'pass1234');
         $user8->setPassword($password);
         $manager->persist($user8);
@@ -607,7 +615,8 @@ class AppFixtures extends Fixture
         $user9->setNom("Lefebvre")
             ->setPrenom("Pierre")
             ->setRoles(['ROLE_COMMERCIAL'])
-            ->setEmail("pierre.lefebvre@example.com");
+            ->setEmail("pierre.lefebvre@example.com")
+            ->setSexe('Homme');
         $password = $this->hasher->hashPassword($user9, 'pass1234');
         $user9->setPassword($password);
         $manager->persist($user9);
