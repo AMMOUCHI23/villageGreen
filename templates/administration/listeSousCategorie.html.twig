@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Catégories
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+
+		<h3 class="titre my-4">Liste des Sous Catégories de {{categorie.nomCategorie}} </h3>
+		<table class="table table-hover">
+			<button type="button" class="btn btn-primary ">Ajouter une sous catégorie</button>
+			<thead>
+				<tr>
+					<th scope="col">Sous Catégories</th>
+					<th scope="col">Modifier</th>
+					<th scope="col">Supprimer</th>
+
+				</tr>
+			</thead>
+			<tbody>
+
+				{% for sousCategorie in categorie.categories %}
+
+
+					<tr class="table-info">
+						<td scope="row"><a href="{{ path('app_listeProduit', { 'id': sousCategorie.id }) }}">{{sousCategorie.nomCategorie}}</a>
+</td>
+						<td>
+							<a href="{{path('app_modifierCategorie', {'id': categorie.id})}}"><button type="button" class="btn btn-success">Modifier</button></a>
+						</td>
+						<td>
+							<button type="button" class="btn btn-danger">Supprimer</button>
+						</td>
+					</tr>
+
+
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Catégories{% endblock %}
+
+{% block body %}
+    <div class="container">
+    {{ include('partiales/flash.html.twig') }}
+        <h2 class="titre my-4">Liste des Catégories</h2>
+        <table class="table table-hover">
+           <a href="{{path('app_ajouterCategorie')}}"> <button type="button" class="btn btn-primary mb-3">Ajouter une catégorie</button></a>
+            <thead>
+                <tr>
+                    <th scope="col">Catégories</th>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categorie in categories %}
+                    <tr class="table-info">
+                        <td>
+                            <a href="{{ path('app_listeSousCategorie', { 'id': categorie.id }) }}">{{ categorie.nomCategorie }}</a>
+                        </td>
+                        <td>
+                            <a href="{{path('app_modifierCategorie', {'id': categorie.id})}}"><button type="button" class="btn btn-success">Modifier</button></a>
+                        </td>
+                        <td>
+                           <a href="{{path('app_supprimerCategorie',{'id':categorie.id})}}"> <button type="button" class="btn btn-danger">Supprimer</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -34,6 +34,8 @@ class CatalogueController extends AbstractController
         ]);
     }
 
+    
+
     // Afficher les produis d'une sous catégorie
     #[Route('/produit/{id}', name: 'produits')]
     public function afficheProduits(Categorie $categorie, int $id): Response

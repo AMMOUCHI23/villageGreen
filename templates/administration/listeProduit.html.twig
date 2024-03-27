@@ -1,12 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des produits{% endblock %}
+{% block title %}Liste des Catégories
+{% endblock %}
 
 {% block body %}
-<div class="container">
-<h1>Liste des produits</h1>
-{% for produit in produits %}
-    {{produit.libelle}}
-{% endfor %}
-</div>
+	<div class="container">
+
+
+		<h3 class="titre my-4">Liste des {{categorie.nomCategorie}} </h3>
+		<table class="table table-hover">
+			<button type="button" class="btn btn-primary my-3 ">Ajouter un produit</button>
+			<thead>
+				<tr>
+					<th scope="col">Produits</th>
+					<th scope="col">Modifier</th>
+					<th scope="col">Supprimer</th>
+
+				</tr>
+			</thead>
+			<tbody>
+
+				{% for produit in categorie.produits %}
+
+
+					<tr class="table-info">
+						<td scope="row">{{produit.libelle}}</td>
+						<td>
+							<button type="button" class="btn btn-success">Modifier</button>
+						</td>
+						<td>
+							<button type="button" class="btn btn-danger">Supprimer</button>
+						</td>
+					</tr>
+
+
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}
