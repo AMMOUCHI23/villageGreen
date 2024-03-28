@@ -23,7 +23,7 @@ class EmployeCrudController extends AbstractCrudController
     {
         return [
          IdField::new('id')->hideOnForm(),
-         AssociationField::new('utilisateur_id'),
+         AssociationField::new('Utilisateur'),
          TextField::new('nom'),
          TextField::new('prenom'),
          TextField::new('poste'),

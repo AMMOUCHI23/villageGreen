@@ -18,7 +18,9 @@
                     <h4 class="prix py-3">{{ produit.prixAchat }} €</h4>
                     <h5 class="text-primary mt-3">Description :</h5>
                     <p>{{ produit.description }}</p>
-                    <a href=""><input type="submit" class="btn btn-primary  my-2" value="Ajouter au panier" name="addpanier"> <br></a>
+                    <a class="btn btn-primary btn-lg" href="{{ path('ajoutPanier', {'id': produit.id}) }}">
+                        Ajouter au panier<br>
+                    </a>
                     <a href="{{path('accueil')}}" class="btn btn-lg btn-primary my-5 ">Continuer les achats </a>
                     <a href="" class="btn btn-lg btn-success  ms-md-5 ">Passer la commande </a>
                    </div>

@@ -6,6 +6,7 @@ use App\Entity\Categorie;
 use App\Entity\Employe;
 use App\Entity\Fournisseur;
 use App\Entity\Produit;
+use App\Entity\Utilisateur;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -39,6 +40,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('Catalogue'),
             MenuItem::linkToCrud('Categories', 'fa fa-tags', Categorie::class),
             MenuItem::linkToCrud('Produits', 'fa fa-file-text', Produit::class),
+            MenuItem::linkToCrud('Utilisateurs', 'fa fa-file-text', Utilisateur::class),
             MenuItem::linkToCrud('Employe', 'fa fa-tags', Employe::class),
             MenuItem::linkToCrud('Fournisseurs', 'fa fa-file-text', Fournisseur::class),
         ];
