@@ -222,7 +222,7 @@ class AppFixtures extends Fixture
         /**Sous categories chambre adulte */
         $categorie31 = new Categorie;
         $categorie31->setNomCategorie("Armoires");
-        $categorie31->setPhoto("photo_b1");
+        $categorie31->setPhoto("armoires.jpg");
         $categorie31->setParent($categorie3);
         $manager->persist($categorie31);
 
@@ -329,7 +329,7 @@ class AppFixtures extends Fixture
 
         $categorie32 = new Categorie;
         $categorie32->setNomCategorie("Commodes");
-        $categorie32->setPhoto("photo_cp");
+        $categorie32->setPhoto("commodes.jpg");
         $categorie32->setParent($categorie3);
         $manager->persist($categorie32);
 
@@ -433,7 +433,7 @@ class AppFixtures extends Fixture
 
         $categorie33 = new Categorie;
         $categorie33->setNomCategorie("Lits");
-        $categorie33->setPhoto("photo_ch");
+        $categorie33->setPhoto("lits.jpg");
         $categorie33->setParent($categorie3);
         $manager->persist($categorie33);
 
@@ -553,7 +553,7 @@ class AppFixtures extends Fixture
 
         $categorie34 = new Categorie;
         $categorie34->setNomCategorie("Matelats");
-        $categorie34->setPhoto("photo_dc");
+        $categorie34->setPhoto("matelas.jpg");
         $categorie34->setParent($categorie3);
         $manager->persist($categorie34);
 
@@ -586,7 +586,7 @@ class AppFixtures extends Fixture
 
         $categorie41 = new Categorie;
         $categorie41->setNomCategorie("Armoires");
-        $categorie41->setPhoto("photo_b1");
+        $categorie41->setPhoto("armoire.jpg");
         $categorie41->setParent($categorie4);
         $manager->persist($categorie41);
 
@@ -609,32 +609,32 @@ class AppFixtures extends Fixture
 
         $categorie42 = new Categorie;
         $categorie42->setNomCategorie("Commodes à langer");
-        $categorie42->setPhoto("photo_cp");
+        $categorie42->setPhoto("table_a_langer.jpg");
         $categorie42->setParent($categorie4);
         $manager->persist($categorie42);
 
         $categorie43 = new Categorie;
         $categorie43->setNomCategorie("Lits Bébé");
-        $categorie43->setPhoto("photo_ch");
+        $categorie43->setPhoto("lits_bébé.jpg");
         $categorie43->setParent($categorie4);
         $manager->persist($categorie43);
 
         $categorie44 = new Categorie;
         $categorie44->setNomCategorie("Lits Enfant");
-        $categorie44->setPhoto("photo_dc");
+        $categorie44->setPhoto("lits_enfant.jpg");
         $categorie44->setParent($categorie4);
         $manager->persist($categorie44);
 
         $categorie45 = new Categorie;
         $categorie45->setNomCategorie("Matelats");
-        $categorie45->setPhoto("MeubleS TV");
+        $categorie45->setPhoto("matelas.jpg");
         $categorie45->setParent($categorie4);
         $manager->persist($categorie45);
 
         /**Ctégorie Bureau */
         $categorie5 = new Categorie();
         $categorie5->setNomCategorie("Bureau");
-        $categorie5->setPhoto("bureau.jpg");
+        $categorie5->setPhoto("bureaux.jpg");
         $manager->persist($categorie5);
 
         /**Sous catégories Bureau */
@@ -746,7 +746,7 @@ class AppFixtures extends Fixture
 
         $categorie52 = new Categorie;
         $categorie52->setNomCategorie("Chaises");
-        $categorie52->setPhoto("photo_cp");
+        $categorie52->setPhoto("chaises.jpg");
         $categorie52->setParent($categorie5);
         $manager->persist($categorie52);
         //les produits de sous catégorie chaise
@@ -849,7 +849,7 @@ class AppFixtures extends Fixture
 
         $categorie53 = new Categorie;
         $categorie53->setNomCategorie("Etagères");
-        $categorie53->setPhoto("photo_ch");
+        $categorie53->setPhoto("etageres.jpg");
         $categorie53->setParent($categorie5);
         $manager->persist($categorie53);
         //les produits de sous catégorie etagére
@@ -954,7 +954,7 @@ class AppFixtures extends Fixture
 
         $categorie54 = new Categorie;
         $categorie54->setNomCategorie("Accessoires de Bureau");
-        $categorie54->setPhoto("photo_dc");
+        $categorie54->setPhoto("accessoires.jpg");
         $categorie54->setParent($categorie5);
         $manager->persist($categorie54);
         //les produits de sous catégorie Accessoires de Bureau
