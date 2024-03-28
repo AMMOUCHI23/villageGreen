@@ -25,7 +25,7 @@
                         <small class="card-text">Cliquer pour plus de détails</small>
                     </a>
                     <h4 class="prix">{{ produit.getPrixAchat }} €</h4>
-                    <a href="#" class="btn btn-primary mx-3">Ajouter au panier</a>
+                    <a href="{{ path('ajoutPanier', {'id': produit.id}) }}" class="btn btn-primary mx-3">Ajouter au panier</a>
                 </div>
             </div>
         {% endfor %}
