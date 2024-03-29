@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Produit;
+use App\Repository\ProduitRepository;
 use App\Service\PanierService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -12,12 +13,30 @@ use Symfony\Component\Routing\Annotation\Route;
 class PanierController extends AbstractController
 {
    #[Route('/panier', name: 'panier')]
-    public function affichePanier(RequestStack $requestStack): Response
-    {  
-        $panier=$requestStack->getSession()->get("panier",[]);
-        dd($panier);
+    public function affichePanier(RequestStack $requestStack, ProduitRepository $produitRepository): Response
+    { 
+        $panier = $requestStack->getSession()->get("panier", []);
+        $panierDetails = [];
+        $coeficient = 1.6; //Coeficient de vente 
+        $total=0;
+        // Récupérer les détails de chaque produit dans le panier
+        foreach ($panier as $produitId => $quantite) { 
+            $produit = $produitRepository->find($produitId );
+            
+            if ($produit) {
+                $prix=$produit->getPrixAchat()*1.6;
+                $total += $prix  * $quantite;
+                $panierDetails[] = [
+                    'produit' => $produit,
+                    'quantite' => $quantite,
+                    'prix'=> $prix
+                ];
+            }
+        }
+        
         return $this->render('panier/panier.html.twig', [
-            'panier'=>$panier
+            'panierDetails' => $panierDetails,
+            'total'=>$total
         ]);
 
     }

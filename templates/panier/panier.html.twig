@@ -1,18 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon panier{% endblock %}
+{% block title %}Mon panier
+{% endblock %}
 
 {% block body %}
-  <h1>Votre Panier</h1>
-   {% if panier is empty %}
-        <p>Votre panier est vide.</p>
-    {% else %}
-        <ul>
-            {% for produitId, quantite in panier %}
-                <li>Produit ID: {{ produitId }}, Quantité: {{ quantite }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    <a href="{{ path('accueil') }}">Continuer les achats</a>
-
+	<div class="container">
+		<h1>Votre Panier</h1>
+		{% if panierDetails is empty %}
+			<p>Votre panier est vide.</p>
+		{% else %}
+			<table class="table table-hover">
+            <h4 class="text-center">Nombre d'articles </h4>
+				<tbody>
+					{% for item in panierDetails %}
+						<tr>
+							<td>
+								<div class="card mb-3" style="max-width: 540px;">
+									<div class="row g-0">
+										<div class="col-md-4">
+											<img src="..." class="img-fluid rounded-start" alt="...">
+										</div>
+										<div class="col-md-8">
+											<div class="card-body">
+												<h5 class="card-title">{{ item.produit.libelle }}</h5>
+												<p class="card-text">dimenssion: {{ item.produit.dimenssion }}</p>
+                                                <p class="card-text">couleur: {{ item.produit.couleur }}</p>
+                                                <p class="card-text">quantité: {{ item.quantite }}</p>
+												<h4 class="card-title text-primary">{{ item.prix }} €</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+								{# {{ item.produit.id }}, Nom:
+																{{ item.produit.libelle }}, Quantité:
+																{{ item.quantite }} #}
+							</td>
+                            <td class="d-flex">
+                            <img src="{{ asset('assets/images/plus.png') }}" alt="">
+                            <p class="card-text"> {{ item.quantite }}</p>
+                            <img src="{{ asset('assets/images/moins.png') }}" alt="">
+                            </td>
+						</tr>
+					{% endfor %}
+				{% endif %}
+			</tbody>
+			<a href="{{ path('accueil') }}">Continuer les achats</a>
+		</table>
+	</div>
 {% endblock %}
