@@ -4,47 +4,88 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
+	<div class="container ">
 		<h1>Votre Panier</h1>
 		{% if panierDetails is empty %}
 			<p>Votre panier est vide.</p>
 		{% else %}
-			<table class="table table-hover">
-            <h4 class="text-center">Nombre d'articles </h4>
-				<tbody>
-					{% for item in panierDetails %}
-						<tr>
-							<td>
-								<div class="card mb-3" style="max-width: 540px;">
-									<div class="row g-0">
-										<div class="col-md-4">
-											<img src="..." class="img-fluid rounded-start" alt="...">
-										</div>
-										<div class="col-md-8">
-											<div class="card-body">
-												<h5 class="card-title">{{ item.produit.libelle }}</h5>
-												<p class="card-text">dimenssion: {{ item.produit.dimenssion }}</p>
-                                                <p class="card-text">couleur: {{ item.produit.couleur }}</p>
-                                                <p class="card-text">quantité: {{ item.quantite }}</p>
-												<h4 class="card-title text-primary">{{ item.prix }} €</h4>
+			<div class="row">
+				<div class="col-md-8">
+					<table class="table table-hover">
+						<h4 class="text-center">Nombre d'articles
+						</h4>
+						<tbody>
+							{% for item in panierDetails %}
+								<tr>
+									<td>
+										<div class="card mb-3" style="max-width: 540px;">
+											<div class="row g-0">
+												<div class="col-md-4">
+													<img src="..." class="img-fluid rounded-start" alt="...">
+												</div>
+												<div class="col-md-8">
+													<div class="card-body">
+														<h5 class="card-title">{{ item.produit.libelle }}</h5>
+														<p class="card-text">dimenssion :
+															{{ item.produit.dimenssion }}</p>
+														<p class="card-text">couleur :
+															{{ item.produit.couleur }}</p>
+														<p class="card-text">quantité :
+															{{ item.quantite }}</p>
+														<div class="d-flex">
+															<p>sous-total-ht :
+															</p>
+															<p class="card-title text-primary">
+																{{item.quantite * item.prix }}
+																€</p>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-								{# {{ item.produit.id }}, Nom:
-																{{ item.produit.libelle }}, Quantité:
-																{{ item.quantite }} #}
-							</td>
-                            <td class="d-flex">
-                            <img src="{{ asset('assets/images/plus.png') }}" alt="">
-                            <p class="card-text"> {{ item.quantite }}</p>
-                            <img src="{{ asset('assets/images/moins.png') }}" alt="">
-                            </td>
-						</tr>
-					{% endfor %}
-				{% endif %}
-			</tbody>
-			<a href="{{ path('accueil') }}">Continuer les achats</a>
-		</table>
+										{# {{ item.produit.id }}, Nom:
+																																																		{{ item.produit.libelle }}, Quantité:
+																																																		{{ item.quantite }} #}
+									</td>
+									<td class="align-middle text-center  ">
+										<a href="{{path('ajoutPanier',{'id':item.produit.id})}}"><img src="{{ asset('assets/images/plus.png') }}" class="img-fluid" alt="image plus" width="30" height="30">
+										</a>
+										<h2 class="card-text">
+											{{ item.quantite }}</h2>
+										<a href="{{path('modifPanier',{'id':item.produit.id})}}">
+											<img src="{{ asset('assets/images/moins.png') }}" class="img-fluid" width="30" height="30" alt="image moins">
+										</a>
+	
+
+									</td>
+
+								</tr>
+							{% endfor %}
+						
+					</tbody>
+					<a href="{{ path('accueil') }}">Continuer les achats</a>
+				</table>
+			</div>
+			<div class="card col-md-4 border-success    mb-3 mx-4" style="max-width: 20rem;right: 20px">
+
+				<div class="card-body ">
+					<h4 class="card-title ">Récapitulatif</h4>
+					<p class="card-text mt-4">Sous-total HT :
+					</p>
+					<p class="card-text mt-4">TVA : 20%</p>
+					<hr>
+					<p class="card-text mt-4">Sous-total TTC :</p>
+					<p class="card-text mt-4">Frais de livraison :</p>
+					<hr>
+					<p class="card-text mt-4">Total à payer :</p>
+					<a href="" class="btn btn-primary mt-3">Valider mon panier ({{total}}
+						€)
+					</a>
+
+				</div>
+			</div>
+
+		</div>
+		{% endif %}
 	</div>
 {% endblock %}

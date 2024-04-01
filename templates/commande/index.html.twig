@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma Commande{% endblock %}
+
+{% block body %}
+
+
+<div class="container justify-content-center">
+{{ form_start(commandeForm) }}
+ <div class="row mt-2">
+        <small class=" mt-3">* Champs obligatoires</small>
+        </div>
+<fieldset class="text-primary mt-3">
+<legend>Adresse de livraison</legend>
+	<div class="row  mt-2">
+			<div class="col-md-8">
+				{{ form_row(commandeForm.adresse_livraison) }}
+			</div>
+
+		</div>
+    <div class="row d-flex mt-2">
+			<div class="col-md-4">
+				{{ form_row(commandeForm.cp_livraison) }}
+			</div>
+			<div class="col-md-4">
+				{{ form_row(commandeForm.ville_livraison) }}
+			</div>
+
+		</div>
+
+</fieldset>
+
+<fieldset class="text-primary mt-4">
+<legend>Adresse de facturation</legend>
+	<div class="row d-flex mt-2">
+			<div class="col-md-8">
+				{{ form_row(commandeForm.adresse_facturation) }}
+			</div>
+
+		</div>
+    <div class="row d-flex mt-2">
+			<div class="col-md-4">
+				{{ form_row(commandeForm.cp_facturation) }}
+			</div>
+			<div class="col-md-4">
+				{{ form_row(commandeForm.ville_facturation) }}
+			</div>
+
+		</div>
+
+</fieldset>
+<div class="row  mt-2">
+			<div class="text-primary col-md-4">
+				{{ form_row(commandeForm.mode_paiement) }}
+			</div>
+
+		</div>
+    	<div class="col-md-8 d-flex justify-content-end mt-3">
+				<button type="submit" class="btn btn-success btn-lg ">Payer ma commande</button>
+			</div>
+
+{{ form_end(commandeForm) }}
+</div>
+{% endblock %}

@@ -33,6 +33,7 @@ class PanierController extends AbstractController
                 ];
             }
         }
+        $requestStack->getSession()->set('total_panier', $total);
         
         return $this->render('panier/panier.html.twig', [
             'panierDetails' => $panierDetails,
@@ -44,7 +45,7 @@ class PanierController extends AbstractController
 
   // ajouter un produit
     #[Route('/ajout-produit/{id}', name: 'ajoutPanier')]
-    public function ajout(int $id, PanierService $panierService,Produit $produit): Response
+    public function ajout(int $id, PanierService $panierService): Response
     {
        $panier= $panierService->ajouterProduit($id);
       
@@ -52,6 +53,26 @@ class PanierController extends AbstractController
                 
             
     }
+
+     // Modifier le panier
+     #[Route('/midifier-panier/{id}', name: 'modifPanier')]
+     public function modifPanier(int $id, PanierService $panierService): Response
+     {
+        $panier= $panierService->modifierPanier($id);
+       
+        return $this->redirectToRoute('panier');
+                       
+     }
+
+       // Supprimer un produit du panier
+       #[Route('/supprimer-produit/{id}', name: 'supprimeProduit')]
+       public function supprimeProduit(int $id, PanierService $panierService): Response
+       {
+          $panier= $panierService->supprimerProduit($id);
+         
+          return $this->redirectToRoute('panier');
+                         
+       }
 }
     // //supprimer un produit 
     // #[Route('/supprimer-produit/{id}', name: 'supprimePanier')]

@@ -22,16 +22,30 @@ class PanierService {
           $this->requestStack->getSession()->set('panier', $panier);
           return $panier;
         }
+
+         //fonction pouir modifier le panier
+         public function modifierPanier(int $id)
+         {
+           
+           $panier=$this->requestStack->getSession()->get('panier');
+           if ($panier[$id]>1) {
+             $panier[$id]--;
+           }else {
+             $panier[$id]=1;
+           }
+           $this->requestStack->getSession()->set('panier', $panier);
+           return $panier;
+         }
       //fonction qui supprime un produit dans le panier
-      public function supprimeProduit(int $id)
+      public function supprimerProduit(int $id)
       {
-        $panier=$this->requestStack->getSession()->get('panier',[]);
-        if (empty($panier[$id])) {
+        $panier=$this->requestStack->getSession()->get('panier');
+        if ($panier[$id]) {
           unset($panier[$id]);
           $this->requestStack->getSession()->set('panier', $panier);
         
         }
-        
+        return $panier;
       }
   
 
