@@ -76,19 +76,17 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('adresse', TextType::class, [
-                'mapped' => false,
+               
             ])
 
             ->add('CP', TextType::class, [
-                'mapped' => false,
+              
             ])
 
             ->add('ville', TextType::class, [
-                'mapped' => false,
+                
             ])
-            ->add('adresse', TextType::class, [
-                'mapped' => false,
-            ])
+           
 
             ->add('coefficient', TextType::class, [
                 'mapped' => false,

@@ -15,21 +15,10 @@ class CatalogueController extends AbstractController
 {
     // afficher toutes les catégories parents
     #[Route('/', name: 'accueil')]
-    public function afficheCategorie(CategorieRepository $categorieRepository, EntityManagerInterface $em): Response
+    public function afficheCategorie(CategorieRepository $categorieRepository): Response
     {
 
         $categories = $categorieRepository->findBy(["parent" => null]);
-
-
-        // $u = new Utilisateur();
-        // $u->setEmail("pappopoa@hotmail.fr");
-        // $u->setNom("");
-        // $u->setPrenom("");
-        // $u->setSexe("");
-
-        // $u->setPassword("");
-        // $em->persist($u);
-        // $em->flush();
 
 
         return $this->render('accueil/index.html.twig', [

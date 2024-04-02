@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Client;
 use App\Entity\Utilisateur;
 use App\Form\RegistrationFormType;
+use App\Repository\EmployeRepository;
 use App\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -27,7 +28,7 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, EmployeRepository $emp): Response
     {
         $user = new Utilisateur();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -40,23 +41,29 @@ class RegistrationController extends AbstractController
                     $user,
                     $form->get('password')->getData()
                 )
-                
+
             );
             //creer un nouveau client 
-            // $client=new Client();
-            // $client->setUtilisateur($user)
-            //        ->setType("particulier")
-            //       ->setCoefficient(1.23)
-            //        ->setReduction(1)
-            //        ->setReferenceClient();
-                   
-            
+            $client = new Client();
+            $client->setUtilisateur($user)
+                ->setType("particulier")
+                ->setCoefficient(1.23)
+                ->setReduction(1)
+                ->setReferenceClient("C01");
+            //récupéré l'employé
+            $employe = $emp->findOneById(2);
+            $client->setEmploye($employe);
+
+
 
             $entityManager->persist($user);
+            $entityManager->persist($client);
             $entityManager->flush();
 
             // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+            $this->emailVerifier->sendEmailConfirmation(
+                'app_verify_email',
+                $user,
                 (new TemplatedEmail())
                     ->from(new Address('villagegreen.meubles@gmail.com', 'Village Green'))
                     ->to($user->getEmail())
@@ -93,6 +100,4 @@ class RegistrationController extends AbstractController
 
         return $this->redirectToRoute('app_register');
     }
-
-  
 }

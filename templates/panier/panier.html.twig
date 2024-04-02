@@ -8,6 +8,7 @@
 		<h1>Votre Panier</h1>
 		{% if panierDetails is empty %}
 			<p>Votre panier est vide.</p>
+			<a href="{{path('accueil')}}" class="btn btn-outline-primary btn-lg">Commancer mes achats</a>
 		{% else %}
 			<div class="row">
 				<div class="col-md-8">
@@ -78,7 +79,7 @@
 					<p class="card-text mt-4">Frais de livraison :</p>
 					<hr>
 					<p class="card-text mt-4">Total à payer :</p>
-					<a href="" class="btn btn-primary mt-3">Valider mon panier ({{total}}
+					<a href="{{path('app_commande')}}" class="btn btn-primary mt-3">Valider mon panier ({{total}}
 						€)
 					</a>
 
@@ -89,9 +90,7 @@
             <a href="" class="btn btn-outline-primary btn-lg">Continuer mes achats</a>
 				
 			</div>
-			<div class="col-md-6 d-flex justify-content-end ">
-				<a href=""><button type="submit" class="btn btn-outline-success btn-lg ">Valider ma commande</button></a>
-			</div>
+			
 
 		</div>
 
