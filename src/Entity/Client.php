@@ -19,30 +19,6 @@ class Client
     #[ORM\Column(length: 7)]
     private ?string $reference_client = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $nom = null;
-
-    #[ORM\Column(length: 50)]
-    private ?string $prenom = null;
-
-    #[ORM\Column(length: 30)]
-    private ?string $sexe = null;
-
-    #[ORM\Column(length: 70)]
-    private ?string $email = null;
-
-    #[ORM\Column(length: 70, nullable: true)]
-    private ?string $adresse = null;
-
-    #[ORM\Column(length: 5, nullable: true)]
-    private ?string $CP = null;
-
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $ville = null;
-
-    #[ORM\Column(length: 10)]
-    private ?string $telephone = null;
-
     #[ORM\Column(length: 30)]
     private ?string $type = null;
 
@@ -82,102 +58,6 @@ class Client
     public function setReferenceClient(string $reference_client): static
     {
         $this->reference_client = $reference_client;
-
-        return $this;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): static
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): static
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getSexe(): ?string
-    {
-        return $this->sexe;
-    }
-
-    public function setSexe(string $sexe): static
-    {
-        $this->sexe = $sexe;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): static
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getAdresse(): ?string
-    {
-        return $this->adresse;
-    }
-
-    public function setAdresse(?string $adresse): static
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    public function getCP(): ?string
-    {
-        return $this->CP;
-    }
-
-    public function setCP(?string $CP): static
-    {
-        $this->CP = $CP;
-
-        return $this;
-    }
-
-    public function getVille(): ?string
-    {
-        return $this->ville;
-    }
-
-    public function setVille(?string $ville): static
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getTelephone(): ?string
-    {
-        return $this->telephone;
-    }
-
-    public function setTelephone(string $telephone): static
-    {
-        $this->telephone = $telephone;
 
         return $this;
     }

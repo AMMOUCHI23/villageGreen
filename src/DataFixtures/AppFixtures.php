@@ -1378,37 +1378,19 @@ class AppFixtures extends Fixture
         //*************************************************************Ajouter des Employe
         // Employé 1
         $em1 = new Employe();
-        $em1->setNom("Smith")
-            ->setPrenom("John")
-            ->setSexe("Homme")
-            ->setEmail("john.smith@example.com")
-            ->setPoste("Directeur des ventes")
-            ->setTelephone("1234567891")
-            ->setAdresse("123 Rue des Fleurs")
+        $em1->setPoste("Directeur des ventes")
             ->setUtilisateur($user6);
         $manager->persist($em1);
 
         // Employé 2
         $em2 = new Employe($user2);
-        $em2->setNom("Johnson")
-            ->setPrenom("Emma")
-            ->setSexe("Femme")
-            ->setEmail("emma.johnson@example.com")
-            ->setPoste("Service Commercial")
-            ->setTelephone("1234567892")
-            ->setAdresse("456 Avenue des Arbres")
+        $em2->setPoste("Service Commercial")
             ->setUtilisateur($user7);
         $manager->persist($em2);
 
         // Employé 3
         $em3 = new Employe();
-        $em3->setNom("Williams")
-            ->setPrenom("Michael")
-            ->setSexe("Homme")
-            ->setEmail("michael.williams@example.com")
-            ->setPoste("Service Commercial")
-            ->setTelephone("1234567893")
-            ->setAdresse("789 Boulevard des Étoiles")
+        $em3->setPoste("Service Commercial")
             ->setUtilisateur($user8);
         $manager->persist($em3);
 
@@ -1416,14 +1398,6 @@ class AppFixtures extends Fixture
         // Client 1
         $client1 = new Client();
         $client1->setReferenceClient("C000001")
-            ->setNom("Dupont")
-            ->setPrenom("Jean")
-            ->setSexe("Homme")
-            ->setEmail("jean.dupont@example.com")
-            ->setAdresse("123 Rue de la Liberté")
-            ->setCP("75001")
-            ->setVille("Paris")
-            ->setTelephone("0123456789")
             ->setType("Particulier")
             ->setCoefficient(1.5)
             ->setReduction(0)
@@ -1434,14 +1408,6 @@ class AppFixtures extends Fixture
         // Client 2
         $client2 = new Client();
         $client2->setReferenceClient("C000002")
-            ->setNom("Durand")
-            ->setPrenom("Marie")
-            ->setSexe("Femme")
-            ->setEmail("marie.durand@example.com")
-            ->setAdresse("456 Avenue des Roses")
-            ->setCP("69002")
-            ->setVille("Lyon")
-            ->setTelephone("0234567891")
             ->setType("Particulier")
             ->setCoefficient(1.5)
             ->setReduction(0)
@@ -1452,14 +1418,6 @@ class AppFixtures extends Fixture
         // Client 3
         $client3 = new Client();
         $client3->setReferenceClient("C000003")
-            ->setNom("Martin")
-            ->setPrenom("Philippe")
-            ->setSexe("Homme")
-            ->setEmail("philippe.martin@example.com")
-            ->setAdresse("789 Boulevard de la Paix")
-            ->setCP("33000")
-            ->setVille("Bordeaux")
-            ->setTelephone("0345678912")
             ->setType("Particulier")
             ->setCoefficient(1.5)
             ->setReduction(0)
@@ -1470,14 +1428,6 @@ class AppFixtures extends Fixture
         // Client 4
         $client4 = new Client();
         $client4->setReferenceClient("P000001")
-            ->setNom("Garcia")
-            ->setPrenom("Sophie")
-            ->setSexe("Femme")
-            ->setEmail("sophie.garcia@example.com")
-            ->setAdresse("1010 Rue du Soleil")
-            ->setCP("59000")
-            ->setVille("Lille")
-            ->setTelephone("0456789123")
             ->setType("Particulier")
             ->setCoefficient(1.3)
             ->setReduction(0.1)
@@ -1488,14 +1438,6 @@ class AppFixtures extends Fixture
         // Client 5
         $client5 = new Client();
         $client5->setReferenceClient("P000002")
-            ->setNom("Lefebvre")
-            ->setPrenom("Pierre")
-            ->setSexe("Homme")
-            ->setEmail("pierre.lefebvre@example.com")
-            ->setAdresse("1111 Avenue de la Joie")
-            ->setCP("44000")
-            ->setVille("Nantes")
-            ->setTelephone("0567891234")
             ->setType("Particulier")
             ->setCoefficient(1.2)
             ->setReduction(0.2)

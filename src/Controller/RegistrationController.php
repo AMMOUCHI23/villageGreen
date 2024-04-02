@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
 use App\Entity\Utilisateur;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
@@ -39,7 +40,17 @@ class RegistrationController extends AbstractController
                     $user,
                     $form->get('password')->getData()
                 )
+                
             );
+            //creer un nouveau client 
+            // $client=new Client();
+            // $client->setUtilisateur($user)
+            //        ->setType("particulier")
+            //       ->setCoefficient(1.23)
+            //        ->setReduction(1)
+            //        ->setReferenceClient();
+                   
+            
 
             $entityManager->persist($user);
             $entityManager->flush();

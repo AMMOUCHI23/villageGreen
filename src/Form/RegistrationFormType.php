@@ -23,47 +23,50 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('sexe', ChoiceType::class , [
-            'label'=>'Civilité',
-            'choices' => [
-                'Madame' => 'Madame',
-                'Monsieur' => 'Monsieur',
-            ],
-           
-            'multiple' => false, // pour n'autoriser qu'un seul choix
-            'required' => true, // si le champ est obligatoire
-            ]
-         )
-        ->add('nom', TextType::class , [
-            'label'=>false,
-            'attr'=>[
-                'placeholder'=>"Nom*"
-            ]
-        ] )
-        ->add('prenom', TextType::class , [
-            'label'=>false,
-            'attr'=>[
-                'placeholder'=>"Prénom*"
-            ]
-        ] )
-        ->add('dateNaissance', DateType::class , [
-            'label'=>false,
-            'attr'=>[
-                'placeholder'=>"Date de naissance"
-            ]
-        ] )
-        ->add('telephone', TextType::class , [
-            'label'=>false,
-            'attr'=>[
-                'placeholder'=>"Téléphone"
-            ]
-        ] )
-            ->add('email', EmailType::class , [
-                'attr'=>[
-                    'placeholder'=>"adresse email*"
+            ->add(
+                'sexe',
+                ChoiceType::class,
+                [
+                    'label' => 'Civilité',
+                    'choices' => [
+                        'Madame' => 'Madame',
+                        'Monsieur' => 'Monsieur',
+                    ],
+
+                    'multiple' => false, // pour n'autoriser qu'un seul choix
+                    'required' => true, // si le champ est obligatoire
+                ]
+            )
+            ->add('nom', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => "Nom*"
+                ]
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => "Prénom*"
+                ]
+            ])
+            ->add('dateNaissance', DateType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => "Date de naissance"
+                ]
+            ])
+            ->add('telephone', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => "Téléphone"
+                ]
+            ])
+            ->add('email', EmailType::class, [
+                'attr' => [
+                    'placeholder' => "adresse email*"
                 ],
-                'label'=>false
-            ] )
+                'label' => false
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -72,19 +75,49 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            ->add('adresse', TextType::class, [
+                'mapped' => false,
+            ])
+
+            ->add('CP', TextType::class, [
+                'mapped' => false,
+            ])
+
+            ->add('ville', TextType::class, [
+                'mapped' => false,
+            ])
+            ->add('adresse', TextType::class, [
+                'mapped' => false,
+            ])
+
+            ->add('coefficient', TextType::class, [
+                'mapped' => false,
+            ])
+            ->add('reduction', TextType::class, [
+                'mapped' => false,
+            ])
+            ->add('referenceClient', TextType::class, [
+                'mapped' => false,
+            ])
+
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => ['label' => false,
-            'attr'=>[
-                'placeholder'=>"Mot de passe*"
-            ]],
-                'second_options' => ['label' => false,
-                'attr'=>[
-                    'placeholder'=>"Confirmation de mot de passe*"]],
-            
+                'first_options'  => [
+                    'label' => false,
+                    'attr' => [
+                        'placeholder' => "Mot de passe*"
+                    ]
+                ],
+                'second_options' => [
+                    'label' => false,
+                    'attr' => [
+                        'placeholder' => "Confirmation de mot de passe*"
+                    ]
+                ],
+
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
@@ -97,8 +130,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
