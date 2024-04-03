@@ -147,37 +147,37 @@ class AppFixtures extends Fixture
         /*Sous Catégories Séjours */
         $categorie11 = new Categorie;
         $categorie11->setNomCategorie("Buffets");
-        $categorie11->setPhoto("photo_b1");
+        $categorie11->setPhoto("buffets.jpg");
         $categorie11->setParent($categorie1);
         $manager->persist($categorie11);
 
         $categorie12 = new Categorie;
         $categorie12->setNomCategorie("Canapés");
-        $categorie12->setPhoto("photo_cp");
+        $categorie12->setPhoto("canapes.jpg");
         $categorie12->setParent($categorie1);
         $manager->persist($categorie12);
 
         $categorie13 = new Categorie;
         $categorie13->setNomCategorie("Chaises");
-        $categorie13->setPhoto("photo_ch");
+        $categorie13->setPhoto("chaises.jpg");
         $categorie13->setParent($categorie1);
         $manager->persist($categorie13);
 
         $categorie14 = new Categorie;
         $categorie14->setNomCategorie("Décorations");
-        $categorie14->setPhoto("photo_dc");
+        $categorie14->setPhoto("decorations.jpg");
         $categorie14->setParent($categorie1);
         $manager->persist($categorie14);
 
         $categorie15 = new Categorie;
-        $categorie15->setNomCategorie("MeubleS TV");
-        $categorie15->setPhoto("MeubleS TV");
+        $categorie15->setNomCategorie("Meubles_TV");
+        $categorie15->setPhoto("meubles_tv.jpg");
         $categorie15->setParent($categorie1);
         $manager->persist($categorie15);
 
         $categorie16 = new Categorie;
         $categorie16->setNomCategorie("Tapis");
-        $categorie16->setPhoto("photo_tp");
+        $categorie16->setPhoto("tapis.jpg");
         $categorie16->setParent($categorie1);
         $manager->persist($categorie16);
 
@@ -191,31 +191,31 @@ class AppFixtures extends Fixture
         /**Sous catégories cuisine */
         $categorie21 = new Categorie;
         $categorie21->setNomCategorie("Buffets");
-        $categorie21->setPhoto("photo_b1");
+        $categorie21->setPhoto("buffets.jpg");
         $categorie21->setParent($categorie2);
         $manager->persist($categorie21);
 
         $categorie22 = new Categorie;
         $categorie22->setNomCategorie("Dessertes");
-        $categorie22->setPhoto("photo_cp");
+        $categorie22->setPhoto("dessertes.jpg");
         $categorie22->setParent($categorie2);
         $manager->persist($categorie22);
 
         $categorie23 = new Categorie;
-        $categorie23->setNomCategorie("Etagères Murales");
-        $categorie23->setPhoto("photo_ch");
+        $categorie23->setNomCategorie("Etagères_Murales");
+        $categorie23->setPhoto("etagères_murales.jpg");
         $categorie23->setParent($categorie2);
         $manager->persist($categorie23);
 
         $categorie24 = new Categorie;
-        $categorie24->setNomCategorie("Tables et Chaises");
-        $categorie24->setPhoto("photo_dc");
+        $categorie24->setNomCategorie("Tables_et_Chaises");
+        $categorie24->setPhoto("tables_et_chaises.jpg");
         $categorie24->setParent($categorie2);
         $manager->persist($categorie24);
 
         /**Catégorie chambre adulte */
         $categorie3 = new Categorie();
-        $categorie3->setNomCategorie("Chambre Adulte");
+        $categorie3->setNomCategorie("Chambre_Adulte");
         $categorie3->setPhoto("chambre_adulte.jpg");
         $manager->persist($categorie3);
 
@@ -230,12 +230,12 @@ class AppFixtures extends Fixture
         //Produit 1
         $pr35 = new Produit();
         $pr35->setReference("REF035")
-            ->setLibelle("Armoire PLASTA")
+            ->setLibelle("Armoire_PLASTA")
             ->setDimenssion("160x57x181 cm")
             ->setCouleur("blanc")
             ->setDescription("Créer une combinaison PLATSA adaptée à votre intérieur : plus ou moins haute, le long d'un mur ou sous un plafond mansardé. Les différents éléments s'assemblent en un clic et vous pouvez les compléter avec des portes et des organiseurs internes.")
             ->setPrixAchat(220)
-            ->setPhoto("armoire_PLASTA.jpg")
+            ->setPhoto("Armoire_PLASTA.jpg")
             ->setActif(true)
             ->setQuantiteStock(40)
             ->setStockAlert(5)
@@ -535,21 +535,7 @@ class AppFixtures extends Fixture
             ->setFournisseur($fournisseur5);
        $manager->persist($pr52);
 
-        //Produit 1
-        $pr47 = new Produit();
-        $pr47->setReference("REF035")
-            ->setLibelle("Support Tablette")
-            ->setDimenssion("160x60x145 cm")
-            ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(50)
-            ->setPhoto("bureau_MICKE.jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie33)
-            ->setFournisseur($fournisseur5);
-       $manager->persist($pr47);
+   
 
         $categorie34 = new Categorie;
         $categorie34->setNomCategorie("Matelats");
@@ -578,8 +564,8 @@ class AppFixtures extends Fixture
         /**Catégorie chambre enfant et bébé*/
 
         $categorie4 = new Categorie();
-        $categorie4->setNomCategorie("chambre Enfant et Bébé");
-        $categorie4->setPhoto("chambre_enfant.jpg");
+        $categorie4->setNomCategorie("Chambre_Enfant_Bébé");
+        $categorie4->setPhoto("chambre_enfant_bebe.jpg");
         $manager->persist($categorie4);
 
         /**Sous catégories chambre enfant */
@@ -608,19 +594,19 @@ class AppFixtures extends Fixture
        $manager->persist($pr35);
 
         $categorie42 = new Categorie;
-        $categorie42->setNomCategorie("Commodes à langer");
-        $categorie42->setPhoto("table_a_langer.jpg");
+        $categorie42->setNomCategorie("Tables_à_langer");
+        $categorie42->setPhoto("table_langer.jpg");
         $categorie42->setParent($categorie4);
         $manager->persist($categorie42);
 
         $categorie43 = new Categorie;
-        $categorie43->setNomCategorie("Lits Bébé");
-        $categorie43->setPhoto("lits_bébé.jpg");
+        $categorie43->setNomCategorie("Lits_Bébé");
+        $categorie43->setPhoto("lits_bebe.jpg");
         $categorie43->setParent($categorie4);
         $manager->persist($categorie43);
 
         $categorie44 = new Categorie;
-        $categorie44->setNomCategorie("Lits Enfant");
+        $categorie44->setNomCategorie("Lits_Enfant");
         $categorie44->setPhoto("lits_enfant.jpg");
         $categorie44->setParent($categorie4);
         $manager->persist($categorie44);
@@ -649,7 +635,7 @@ class AppFixtures extends Fixture
          // Produit 1
          $pr11 = new Produit();
          $pr11->setReference("REF011")
-             ->setLibelle(" Bureau 03 tiroirs")
+             ->setLibelle("Bureau 03 tiroirs")
              ->setDimenssion("113x42x73 cm")
              ->setCouleur("blanc")
              ->setDescription("Un petit espace ne veut pas dire qu'on ne peut pas étudier ou travailler confortablement. Ce bureau ne prend pas beaucoup de place au sol et compte deux caissons de tiroirs pour ranger vos documents et tout ce dont vous avez besoin.")
@@ -953,7 +939,7 @@ class AppFixtures extends Fixture
           
 
         $categorie54 = new Categorie;
-        $categorie54->setNomCategorie("Accessoires de Bureau");
+        $categorie54->setNomCategorie("Accessoires_de_Bureau");
         $categorie54->setPhoto("accessoires.jpg");
         $categorie54->setParent($categorie5);
         $manager->persist($categorie54);
@@ -1057,7 +1043,7 @@ class AppFixtures extends Fixture
          
         /**Catégorie Salle de bain */
         $categorie6 = new Categorie();
-        $categorie6->setNomCategorie("Salle de Bain");
+        $categorie6->setNomCategorie("Salle_de_Bain");
         $categorie6->setPhoto("salle_de_bain.jpg");
         $manager->persist($categorie6);
 
@@ -1065,7 +1051,7 @@ class AppFixtures extends Fixture
 
         $categorie61 = new Categorie;
         $categorie61->setNomCategorie("Armoirs");
-        $categorie61->setPhoto("photo_b1");
+        $categorie61->setPhoto("armoires.jpg");
         $categorie61->setParent($categorie6);
         $manager->persist($categorie61);
          // Produit 6
@@ -1085,14 +1071,14 @@ class AppFixtures extends Fixture
         $manager->persist($pr34);
 
         $categorie62 = new Categorie;
-        $categorie62->setNomCategorie("Meubles Lavabos");
-        $categorie62->setPhoto("photo_cp");
+        $categorie62->setNomCategorie("Meubles_Lavabos");
+        $categorie62->setPhoto("meubles_lavabos.jpg");
         $categorie62->setParent($categorie6);
         $manager->persist($categorie62);
 
         $categorie63 = new Categorie;
         $categorie63->setNomCategorie("Rangements");
-        $categorie63->setPhoto("photo_ch");
+        $categorie63->setPhoto("rangement.jpg");
         $categorie63->setParent($categorie6);
         $manager->persist($categorie63);
 

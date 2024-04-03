@@ -9,7 +9,7 @@
         {% for sousCategorie in categorie.categories %}
             <div class="col-6 col-md-2 my-4 survol">
                 <a href="{{ path('produits', {id: sousCategorie.id}) }}">
-                    <img class="img-thumbnail rounded-circle" src="{{ asset('assets/images/' ~ sousCategorie.photo) }}" style="height: 200px;">
+                    <img class="img-thumbnail rounded-circle" src="{{ asset('assets/images/'~ sousCategorie.getParent().getNomCategorie()  ~ '/' ~ sousCategorie.photo) }}" style="height: 200px;">
                 </a>
                 <h3 class="nomCategorie my-2">{{ sousCategorie.nomCategorie }}</h3>
             </div>

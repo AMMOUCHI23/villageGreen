@@ -61,6 +61,26 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => "Téléphone"
                 ]
             ])
+            ->add('adresse', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => "Nom et Numéro de la rue"
+                ]
+                ])
+    
+                ->add('CP', TextType::class, [
+                    'label' => false,
+                    'attr' => [
+                        'placeholder' => "Code postal"
+                    ]
+                ])
+    
+                ->add('ville', TextType::class, [
+                    'label' => false,
+                    'attr' => [
+                        'placeholder' => "Ville"
+                    ]
+                ])
             ->add('email', EmailType::class, [
                 'attr' => [
                     'placeholder' => "adresse email*"
@@ -75,27 +95,25 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('adresse', TextType::class, [
-               
-            ])
-
-            ->add('CP', TextType::class, [
-              
-            ])
-
-            ->add('ville', TextType::class, [
-                
-            ])
+         
            
 
             ->add('coefficient', TextType::class, [
+                'label' => false,
                 'mapped' => false,
+                'attr' => ['class' => 'd-none'],
             ])
             ->add('reduction', TextType::class, [
                 'mapped' => false,
+                'label' => false,
+                'mapped' => false,
+                'attr' => ['class' => 'd-none'],
             ])
             ->add('referenceClient', TextType::class, [
                 'mapped' => false,
+                'label' => false,
+                'mapped' => false,
+                'attr' => ['class' => 'd-none'],
             ])
 
             ->add('password', RepeatedType::class, [

@@ -59,9 +59,8 @@ class CommandeFormType extends AbstractType
 
                 'choices' => [
                     'Carte de crédit' => 'credit_card',
-                    'PayPal' => 'paypal',
+                    'Chèque' => 'chèque',
                     'Virement bancaire' => 'bank_transfer',
-                    'Espèces' => 'éspèces'
                 ],
                 'label'=>'Mode de paiement*',
                 'label_attr'=>[

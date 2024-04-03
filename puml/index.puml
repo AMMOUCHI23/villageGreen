@@ -9,14 +9,6 @@ class Livraison {
 class Client {
 	id
 	reference_client
-	nom
-	prenom
-	sexe
-	email
-	adresse
-	CP
-	ville
-	telephone
 	type
 	coefficient
 	reduction
@@ -47,13 +39,7 @@ class LigneLivraison {
 
 class Employe {
 	id
-	nom
-	prenom
-	email
 	poste
-	telephone
-	sexe
-	adresse
 	**clients**
 	**Utilisateur**
 }
@@ -67,6 +53,13 @@ class Utilisateur {
 	prenom
 	**client**
 	**employe**
+	dateNaissance
+	telephone
+	isVerified
+	sexe
+	adresse
+	CP
+	ville
 }
 
 class Produit {
@@ -83,7 +76,6 @@ class Produit {
 	stock_alert
 	**fournisseur**
 	**Categorie**
-	**ligneLivraison**
 	**ligneCommandes**
 	**ligneLivraisons**
 }

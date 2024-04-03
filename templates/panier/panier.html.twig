@@ -44,9 +44,7 @@
 												</div>
 											</div>
 										</div>
-										{# {{ item.produit.id }}, Nom:
-																																																		{{ item.produit.libelle }}, Quantité:
-																																																		{{ item.quantite }} #}
+										{# Gérer les boutons plus et moins  #}
 									</td>
 									<td class="align-middle text-center  ">
 										<a href="{{path('ajoutPanier',{'id':item.produit.id})}}"><img src="{{ asset('assets/images/plus.png') }}" class="img-fluid" alt="image plus" width="30" height="30">
@@ -56,45 +54,46 @@
 										<a href="{{path('modifPanier',{'id':item.produit.id})}}">
 											<img src="{{ asset('assets/images/moins.png') }}" class="img-fluid" width="30" height="30" alt="image moins">
 										</a>
-	
+
+
+									</td>
+
+								{# Gérer le bouton supprimer #}
+
+								<td class="align-middle text-center  ">
+										<a href="{{path('supprimeProduit',{'id':item.produit.id})}}"><img src="{{ asset('assets/images/supprimer.png') }}" class="img-fluid" alt="image plus" width="30" height="30">
+										</a>
+									
 
 									</td>
 
 								</tr>
 							{% endfor %}
-						
-					</tbody>
-					<a href="{{ path('accueil') }}">Continuer les achats</a>
-				</table>
-			</div>
-			<div class="card col-md-4 border-success    mb-3 mx-4" style="max-width: 20rem;right: 20px">
 
-				<div class="card-body ">
-					<h4 class="card-title ">Récapitulatif</h4>
-					<p class="card-text mt-4">Sous-total HT :
-					</p>
-					<p class="card-text mt-4">TVA : 20%</p>
-					<hr>
-					<p class="card-text mt-4">Sous-total TTC :</p>
-					<p class="card-text mt-4">Frais de livraison :</p>
-					<hr>
-					<p class="card-text mt-4">Total à payer :</p>
-					<a href="{{path('app_commande')}}" class="btn btn-primary mt-3">Valider mon panier ({{total}}
-						€)
-					</a>
+						</tbody>
+						<a href="{{ path('accueil') }}">Continuer les achats</a>
+					</table>
+				</div>
+				<div class="card col-md-4 border-success    mb-3 mx-4" style="max-width: 20rem;right: 20px">
+
+					<div class="card-body ">
+						{% include 'partiales/recapitulatif.html.twig' %}
+						<a href="{{path('app_commande')}}" class="btn btn-primary mt-3">Valider mon panier ({{total}}
+							€)
+						</a>
+
+					</div>
+				</div>
+				<div class="row d-flex mt-3 ">
+					<div class="col-md-6 ">
+						<a href="{{path('accueil')}}" class="btn btn-outline-primary btn-lg">Continuer mes achats</a>
+
+					</div>
+
 
 				</div>
-			</div>
-			<div class="row d-flex mt-3 ">
-			<div class="col-md-6 ">
-            <a href="" class="btn btn-outline-primary btn-lg">Continuer mes achats</a>
-				
-			</div>
-			
 
-		</div>
-
-		</div>
+			</div>
 		{% endif %}
 	</div>
 {% endblock %}

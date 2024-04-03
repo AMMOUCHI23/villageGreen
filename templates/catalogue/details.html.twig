@@ -11,11 +11,12 @@
     
 
              <div class="col-md-4 mx-3">
-                    <img src="" class="card-img-top mt-4" alt="...">
+                    <img src="{{ asset('assets/images/' ~ produit.getCategorie().getParent().getNomCategorie()   ~ '/' ~ produit.getCategorie().getNomCategorie() ~ '/' ~ produit.getPhoto()) }}" class="card-img-top mt-4" alt="{{ produit.getLibelle() }}">
                     </div>
-                    <div class="col-md-5 mx-3">';
+                    <div class="col-md-5 mx-3">
                     <h2 class="text">{{ produit.libelle }}</h2>
-                    <h4 class="prix py-3">{{ produit.prixAchat }} €</h4>
+                    {# afficher les prix en appliquant les le coefficient de vente pour les particuliers #}
+                    <h4 class="prix py-3">{{ produit.prixAchat * 1.6  }} €</h4>
                     <h5 class="text-primary mt-3">Description :</h5>
                     <p>{{ produit.description }}</p>
                     <a class="btn btn-primary btn-lg" href="{{ path('ajoutPanier', {'id': produit.id}) }}">

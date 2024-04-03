@@ -68,7 +68,8 @@ class CommandeController extends AbstractController
         //             ->setAdresseLivraison()
     
         return $this->render('commande/index.html.twig', [
-            'commandeForm'=>$commandeForm
+            'commandeForm'=>$commandeForm,
+            'total'=>$total
         ]);
     }
 }

@@ -42,8 +42,20 @@
 			</div>
 
 		</div>
+		<div class="row d-flex mt-2 ">
+			<div class="col-md-6">
+				{{ form_row(registrationForm.adresse) }}
+			</div>
+			<div class="col-md-6">
+				{{ form_row(registrationForm.CP) }}
+			</div>
+
+		</div>
 		<div class="row mt-2">
-			<div class="col-12">
+		<div class="col-6">
+				{{ form_row(registrationForm.ville) }}
+			</div>
+			<div class="col-6">
 				{{ form_row(registrationForm.email) }}
 			</div>
 
