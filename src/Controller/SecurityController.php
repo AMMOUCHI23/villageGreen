@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
+use App\Repository\ClientRepository;
+use App\Repository\LigneCommandeRepository;
+use App\Repository\LigneLivraisonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -40,17 +44,50 @@ class SecurityController extends AbstractController
    return $this->render('registration/connexion.html.twig');
    }
 
-    // créer une fonction pour afficher la page profil
+    // Controller pour afficher le profil
     #[Route(path: '/profil', name: 'app_profil')]
     public function afficheProfil(): response
     {
         $utilisateur =$this->getUser(); 
+   
+       // dd($commandes);
     
     return $this->render('security/profil.html.twig', [
-        'utilisateur'=> $utilisateur
+        'utilisateur'=> $utilisateur,
+       
     ]);
 
-        
     }
+
+       // Controller pour afficher les commandes
+       #[Route(path: '/profil/commandes', name: 'commandes')]
+       public function afficheCommandes(): response
+       {
+           $utilisateur =$this->getUser(); 
+           $commandes=$utilisateur->getClient()->getCommandes();
+          // dd($commandes);
+       
+       return $this->render('security/commandes.html.twig', [
+           
+           'commandes'=> $commandes
+       ]);
+   
+       }
+
+        // Controller pour afficher les détails de la commande
+        #[Route(path: '/profil/commandes/{id}', name: 'detailsCommande')]
+        public function afficheDetails(Commande $commande, LigneCommandeRepository $ligne): response
+        {
+            // $utilisateur =$this->getUser(); 
+            // $commandes=$utilisateur->getClient()->getCommandes();
+            $details = $ligne->findBy(['Commande'=>$commande]);
+            dd($details);
+        
+        return $this->render('security/commandes.html.twig', [
+            
+            'details'=> $details
+        ]);
+    
+        }
 
 }
