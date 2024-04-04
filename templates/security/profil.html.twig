@@ -24,10 +24,11 @@
 				{{ utilisateur.email }}</p>
 			<p></p>
 		</div>
-		<h4 class="text mt-4">Mes Achats</h4>
-		<div></div>
+		<h4>Mes Commandes</h4>
+		<a href="{{path('commandes')}}">Afficher mes commandes</a>
+		</div>
 
-		<a href="{{ path('app_logout') }}">
+		
 			<div class="col mt-4 ">
 				<a href="{{path('app_login')}}">
 					<button class="btn text-info btn-lg  " type="button">Modifier mes coordonées

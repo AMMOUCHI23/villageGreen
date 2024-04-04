@@ -101,19 +101,19 @@ class RegistrationFormType extends AbstractType
             ->add('coefficient', TextType::class, [
                 'label' => false,
                 'mapped' => false,
-                'attr' => ['class' => 'd-none'],
+                //'attr' => ['class' => 'd-none'],
             ])
             ->add('reduction', TextType::class, [
                 'mapped' => false,
                 'label' => false,
                 'mapped' => false,
-                'attr' => ['class' => 'd-none'],
+                //'attr' => ['class' => 'd-none'],
             ])
             ->add('referenceClient', TextType::class, [
                 'mapped' => false,
                 'label' => false,
                 'mapped' => false,
-                'attr' => ['class' => 'd-none'],
+                //'attr' => ['class' => 'd-none'],
             ])
 
             ->add('password', RepeatedType::class, [
