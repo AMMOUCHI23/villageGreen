@@ -76,14 +76,14 @@ class SecurityController extends AbstractController
 
         // Controller pour afficher les détails de la commande
         #[Route(path: '/profil/commandes/{id}', name: 'detailsCommande')]
-        public function afficheDetails(Commande $commande, LigneCommandeRepository $ligne): response
+        public function afficheDetails(int $id,Commande $commande, LigneCommandeRepository $ligne): response
         {
             // $utilisateur =$this->getUser(); 
             // $commandes=$utilisateur->getClient()->getCommandes();
-            $details = $ligne->findBy(['Commande'=>$commande]);
-            dd($details);
+            $details = $ligne->findBy(['Commande'=>$id]);
+           // dd($details);
         
-        return $this->render('security/commandes.html.twig', [
+        return $this->render('security/details.html.twig', [
             
             'details'=> $details
         ]);

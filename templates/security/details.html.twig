@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Commandes
+{% block title %}Détails de la commande
 {% endblock %}
 
 {% block body %}
 	<div class="container col-md-6">
 
-		<h4 class="text mt-4">Mes Commandes</h4>
+		<h4 class="text mt-4">Détails de la ommandes</h4>
         <table class="table table-hover">
 						
 						</h4>
-                        <a href="{{ path('app_profil') }}">{{' < '}}profil</a>
+                        <a href="{{ path('commandes') }}">{{' < '}}commandes</a>
 						<tbody>
-							{% for commande in commandes %}
+							{% for produit in details %}
 								<tr>
 									<td>
 										<div class="card mb-3" style="max-width: 540px;">
@@ -23,20 +23,22 @@
 												<div class="col-md-8">
 													<div class="card-body">
                                                     <div class="d-flex justify-content-between">
-                                                    <h5 class="card-title"> {{ commande.totalCommande }} €</h5>
-                                                    <p class="card-text ">
-															{{ commande.dateCommande |date('Y-m-d')}}</p>
+                                                    <h5 class="card-title"> {{ produit.prixVente }} €</h5>
+                                                     {# <p class="card-text ">
+															{{ commande.dateCommande |date('Y-m-d')}}</p> #}
                                                     </div>
 														
-														<p class="card-text ">
-															{{ commande.statut }}</p>
+														{# <p class="card-text ">
+															{{ commande.statut }}</p>  #}
 													
 
                                                            
-                                                            <p class="card-text">N° commande :
-															{{ commande.id }}</p>
+                                                            <p class="card-text">
+															{{ produit.libelle }}</p>
+                                                            <p class="card-text ">quantité :
+															{{ produit.quantite }}</p> 
                                                             
-														<a href="{{ path('detailsCommande',{'id':commande.id}) }} ">Détails{{'>'}}</a>
+														{# <a href="{{ path('detailsCommande',{'id':commande.id}) }} ">Détails{{'>'}}</a> #}
 													</div>
 												</div>
 											</div>
