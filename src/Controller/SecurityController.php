@@ -6,6 +6,7 @@ use App\Entity\Commande;
 use App\Repository\ClientRepository;
 use App\Repository\LigneCommandeRepository;
 use App\Repository\LigneLivraisonRepository;
+use App\Service\PdfService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -76,17 +77,31 @@ class SecurityController extends AbstractController
 
         // Controller pour afficher les détails de la commande
         #[Route(path: '/profil/commandes/{id}', name: 'detailsCommande')]
-        public function afficheDetails(int $id,Commande $commande, LigneCommandeRepository $ligne): response
+        public function afficheDetails(int $id, LigneCommandeRepository $ligne): response
         {
-            // $utilisateur =$this->getUser(); 
-            // $commandes=$utilisateur->getClient()->getCommandes();
+            
             $details = $ligne->findBy(['Commande'=>$id]);
-           // dd($details);
+            dd($details);
         
-        return $this->render('security/details.html.twig', [
+        return $this->render('security/commandes.html.twig', [
             
             'details'=> $details
         ]);
+    
+        }
+
+
+        // Controller pour générer une facture
+        #[Route(path: '/pdf/{id}', name: 'facture.pdf')]
+        public function genererFacturePdf(Commande $commande, PdfService $pdf)
+        {
+        // Récupérer le contenu HTML de la facture en utilisant le moteur de rendu Twig
+        $html = $this->renderView('security/facture.html.twig', [
+            'commande' => $commande
+        ]);
+      
+         // Afficher le PDF dans le navigateur
+       return  $pdf->affichePdf($html);
     
         }
 
