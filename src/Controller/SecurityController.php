@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
+use App\Entity\LigneCommande;
+use App\Entity\Livraison;
 use App\Repository\ClientRepository;
 use App\Repository\LigneCommandeRepository;
 use App\Repository\LigneLivraisonRepository;
@@ -81,9 +83,9 @@ class SecurityController extends AbstractController
         {
             
             $details = $ligne->findBy(['Commande'=>$id]);
-            dd($details);
+            //dd($details);
         
-        return $this->render('security/commandes.html.twig', [
+        return $this->render('security/details.html.twig', [
             
             'details'=> $details
         ]);
@@ -92,12 +94,38 @@ class SecurityController extends AbstractController
 
 
         // Controller pour générer une facture
-        #[Route(path: '/pdf/{id}', name: 'facture.pdf')]
+        #[Route(path: '/facture/{id}', name: 'facture.pdf')]
         public function genererFacturePdf(Commande $commande, PdfService $pdf)
         {
+        // récupérer les lignes de commandes d'une commande
+        $lignes=$commande->getLigneCommandes();
+       
+
         // Récupérer le contenu HTML de la facture en utilisant le moteur de rendu Twig
         $html = $this->renderView('security/facture.html.twig', [
-            'commande' => $commande
+            'commande' => $commande,
+            'lignes' => $lignes
+        ]);
+      
+         // Afficher le PDF dans le navigateur
+       return  $pdf->affichePdf($html);
+    
+        }
+
+
+
+        // Controller pour générer un bon de livraison
+        #[Route(path: '/livraison/{id}', name: 'livraison.pdf')]
+        public function genererBonCommandePdf(Livraison $livraison, PdfService $pdf)
+        {
+        // récupérer les lignes de livraison d'une livraison
+        $lignesLivraisons=$livraison->getLigneLivraisons();
+       
+
+        // Récupérer le contenu HTML de du bon de commande en utilisant le moteur de rendu Twig
+        $html = $this->renderView('security/bonLivraison.html.twig', [
+            'livraison' => $livraison,
+            'ligneslignesLivraison' => $lignesLivraisons
         ]);
       
          // Afficher le PDF dans le navigateur

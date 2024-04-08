@@ -7,52 +7,56 @@
 	<div class="container col-md-6">
 
 		<h4 class="text mt-4">Mes Commandes</h4>
-        <table class="table table-hover">
-						
-						</h4>
-                        <a href="{{ path('app_profil') }}">{{' < '}}profil</a>
-						<tbody>
-							{% for commande in commandes %}
-								<tr>
-									<td>
-										<div class="card mb-3" style="max-width: 540px;">
-											<div class="row g-0">
-												<div class="col-md-4">
-													<img src="..." class="img-fluid rounded-start" alt="...">
-												</div>
-												<div class="col-md-8">
-													<div class="card-body">
-                                                    <div class="d-flex justify-content-between">
-                                                    <h5 class="card-title"> {{ commande.totalCommande }} €</h5>
-                                                    <p class="card-text ">
-															{{ commande.dateCommande |date('Y-m-d')}}</p>
-                                                    </div>
-														
-														<p class="card-text ">
-															{{ commande.statut }}</p>
-													
-
-                                                           
-                                                            <p class="card-text">N° commande :
-															{{ commande.id }}</p>
-                                                            
-														<a href="{{ path('detailsCommande',{'id':commande.id}) }} ">Détails{{'>'}}</a>
-													</div>
-												</div>
-											</div>
+		<table class="table table-hover"></h4>
+		<a href="{{ path('app_profil') }}">{{' < '}}profil</a>
+		<tbody>
+			{% for commande in commandes %}
+				<tr>
+					<td>
+						<div class="card mb-3" style="max-width: 540px;">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<img src="..." class="img-fluid rounded-start" alt="...">
+								</div>
+								<div class="col-md-8">
+									<div class="card-body">
+										<div class="d-flex justify-content-between">
+											<h5 class="card-title">
+												{{ commande.totalCommande }}
+												€</h5>
+											<p class="card-text ">
+												{{ commande.dateCommande |date("m/d/Y")}}</p>
 										</div>
-										
 
-								
+										<p class="card-text ">
+											{{ commande.statut }}</p>
 
 
-								</tr>
-							{% endfor %}
+										<p class="card-text">N° commande :
+											{{ commande.id }}</p>
 
-						</tbody>
-						
-					</table>
-		
-	</div>
+										<a href="{{ path('detailsCommande',{'id':commande.id}) }} ">Détails{{'>'}}</a>
+									</div>
+								</div>
+								{# lien de téléchargement de la facture  #}
+								<td class="align-middle text-center">
+									<a href="{{path('facture.pdf',{'id':commande.id})}}" target="_blank">facture
+										<img src="{{asset('assets/images/telecharger.png')}}" alt="télécharger"></a>
+								</td>
+								{# lien de téléchargement du bon de livraison  #}
+								<td class="align-middle text-center">
+									<a href="">bon de livraison
+										<img src="{{asset('assets/images/telecharger.png')}}" alt="télécharger"></a>
+								</td>
+							</div>
+						</div>
+					</td>
+				</tr>
 
-{% endblock %}
+			{% endfor %}
+
+		</tbody>
+
+	</table>
+
+</div>{% endblock %}

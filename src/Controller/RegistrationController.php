@@ -47,7 +47,7 @@ class RegistrationController extends AbstractController
             $client = new Client();
             $client->setUtilisateur($user)
                 ->setType("particulier")
-                ->setCoefficient(1.23)
+                ->setCoefficient(1.6)
                 ->setReduction(1)
                 ->setReferenceClient("C01");
             //récupéré l'employé

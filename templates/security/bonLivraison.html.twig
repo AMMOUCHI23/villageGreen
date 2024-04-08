@@ -1,5 +1,5 @@
 
-{% block title %}Facture{% endblock %}
+{% block title %}Bon de livraison{% endblock %}
 {% block stylesheets %}
 
 <style>
@@ -54,8 +54,8 @@
 				<img src="" alt="">
 			</div>
 			<div class=" col-6  ">
-				<p>Facture N°</p>
-				<p>Commande N° {{commande.id}}</p>
+				<p>Bon de livraison N°</p>
+				<p>Commande N° {{livraison.getCommande().getId()}} du {{livraison.getCommande().getDateCommande()|date("m/d/Y")}}</p>
 				<p>Date:
 				</p>
 			</div>
@@ -66,7 +66,7 @@
 			</div>
 
 		</div>
-		<div class="adresse">
+		{# <div class="adresse">
 			<div class="brd1  ">
 				<h4>Adresse de livraison</h4>
 				<p>{{commande.adresseLivraison}}</p>
@@ -79,11 +79,11 @@
 				<p>{{commande.CPFacturation}}  {{commande.villeFacturation}}</p>
 			</div>
 
-		</div>
+		</div> #}
 		 <div class="row mt-4">
       <div class="col-md-12">
 	  <h4>Détails de la commande </h4>
-        <table class="table table-active">
+        {# <table class="table table-active">
           <thead>
             <tr>
               <th>RÉF</th>
@@ -100,7 +100,7 @@
 		  {% for ligne in lignes %}
 		   <tr>
 		   {# Récupérer la référence du produit #}
-              <td>{{ligne.getProduit().getReference()}}</td>
+              {# <td>{{ligne.getProduit().getReference()}}</td>
               <td>{{ligne.libelle}}</td>
               <td>{{ligne.prixVente}}</td>
               <td>{{ligne.quantite}}</td>
@@ -121,7 +121,7 @@
               <td>{{commande.totalCommande}}</td>
             </tr>
           </tbody>
-        </table>
+        </table> #} 
       </div>
     </div>
 	</div>
