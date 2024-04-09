@@ -27,10 +27,12 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor04" aria-controls="navbarColor04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarColor04">
-            <form class="d-flex mx-auto" role="search">
-                <input class="form-control me-2" type="search" placeholder="Chercher" aria-label="Search">
+        <div class="collapse navbar-collapse " id="navbarColor04">
+            <form class="d-flex mx-auto position-relative " role="search">
+                <input class="form-control  me-2" type="search" placeholder="Chercher" aria-label="Search">
+				<a href="{{path('cherche')}}"><img src="{{asset('assets/images/chercher.png')}}" class="image-fluide position-absolute  end-0 m-2 " alt="recherche"></a>
             </form>
+			
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{path('accueil')}}">Accueil</a>
@@ -65,7 +67,11 @@
 		   
     </div>
 </nav>
-
+<style>
+    .form-control {
+        width: 400px; /* Modifier la largeur de la barre de recherche */
+    }
+</style>
 
 
 		{% block body %}{% endblock %}

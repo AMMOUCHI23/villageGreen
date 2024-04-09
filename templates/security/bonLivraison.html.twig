@@ -55,8 +55,8 @@
 			</div>
 			<div class=" col-6  ">
 				<p>Bon de livraison N°</p>
-				<p>Commande N° {{livraison.getCommande().getId()}} du {{livraison.getCommande().getDateCommande()|date("m/d/Y")}}</p>
-				<p>Date:
+				<p>Commande N° {{livraison.getCommande().getId()}} du {{livraison.getCommande().getDateCommande()|date("d/m/Y")}}</p>
+				<p>Date: {{livraison.dateLivraison |date("d/m/Y")}}
 				</p>
 			</div>
 		</div>
@@ -66,62 +66,41 @@
 			</div>
 
 		</div>
-		{# <div class="adresse">
-			<div class="brd1  ">
+		<div class="adresse">
+			<div class="brd  ">
 				<h4>Adresse de livraison</h4>
-				<p>{{commande.adresseLivraison}}</p>
-				<p>{{commande.CPlivraison}}  {{commande.villeLivraison}}</p>
-				
-			</div>
-			<div class="brd2  ">
-				<h4>Adresse de facturation</h4>
-				<p>{{commande.adresseFacturation}}</p>
-				<p>{{commande.CPFacturation}}  {{commande.villeFacturation}}</p>
-			</div>
+				<p>{{livraison.getCommande().getAdresseLivraison()}}</p>
+				<p>{{livraison.getCommande().CPLivraison()}}  {{livraison.getCommande().villeLivraison()}}</p>	
 
-		</div> #}
+		</div>
 		 <div class="row mt-4">
       <div class="col-md-12">
-	  <h4>Détails de la commande </h4>
-        {# <table class="table table-active">
+	  <h4>Détails de la livraison </h4>
+         <table class="table table-active">
           <thead>
             <tr>
               <th>RÉF</th>
               <th>DÉSIGNATION</th>
-              <th>P U HT</th>
               <th>QUANTITÉ</th>
-			  <th>TOTAL HT</th>
-			  <th>TVA</th>
-			  <th>TOTAL TTC</th>
             </tr>
           </thead>
           <tbody>
-		  {% set totalht = 0 %}
-		  {% for ligne in lignes %}
+		 
+		  {% for ligneLivraison in ligneslignesLivraisons %}
 		   <tr>
-		   {# Récupérer la référence du produit #}
-              {# <td>{{ligne.getProduit().getReference()}}</td>
-              <td>{{ligne.libelle}}</td>
-              <td>{{ligne.prixVente}}</td>
-              <td>{{ligne.quantite}}</td>
-			   <td>{{ligne.quantite * ligne.prixVente }}</td>
-			    {% set totalht = totalht + (ligne.quantite * ligne.prixVente )%}
-			   <td>TVA</td>
-			   <td>{{ligne.quantite * ligne.prixVente *1.2 }}</td>
+		    {# Récupérer la référence du produit  #}
+               <td>{{ligneLivraison.getProduit().getReference()}}</td>
+              <td>{{ligneLivraison.libelle}}</td>
+              <td>{{ligneLivraison.quantiteLivree}}</td>
 			   
             </tr>
 			
 		  {% endfor %}
            
            
-            <tr>
-              <th colspan="4" class="total text-right">Total</th>
-			  <td>{{totalht}}</td>
-			   <td>TVA</td>
-              <td>{{commande.totalCommande}}</td>
-            </tr>
+          
           </tbody>
-        </table> #} 
+        </table> 
       </div>
     </div>
 	</div>

@@ -12,24 +12,19 @@ class PdfService
 
     public function __construct()
     {
-        // ajouter une option de police 
+        // Options de configuration de Dompdf
         $options = new Options();
-        $options->set('defaultFont', 'Courier');
+        $options->set('defaultFont', 'Ariel'); // Définir la police par défaut
 
-        $this->domPdf = new DomPdf($options);
-        
+        // Initialisation de Dompdf avec les options
+        $this->domPdf = new Dompdf($options);
 
-        // (Optional) Setup the paper size and orientation
+        // Définir la taille de la page et l'orientation (facultatif)
         $this->domPdf->setPaper('A4', 'landscape');
-
-        // Render the HTML as PDF
-        
-        //donner un nom au fichier
-  
     }
  
-    // Fonction pour afficher le PDF dans le navigateur
-    public function affichePdf($html)
+    // Afficher le PDF dans le navigateur
+    public function affichePdf($html, $fileName = 'bon_commande.pdf')
     {
         // Charger le HTML dans Dompdf
         $this->domPdf->loadHtml($html);
@@ -38,19 +33,21 @@ class PdfService
         $this->domPdf->render();
 
         // Stream le PDF dans le navigateur
-        $this->domPdf->stream("facture.pdf", [
-            "Attachment" => false
+        $this->domPdf->stream($fileName, [
+            "Attachment" => false // Empêcher le téléchargement automatique
         ]);
     }
-     // fonction pour générer le pdf
-     public function generePdf($html)
-     {
-         // Charger le HTML dans Dompdf
-         $this->domPdf->loadHtml($html);
-          // Rendre le PDF
-         $this->domPdf->render();
-      // Retourner le contenu du PDF en tant que chaîne binaire
-         $this->domPdf->output();
-         
-     }
+
+    // Générer le PDF et le retourner en tant que chaîne binaire
+    public function generePdf($html)
+    {
+        // Charger le HTML dans Dompdf
+        $this->domPdf->loadHtml($html);
+
+        // Rendre le PDF
+        $this->domPdf->render();
+
+        // Retourner le contenu du PDF en tant que chaîne binaire
+        return $this->domPdf->output();
+    }
 }

@@ -59,12 +59,11 @@
 				<img src="" alt="">
 			</div>
 			<div class=" col-6  ">
-				<p>Facture N°
-					{{commande.numeroFacture}}</p>
 				<p>Commande N°
 					{{commande.id}}</p>
+				
 				<p>Date:
-					{{commande.dateFacture}}
+					{{commande.dateCommande | date("d/m/Y")}}
 				</p>
 			</div>
 		</div>

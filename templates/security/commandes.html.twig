@@ -15,48 +15,63 @@
 					<td>
 						<div class="card mb-3" style="max-width: 540px;">
 							<div class="row g-0">
-								<div class="col-md-4">
-									<img src="..." class="img-fluid rounded-start" alt="...">
-								</div>
-								<div class="col-md-8">
-									<div class="card-body">
-										<div class="d-flex justify-content-between">
-											<h5 class="card-title">
-												{{ commande.totalCommande }}
-												€</h5>
+								<div class="col-md-12">
+									<div class="">
+										<img src="..." class="img-fluid rounded-start" alt="...">
+									</div>
+									<div class="">
+										<div class="card-body">
+											<div class="d-flex justify-content-between">
+												<h5 class="card-title">
+													{{ commande.totalCommande }}
+													€</h5>
+												<p class="card-text ">
+													{{ commande.dateCommande |date("d/m/Y")}}</p>
+											</div>
+
 											<p class="card-text ">
-												{{ commande.dateCommande |date("m/d/Y")}}</p>
+												{{ commande.statut }}</p>
+
+
+											<p class="card-text">N° commande :
+												{{ commande.id }}</p>
+
+											<a href="{{ path('detailsCommande',{'id':commande.id}) }} ">Détails{{'>'}}</a>
 										</div>
-
-										<p class="card-text ">
-											{{ commande.statut }}</p>
-
-
-										<p class="card-text">N° commande :
-											{{ commande.id }}</p>
-
-										<a href="{{ path('detailsCommande',{'id':commande.id}) }} ">Détails{{'>'}}</a>
 									</div>
 								</div>
-								{# lien de téléchargement de la facture  #}
-								<td class="align-middle text-center">
-									<a href="{{path('facture.pdf',{'id':commande.id})}}" target="_blank">facture
-										<img src="{{asset('assets/images/telecharger.png')}}" alt="télécharger"></a>
-								</td>
-								{# lien de téléchargement du bon de livraison  #}
-								<td class="align-middle text-center">
-									<a href="">bon de livraison
-										<img src="{{asset('assets/images/telecharger.png')}}" alt="télécharger"></a>
-								</td>
+								<div class="col-md-3">
+									<div
+										class="">
+										{# lien de téléchargement du bon de commande  #}
+										<td class="align-middle text-center">
+											<a href="{{path('bonCommande.pdf',{'id':commande.id})}}">bon de commande
+												<img src="{{asset('assets/images/telecharger.png')}}" alt="télécharger"></a>
+										</td>
+									</div>
+									<div
+										class="">
+										{# lien de téléchargement de la facture  #}
+										<td class="align-middle text-center">
+											<a href="{{path('facture.pdf',{'id':commande.id})}}" target="_blank">facture
+												<img src="{{asset('assets/images/telecharger.png')}}" alt="télécharger"></a>
+										</td>
+									</div>
+									<div
+										class="">
+										{# lien de téléchargement du bon de livraison  #}
+										<td class="align-middle text-center">
+											<a href="{{path('bonLivraison.pdf',{'id':commande.id})}}">bon de livraison
+												<img src="{{asset('assets/images/telecharger.png')}}" alt="télécharger"></a>
+										</td>
+									</div>
+								</div>
 							</div>
 						</div>
 					</td>
 				</tr>
-
 			{% endfor %}
 
 		</tbody>
-
 	</table>
-
 </div>{% endblock %}

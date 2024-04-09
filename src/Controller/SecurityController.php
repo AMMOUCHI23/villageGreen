@@ -91,6 +91,24 @@ class SecurityController extends AbstractController
         ]);
     
         }
+                // Controller pour générer un bonde commande
+                #[Route(path: '/commande/{id}', name: 'bonCommande.pdf')]
+                public function genererBonCommandePdf(Commande $commande, PdfService $pdf)
+                {
+                // récupérer les lignes de commandes d'une commande
+                $lignes=$commande->getLigneCommandes();
+               
+        
+                // Récupérer le contenu HTML de la facture en utilisant le moteur de rendu Twig
+                $html = $this->renderView('security/bonCommande.html.twig', [
+                    'commande' => $commande,
+                    'lignes' => $lignes
+                ]);
+              
+                 // Afficher la facture sur le navigateur
+                  $pdf->affichePdf($html,"bon_commande.pdf");
+            
+                }
 
 
         // Controller pour générer une facture
@@ -107,16 +125,16 @@ class SecurityController extends AbstractController
             'lignes' => $lignes
         ]);
       
-         // Afficher le PDF dans le navigateur
-       return  $pdf->affichePdf($html);
+         // Afficher la facture sur le navigateur
+          $pdf->affichePdf($html,"facture.pdf");
     
         }
 
 
 
         // Controller pour générer un bon de livraison
-        #[Route(path: '/livraison/{id}', name: 'livraison.pdf')]
-        public function genererBonCommandePdf(Livraison $livraison, PdfService $pdf)
+        #[Route(path: '/livraison/{id}', name: 'bonLivraison.pdf')]
+        public function genererBonLivraisonPdf(Livraison $livraison, PdfService $pdf)
         {
         // récupérer les lignes de livraison d'une livraison
         $lignesLivraisons=$livraison->getLigneLivraisons();
@@ -125,11 +143,11 @@ class SecurityController extends AbstractController
         // Récupérer le contenu HTML de du bon de commande en utilisant le moteur de rendu Twig
         $html = $this->renderView('security/bonLivraison.html.twig', [
             'livraison' => $livraison,
-            'ligneslignesLivraison' => $lignesLivraisons
+            'ligneslignesLivraisons' => $lignesLivraisons
         ]);
       
-         // Afficher le PDF dans le navigateur
-       return  $pdf->affichePdf($html);
+         // Afficher le bon de livraison sur le navigateur
+       return  $pdf->affichePdf($html,"bon_livraison.pdf");
     
         }
 

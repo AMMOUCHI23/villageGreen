@@ -3,11 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Data\SearchData;
 use App\Entity\Utilisateur;
+use App\Form\ChercheFormType;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -63,4 +66,29 @@ class CatalogueController extends AbstractController
             'produit' => $produit
         ]);
     }
+
+    //Module de recherche
+    #[Route('/cherche', name: 'cherche')]
+    public function cherche(ProduitRepository $produitRepo, Request $request): Response
+    {    
+   
+
+        $form = $this->createForm(ChercheFormType::class);
+        $produits = []; // Initialisation de la variable $produits
+
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data=$form->getData();
+            dd($data);
+            $produits=$produitRepo->findBy(['libelle'=>$data]);
+            dd($produits);
+            
+        }
+        return $this->render('catalogue/cherche.html.twig', [
+            'form' => $form->createView(),
+            'produits'=>$produits
+        ]);
+    }
+
 }
