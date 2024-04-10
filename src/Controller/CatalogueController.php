@@ -66,28 +66,39 @@ class CatalogueController extends AbstractController
             'produit' => $produit
         ]);
     }
-
-    //Module de recherche
     #[Route('/cherche', name: 'cherche')]
     public function cherche(ProduitRepository $produitRepo, Request $request): Response
     {    
-   
-
         $form = $this->createForm(ChercheFormType::class);
         $produits = []; // Initialisation de la variable $produits
-
+    
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $data=$form->getData();
-            dd($data);
-            $produits=$produitRepo->findBy(['libelle'=>$data]);
-            dd($produits);
-            
+            $data = $form->getData();
+            $cherche = $data['cherche'];
+    
+            // Vérifie si la recherche n'est pas vide
+            if (!empty($cherche)) {
+                // Requête pour rechercher les produits avec l'autocomplétion
+                $produits = $produitRepo->createQueryBuilder('p')
+                    ->where('p.libelle LIKE :cherche')
+                    ->setParameter('cherche', '%' . $cherche . '%')
+                    ->getQuery()
+                    ->getResult();
+            } else {
+                // Ajouter un message si la recherche est vide
+                $this->addFlash('warning', 'Veuillez entrer un terme de recherche.');
+            }
+            // return $this->render('catalogue/cherchePage.html.twig', [
+            //     'form' => $form->createView(),
+            //     'produits' => $produits
+            // ]);
         }
-        return $this->render('catalogue/cherche.html.twig', [
+    
+        return $this->render('catalogue/cherchePage.html.twig', [
             'form' => $form->createView(),
-            'produits'=>$produits
+            'produits' => $produits
         ]);
     }
 

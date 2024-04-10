@@ -28,10 +28,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse " id="navbarColor04">
-            <form class="d-flex mx-auto position-relative " role="search">
+            {# <form class="d-flex mx-auto position-relative " role="search">
                 <input class="form-control  me-2" type="search" placeholder="Chercher" aria-label="Search">
 				<a href="{{path('cherche')}}"><img src="{{asset('assets/images/chercher.png')}}" class="image-fluide position-absolute  end-0 m-2 " alt="recherche"></a>
-            </form>
+            </form> #}
+			 {% include('catalogue/cherche.html.twig') %}
 			
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -147,4 +148,5 @@
 			</div>
 		</footer>
 	</body>
-</html></body></html></body></html>
+</html>
+
