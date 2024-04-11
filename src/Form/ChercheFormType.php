@@ -15,7 +15,7 @@ class ChercheFormType extends AbstractType
     {
         $builder
 
-        ->add('cherche', TextType::class, [
+        ->add('search', TextType::class, [
             'label' => false,
             'required' => false,
             'attr' => [

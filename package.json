@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "chartjs-plugin-zoom": "^2.0.1"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.2",
+    "yarn": "^1.22.22"
+  }
+}

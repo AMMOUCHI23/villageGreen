@@ -32,7 +32,9 @@
                 <input class="form-control  me-2" type="search" placeholder="Chercher" aria-label="Search">
 				<a href="{{path('cherche')}}"><img src="{{asset('assets/images/chercher.png')}}" class="image-fluide position-absolute  end-0 m-2 " alt="recherche"></a>
             </form> #}
-			 {% include('catalogue/cherche.html.twig') %}
+			{# {% include 'catalogue/cherche.html.twig' %}  #}
+			{{ render(controller("App\\Controller\\CatalogueController::chercheProduit")) }} 
+		 
 			
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -68,6 +70,7 @@
 		   
     </div>
 </nav>
+
 <style>
     .form-control {
         width: 400px; /* Modifier la largeur de la barre de recherche */
