@@ -5,26 +5,33 @@
 
 {% block body %}
 
-	<div class="container mt-3">
-    <div class="row justify-content-center">
-       
-    </div>
-    <h1 class="text-center"></h1>
-    <div class="row justify-content-center">
-        {% for produit in produits %}
-            <div class="card  col-sm-6 col-md-3 m-2">
-        <img src="{{ asset('assets/images/' ~ produit.getCategorie().getParent().getNomCategorie()   ~ '/' ~ produit.getCategorie().getNomCategorie() ~ '/' ~ produit.getPhoto()) }}" class="card-img-top" alt="{{ produit.getLibelle() }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ produit.libelle }}</h5>
-                    <a href="{{ path('details_produit', {id: produit.id})}}">
-                        <small class="card-text">Cliquer pour plus de détails</small>
-                    </a>
-                    {# afficher les prix en appliquant les le coefficient de vente pour les particuliers #}
-                    <h4 class="prix">{{ produit.prixAchat * 1.6  }} €</h4>
-                    <a href="{{ path('ajoutPanier', {'id': produit.id}) }}" class="btn btn-primary mx-3">Ajouter au panier</a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
+	<div
+		class="container mt-3">
+		{# Affichage d'un message flash dans le cas où y'a pas de produits à afficher ou le champs de recherche est vide  #}
+		<div class="row justify-content-center">
+			{{ include('partiales/flash.html.twig') }}
+		</div>
+		{# Afficher les produits #}
+		{% if produits is not empty %}
+			<h3 class="text-center text-primary my-3">Nos Produits suggérés pour votre recherche</h3>
+			<div class="row justify-content-center">
+				{% for produit in produits %}
+					<div class="card col-sm-6 col-md-3 m-2">
+						<img src="{{ asset('assets/images/' ~ produit.getCategorie().getParent().getNomCategorie() ~ '/' ~ produit.getCategorie().getNomCategorie() ~ '/' ~ produit.getPhoto()) }}" class="card-img-top" alt="{{ produit.getLibelle() }}">
+						<div class="card-body">
+							<h5 class="card-title">{{ produit.libelle }}</h5>
+							<a href="{{ path('details_produit', {id: produit.id})}}">
+								<small class="card-text">Cliquer pour plus de détails</small>
+							</a>
+							{# afficher les prix en appliquant les le coefficient de vente pour les particuliers #}
+							<h4 class="prix">{{ produit.prixAchat * 1.6  }}
+								€</h4>
+							<a href="{{ path('ajoutPanier', {'id': produit.id}) }}" class="btn btn-primary mx-3">Ajouter au panier</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+
 {% endblock %}

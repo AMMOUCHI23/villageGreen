@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello StatiqueController!{% endblock %}
+{% block title %}Statistiques{% endblock %}
 
 {% block body %}
 <div>
+<script src="path/to/chartjs/dist/chart.umd.js"></script>
 {{ render_chart(chart) }}
 </div>
 {% endblock %}

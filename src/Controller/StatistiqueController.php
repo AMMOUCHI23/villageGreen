@@ -14,6 +14,7 @@ class StatistiqueController extends AbstractController
     public function index(ChartBuilderInterface $chartBuilder): Response
     {
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
+
         $chart->setData([
             'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             'datasets' => [
@@ -28,8 +29,9 @@ class StatistiqueController extends AbstractController
 
         $chart->setOptions([
             'scales' => [
-                'yAxes' => [
-                    ['ticks' => ['min' => 0, 'max' => 100]],
+                'y' => [
+                    'suggestedMin' => 0,
+                    'suggestedMax' => 100,
                 ],
             ],
         ]);

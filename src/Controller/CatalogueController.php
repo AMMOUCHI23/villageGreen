@@ -74,12 +74,12 @@ class CatalogueController extends AbstractController
         $produits = []; // Initialisation de la variable $produits
     
         $form->handleRequest($request);
-        //dd($form);
-        
+
+        //Vérifier le formulaire de recherche
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $search = $data['search'];
-     //dd($search);
+   
             // Vérifie si la recherche n'est pas vide
             if (!empty($search)) {
                 // Requête pour rechercher les produits avec l'autocomplétion
@@ -88,25 +88,25 @@ class CatalogueController extends AbstractController
                     ->setParameter('search', '%' . $search . '%')
                     ->getQuery()
                     ->getResult();
-                    
-                    //$this->logger->info('Page d\'accueil visitée.');
-                    
-                   // dd($produits);
-                    return $this->render('catalogue/cherchePage.html.twig', [
-                        'form' => $form->createView(),
-                        'produits'=>$produits,
-                        
-                    ]);
-                  
-                   
-            } 
-            // else {
-            //     // Ajouter un message si la recherche est vide
-            //     $this->addFlash('warning', 'Veuillez entrer un terme de recherche.');
-            // }
-            
+                
+                if (empty($produits)) {
+                    // Ajouter un message flash si aucun produit n'est trouvé
+                    $this->addFlash('warning', 'Aucun produit trouvé pour cette recherche.');
+                }
+                
+                return $this->render('catalogue/cherchePage.html.twig', [
+                    'form' => $form->createView(),
+                    'produits' => $produits,
+                ]);
+            } else {
+                // Ajouter un message flash si la recherche est vide
+                $this->addFlash('warning', 'Veuillez entrer un terme de recherche.');
+                return $this->render('catalogue/cherchePage.html.twig', [
+                    'form' => $form->createView(),
+                    'produits' => $produits,
+                ]);
+            }
         }
-        //dd($produits);
         return $this->render('catalogue/cherche.html.twig', [
             'form' => $form->createView(),
             'produits'=>$produits,

@@ -20,13 +20,13 @@ class ChercheFormType extends AbstractType
             'required' => false,
             'attr' => [
                 'placeholder' => 'Rechercher un produit...',
-                'class' => 'form-control',
+                'class' => 'form-control mr-sm-2',
             ],
         ])
         ->add('chercher', SubmitType::class, [
             'label' => 'Rechercher',
             'attr' => [
-                'class' => 'btn btn-primary',
+                'class' => 'btn btn-primary my-2 my-sm-0',
             ],
         ]);
     }
