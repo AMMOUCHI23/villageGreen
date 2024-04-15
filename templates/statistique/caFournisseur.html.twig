@@ -7,22 +7,22 @@
 {% block body %}
 	<style>
 
-		#chiffreAffaires {
+		#grapheCA{
 
 			width: 1000px !important; /* Changer la largeur du graphe */
 			height: 600px !important; /* Changer la hauteur du graphe */
 		}
 	</style>
 	<div class="container">
-		<h3 class="text mt-4">Chiffre d'affaire par année et par mois</h3>
+		<h3 class="text mt-4">Chiffre d'affaire  par fournisseur</h3>
 		<div class="row">
 			<div class="col-md-8">
-				<canvas id="chiffreAffaires" class="img-fluid"></canvas>
+				<canvas id="grapheCA" class="img-fluid"></canvas>
 
 			</div>
 		</div>
 		
-				<form method="get" action="{{ path('chiffreAffaire') }}">
+				<form method="get" action="{{ path('caFournisseur') }}">
 					<label for="annee" class="form-label mt-4">Sélectionner une année :</label>
                  <div class="row ">
 			<div class="col-md-3">
@@ -47,33 +47,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
-		var data = {{ chiffreAffaire|raw }};
-var months = [];
-var revenues = [];
+		
 
-// Initialiser les mois et les revenus à zéro
-for (let i = 1; i <= 12; i++) {
-months.push(i);
-revenues.push(0);
-}
-
-// Parcourir les données et mettre à jour les revenus pour les mois correspondants
-data.forEach(function (item) { // Utiliser l'indice de mois (1-12) pour mettre à jour les revenus
-revenues[item.mois - 1] = item.chiffreAffaire;
-});
-// Ecrire les mois en lettres
-var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-
-
-var recette = document.getElementById('chiffreAffaires');
-var recetteGraphe = new Chart(recette, {
+var chiffreAffaires =object.values(chiffreAffaires) ;
+{{ dump() }};
+var CA = document.getElementById('grapheCA');
+var recetteGraphe = new Chart(CA, {
         type: 'bar',
         data: {
-        labels: months,
+        labels: nomFournisseurs,
         datasets: [
        {
-         label: 'Chiffre d\'affaires par mois',
-         data: revenues,
+         label: 'Chiffre d\'affaires par fournisseur',
+         data: chiffreAffaires,
          backgroundColor:  "blue",
          borderColor: 'rgba(54, 162, 235, 1)',
          borderWidth: 1
