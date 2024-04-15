@@ -1662,7 +1662,7 @@ class AppFixtures extends Fixture
         $pr89 ->setReference("REF089")
             ->setLibelle("")
             ->setDimenssion("60x120x8 cm")
-            ->setCoul8eur("blanc")
+            ->setCouleur("blanc")
             ->setDescription("")
             ->setPrixAchat(40)
             ->setPhoto(".jpg")
