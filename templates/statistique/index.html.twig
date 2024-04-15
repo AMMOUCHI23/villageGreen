@@ -1,10 +1,81 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Statistiques{% endblock %}
-
+{# {% extends 'base.html.twig' %} #}
 {% block body %}
-<div>
-<script src="path/to/chartjs/dist/chart.umd.js"></script>
-{{ render_chart(chart) }}
+<style>
+
+  #categories {
+        
+        width: 600px !important; /* Changer la largeur du graphe */
+        height: 600px !important; /* Changer la hauteur du graphe */
+    }
+
+</style>
+<div class="container">
+<h1>Statistique</h1>
+
+    <canvas id="chiffreAffaires" ></canvas>
+
+    <form method="get" action="{{ path('statistique') }}">
+    <label for="annee">Sélectionner une année :</label>
+    <select name="annee" id="annee">
+        {% for annee in (2024 - 10)..(2024) %}
+            <option value="{{ annee }}" {% if annee == anneeSelectionnee %}selected{% endif %}>{{ annee }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Afficher</button>
+</form>
+
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var data = {{ chiffreAffaire|raw }};
+    var months = [];
+    var revenues = [];
+
+    // Initialiser les mois et les revenus à zéro
+    for (let i = 1; i <= 12; i++) {
+        months.push(i);
+        revenues.push(0);
+    }
+
+    // Parcourir les données et mettre à jour les revenus pour les mois correspondants
+    data.forEach(function(item) {
+        // Utiliser l'indice de mois (1-12) pour mettre à jour les revenus
+        revenues[item.mois - 1] = item.chiffreAffaire;
+    });
+        // Ecrire les mois en lettres 
+        var months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+        
+    
+    var recette = document.getElementById('chiffreAffaires');
+    var recetteGraphe = new Chart(recette, {
+        type: 'bar',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Chiffre d\'affaires par mois',
+                data: revenues,
+                backgroundColor: ["red","blue","black"],
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+         options: {
+            animation: {
+                 duration: 10000,
+                onProgress: function(animation) {
+                    progress.value = animation.currentStep / animation.numSteps;
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+   
+</script>
 {% endblock %}

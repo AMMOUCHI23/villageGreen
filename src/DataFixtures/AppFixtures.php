@@ -984,12 +984,12 @@ class AppFixtures extends Fixture
         //Produit 1
         $pr77 = new Produit();
         $pr77->setReference("REF077")
-            ->setLibelle("Lit Tablette")
-            ->setDimenssion("160x80x139 cm")
+            ->setLibelle("Lit SLAKT")
+            ->setDimenssion("90x200 cm")
             ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(80)
-            ->setPhoto("lit_MICKE.jpg")
+            ->setDescription("Le rêve des adolescents. Ce lit est confortable et offre de nombreuses solutions de rangement pour y mettre vêtements ou affaires de sport. Tout est rangé dans un même endroit et facilement accessible.")
+            ->setPrixAchat(220)
+            ->setPhoto("lit_SLAKT.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
@@ -1000,12 +1000,12 @@ class AppFixtures extends Fixture
          //Produit 2
          $pr78 = new Produit();
          $pr78->setReference("REF078")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
+             ->setLibelle("Lit MALM")
+             ->setDimenssion("90x200 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setDescription("Un design épuré. Esthétique de tous les côtés vous pouvez le placer au milieu d'une pièce ou avec la tête de lit contre le mur. Si vous avez besoin de place pour ranger des couettes ou des oreillers, ajoutez-y les rangements MALM sur roulettes.")
+             ->setPrixAchat(90)
+             ->setPhoto("lit_MALM.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1017,12 +1017,16 @@ class AppFixtures extends Fixture
           //Produit 3
         $pr79 = new Produit();
         $pr79->setReference("REF079")
-            ->setLibelle("Lit Tablette")
-            ->setDimenssion("160x80x139 cm")
+            ->setLibelle("Lit MONDAL")
+            ->setDimenssion("90x200 cm")
             ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(80)
-            ->setPhoto("lit_MICKE.jpg")
+            ->setDescription("En bois massif, un matériau naturel et résistant à l'usure.
+            Cadre du sommier/ Face de tiroir/ Fond de tiroir:
+            Panneau de fibres de bois, peinture acrylique
+            Côtés de tiroir/ Arrière de tiroir/ Pied de soutien/ Support médian:
+            bouleau massif")
+            ->setPrixAchat(180)
+            ->setPhoto("lit_MONDAL.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
@@ -1033,12 +1037,12 @@ class AppFixtures extends Fixture
          //Produit 4
          $pr80 = new Produit();
          $pr80->setReference("REF080")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
-             ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setLibelle("Lit NEIDEN")
+             ->setDimenssion("90x200 cm")
+             ->setCouleur("pin")
+             ->setDescription("Le bois massif non traité a du charme mais vous pouvez aussi le personnaliser avec une couche de teinture, de peinture ou de cire. La structure est assez haute pour placer des boîtes de rangement en dessous.")
+             ->setPrixAchat(40)
+             ->setPhoto("lit_NEIDEN.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1049,12 +1053,12 @@ class AppFixtures extends Fixture
           //Produit 5
         $pr81 = new Produit();
         $pr81->setReference("REF081")
-            ->setLibelle("Lit Tablette")
-            ->setDimenssion("160x80x139 cm")
-            ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(80)
-            ->setPhoto("lit_MICKE.jpg")
+            ->setLibelle("Lit KURA")
+            ->setDimenssion("90x200 cm")
+            ->setCouleur("blanc/pin")
+            ->setDescription("Ce lit bas est adapté aux jeunes enfants et grandit avec eux. Vous pouvez le retourner quand votre enfant devient plus grand, pour créer un espace de jeux grand et confortable.")
+            ->setPrixAchat(110)
+            ->setPhoto("lit_KURA.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
@@ -1065,12 +1069,12 @@ class AppFixtures extends Fixture
          //Produit 6
          $pr82 = new Produit();
          $pr82->setReference("REF082")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
+             ->setLibelle("Lit MYDAL")
+             ->setDimenssion("90x200 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setDescription("Ce lit superposé, à petit prix, est fabriqué en bois massif, un matériau solide qui dure de nombreuses années et peut-être recyclé le jour où votre enfant quitte le nid.")
+             ->setPrixAchat(110)
+             ->setPhoto("lit_MYDAL.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1089,12 +1093,12 @@ class AppFixtures extends Fixture
          //Produit 1
          $pr83 = new Produit();
          $pr83 ->setReference("REF083")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
+             ->setLibelle("Matelas HIMLAVALV")
+             ->setDimenssion("60x120x10 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setDescription("Les jeunes enfants mouillent souvent leur lit. Cela peut être un problème, tout comme la poussière ou les allergies. C’est pour cela que ce matelas peut se rincer à l’eau et sécher à l’air libre et que sa housse est amovible et lavable en machine.")
+             ->setPrixAchat(60)
+             ->setPhoto("matelas_HIMLAVALV.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1105,12 +1109,12 @@ class AppFixtures extends Fixture
          //Produit 2
          $pr84 = new Produit();
          $pr84 ->setReference("REF084")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
+             ->setLibelle("Matelas UNDERLIG")
+             ->setDimenssion("70x160 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setDescription("Votre enfant a besoin d'un endroit confortable et à la bonne taille pour se sentir en sécurité la nuit. Le matelas UNDERLIG s'adapte parfaitement à nos lits pour enfant et permet à votre bambin de dormir dans son premier lit de grand.")
+             ->setPrixAchat(40)
+             ->setPhoto("matelas_UNDERLIG.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1121,12 +1125,12 @@ class AppFixtures extends Fixture
          //Produit 3
          $pr85 = new Produit();
          $pr85 ->setReference("REF085")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
+             ->setLibelle("Matelat DROMMANDE")
+             ->setDimenssion("60x120x1 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setDescription("Le coeur du matelas DRÖMMANDE est composé de ressorts ensachés et enveloppés d'un mélange de fibres de coco et de latex naturel. Résultat : un matelas résilient et sûr, qui laisse l'air circuler et garantit un sommeil confortable à votre bébé.")
+             ->setPrixAchat(120)
+             ->setPhoto("matelat_DROMMANDE.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1137,12 +1141,12 @@ class AppFixtures extends Fixture
          //Produit 4
          $pr86 = new Produit();
          $pr86 ->setReference("REF086")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
+             ->setLibelle("Matelas OMSINT")
+             ->setDimenssion("80x200 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setDescription("Ce matelas de 12 cm d'épaisseur, en 3 parties, est composé de ressorts ensachés individuellement et recouverts d'une épaisse couche de mousse. S'adapte à la taille de votre enfant et au lit extensible, de 130 à 165 ou 200 cm.")
+             ->setPrixAchat(120)
+             ->setPhoto("matelas_OMSINT.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1153,12 +1157,12 @@ class AppFixtures extends Fixture
          //Produit 5
          $pr87 = new Produit();
          $pr87 ->setReference("REF087")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
+             ->setLibelle("Matelas KRUMMELUR")
+             ->setDimenssion("60x120x8 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setDescription("Nos matelas pour bébé sont fabriqués avec des matériaux durables et sûrs. Ils ont été testés et ne contiennent aucune substance pouvant présenter un danger pour la peau ou la santé de votre bébé. Tout le monde dormira sur ses deux oreilles. ")
+             ->setPrixAchat(25)
+             ->setPhoto("matelas_KRUMMELUR.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1169,12 +1173,12 @@ class AppFixtures extends Fixture
          //Produit 6
          $pr88 = new Produit();
          $pr88 ->setReference("REF088")
-             ->setLibelle("Lit Tablette")
-             ->setDimenssion("160x80x139 cm")
+             ->setLibelle("Matelas SKONAST")
+             ->setDimenssion("60x120x8 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(80)
-             ->setPhoto("lit_MICKE.jpg")
+             ->setDescription("Nos matelas pour bébé sont fabriqués avec des matériaux durables et sûrs. Ils ont été testés et ne contiennent aucune substance pouvant présenter un danger pour la peau ou la santé de votre bébé. Tout le monde dormira sur ses deux oreilles.")
+             ->setPrixAchat(40)
+             ->setPhoto("matelas_SKONAST.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
@@ -1619,21 +1623,104 @@ class AppFixtures extends Fixture
         $categorie61->setPhoto("armoires.jpg");
         $categorie61->setParent($categorie6);
         $manager->persist($categorie61);
-        // Produit 6
-        $pr34 = new Produit();
-        $pr34->setReference("REF034")
-            ->setLibelle("Support Tablette")
-            ->setDimenssion("160x60x145 cm")
+
+        //les produits de la sous catégorie armoirs
+        // Produit 1
+        $pr89 = new Produit();
+        $pr89 ->setReference("REF089")
+            ->setLibelle("")
+            ->setDimenssion("60x120x8 cm")
             ->setCouleur("blanc")
             ->setDescription("")
-            ->setPrixAchat(50)
-            ->setPhoto("bureau_MICKE.jpg")
+            ->setPrixAchat(40)
+            ->setPhoto(".jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
-            ->setCategorie($categorie54)
-            ->setFournisseur($fournisseur5);
-        $manager->persist($pr34);
+            ->setCategorie($categorie61)
+            ->setFournisseur($fournisseur2);
+        $manager->persist($pr89);
+
+         // Produit 2
+         $pr90 = new Produit();
+         $pr90 ->setReference("REF090")
+             ->setLibelle("")
+             ->setDimenssion("60x120x8 cm")
+             ->setCouleur("blanc")
+             ->setDescription("")
+             ->setPrixAchat(40)
+             ->setPhoto(".jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie61)
+             ->setFournisseur($fournisseur2);
+         $manager->persist($pr90);
+
+          // Produit 3
+        $pr89 = new Produit();
+        $pr89 ->setReference("REF089")
+            ->setLibelle("")
+            ->setDimenssion("60x120x8 cm")
+            ->setCoul8eur("blanc")
+            ->setDescription("")
+            ->setPrixAchat(40)
+            ->setPhoto(".jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie61)
+            ->setFournisseur($fournisseur2);
+        $manager->persist($pr89);
+
+         // Produit 4
+         $pr89 = new Produit();
+         $pr89 ->setReference("REF089")
+             ->setLibelle("")
+             ->setDimenssion("60x120x8 cm")
+             ->setCouleur("blanc")
+             ->setDescription("")
+             ->setPrixAchat(40)
+             ->setPhoto(".jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie61)
+             ->setFournisseur($fournisseur2);
+         $manager->persist($pr89);
+
+          // Produit 5
+        $pr89 = new Produit();
+        $pr89 ->setReference("REF089")
+            ->setLibelle("")
+            ->setDimenssion("60x120x8 cm")
+            ->setCouleur("blanc")
+            ->setDescription("")
+            ->setPrixAchat(40)
+            ->setPhoto(".jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie61)
+            ->setFournisseur($fournisseur2);
+        $manager->persist($pr89);
+
+         // Produit 6
+         $pr89 = new Produit();
+         $pr89 ->setReference("REF089")
+             ->setLibelle("")
+             ->setDimenssion("60x120x8 cm")
+             ->setCouleur("blanc")
+             ->setDescription("")
+             ->setPrixAchat(40)
+             ->setPhoto(".jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie61)
+             ->setFournisseur($fournisseur2);
+         $manager->persist($pr89);
+
 
         $categorie62 = new Categorie;
         $categorie62->setNomCategorie("Meubles_Lavabos");
