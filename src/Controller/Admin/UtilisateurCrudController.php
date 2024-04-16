@@ -74,4 +74,14 @@ class UtilisateurCrudController extends AbstractCrudController
 
         parent::persistEntity($entityManager, $entityInstance);
     }
+     // ajouter des options d'affichage
+     public function configureCrud(Crud $crud): Crud
+     {
+         return $crud
+             ->setEntityLabelInSingular('Utilisateur') //Titre Singulier
+             ->setEntityLabelInPlural('Utilisateurs')  // Titre pluriel
+             ->setDateTimeFormat('dd-MM-yyyy HH:mm:ss '); // format de la date
+             
+             
+     }
 }
