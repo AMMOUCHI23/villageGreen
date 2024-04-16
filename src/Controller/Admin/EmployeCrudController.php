@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller\Admin;
+
 use App\Entity\Utilisateur;
 use App\Entity\Employe;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -18,21 +19,16 @@ class EmployeCrudController extends AbstractCrudController
         return Employe::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
         return [
-         IdField::new('id')->hideOnForm(),
-         AssociationField::new('Utilisateur'),
-         TextField::new('nom'),
-         TextField::new('prenom'),
-         TextField::new('poste'),
-         TextField::new('telephone'),
-         TextField::new('sexe'),
-         EmailField::new('email')->hideWhenUpdating(),
-        
-           
+            IdField::new('id')->hideOnForm(),
+            AssociationField::new('Utilisateur'),
+            TextField::new('poste'),
+            EmailField::new('email')->hideWhenUpdating(),
+
+
         ];
     }
-    
 }
