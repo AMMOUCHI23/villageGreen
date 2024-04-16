@@ -38,13 +38,16 @@ class DashboardController extends AbstractDashboardController
 
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             
-            MenuItem::section('Catalogue'),
-            MenuItem::linkToCrud('Categories', 'fa fa-tags', Categorie::class),
-            MenuItem::linkToCrud('Produits', 'fa fa-file-text', Produit::class),
-            MenuItem::linkToCrud('Utilisateurs', 'fa fa-file-text', Utilisateur::class),
-            MenuItem::linkToCrud('Employe', 'fa fa-tags', Employe::class),
-            MenuItem::linkToCrud('Fournisseurs', 'fa fa-file-text', Fournisseur::class),
-            MenuItem::linkToCrud('Commande', 'fa fa-file-text', Commande::class)
+            MenuItem::section('Gestion du catalogue'),
+            MenuItem::linkToCrud('Categories', 'fa fa-table', Categorie::class),
+            MenuItem::linkToCrud('Produits', 'fa fa-list', Produit::class),
+            MenuItem::section('Gestion des utilisateurs'),
+            MenuItem::linkToCrud('Utilisateurs', 'fa fa-users', Utilisateur::class),
+            MenuItem::linkToCrud('Employe', 'fa fa-users-rays', Employe::class),
+            MenuItem::section('Gestion des fournisseurs'),
+            MenuItem::linkToCrud('Fournisseurs', 'fa fa-landmark', Fournisseur::class),
+            MenuItem::section('Gestion des commandes'),
+            MenuItem::linkToCrud('Commande', 'fa fa-sort', Commande::class)
         ];
     }
 }
