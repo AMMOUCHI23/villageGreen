@@ -16,7 +16,7 @@
 	<div class="container">
 	<a href="{{path('chiffreAffaire')}}" class="btn btn-primary my-4">Chiffre d'affaire par mois</a>
     <a href="{{path('caFournisseur')}}" class="btn btn-primary my-4">Chiffre d'affaire par fournisseur</a>
-		<h3 class="text mt-4">Chiffre d'affaire par mois pour l'année {{ anneeSelectionnee }}</h3>
+		<h3 class="text mt-4">Chiffre d'affaire par mois pour l'année {{ anneeSelectionnee ?: anneeActuelle }}</h3>
 		<div class="row">
 			<div class="col-md-8">
 			

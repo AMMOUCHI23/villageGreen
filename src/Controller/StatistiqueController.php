@@ -40,11 +40,13 @@ class StatistiqueController extends AbstractController
             ->groupBy('mois')
             ->getQuery()
             ->getResult();
-          // dd($chiffreAffaire ) ;
+            $anneeActuelle= date("Y");
+          
 
         return $this->render('statistique/caMois.html.twig', [
             'anneeSelectionnee' => $anneeSelectionnee,
             'chiffreAffaire' => json_encode($chiffreAffaire),
+            'anneeActuelle'=>$anneeActuelle,
             'now' => new \DateTime()
         ]);
     }
@@ -74,6 +76,7 @@ public function recetteParFournisseur(LigneCommandeRepository $ligne, Fournisseu
              ->setParameter('anneeSelectionnee', $anneeSelectionnee ?: date("Y")) // par défaut $anneeSelectionnee l'année en cours
              ->getQuery()
              ->getSingleScalarResult();
+             $anneeActuelle= date("Y");
          $nomFournisseurs[] = $fournisseur->getNomEntreprise();
          $chiffreAffaires[] = $CA;
      }
@@ -81,6 +84,7 @@ public function recetteParFournisseur(LigneCommandeRepository $ligne, Fournisseu
          'anneeSelectionnee' =>  $anneeSelectionnee,
          'nomFournisseurs' => json_encode($nomFournisseurs),
          'chiffreAffaires' => json_encode($chiffreAffaires),
+         'anneeActuelle'=>$anneeActuelle,
          'now' => new \DateTime()
      ]);
 }

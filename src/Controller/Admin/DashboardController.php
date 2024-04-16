@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Categorie;
+use App\Entity\Commande;
 use App\Entity\Employe;
 use App\Entity\Fournisseur;
 use App\Entity\Produit;
@@ -43,6 +44,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Utilisateurs', 'fa fa-file-text', Utilisateur::class),
             MenuItem::linkToCrud('Employe', 'fa fa-tags', Employe::class),
             MenuItem::linkToCrud('Fournisseurs', 'fa fa-file-text', Fournisseur::class),
+            MenuItem::linkToCrud('Commande', 'fa fa-file-text', Commande::class)
         ];
     }
 }
