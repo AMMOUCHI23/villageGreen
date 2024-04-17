@@ -25,12 +25,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse " id="navbarColor04">
-            {# <form class="d-flex mx-auto position-relative " role="search">
-                <input class="form-control  me-2" type="search" placeholder="Chercher" aria-label="Search">
-				<a href="{{path('cherche')}}"><img src="{{asset('assets/images/chercher.png')}}" class="image-fluide position-absolute  end-0 m-2 " alt="recherche"></a>
-            </form> #}
+            <div class="d-flex mx-auto position-relative " role="search">
+                {{ render(controller("App\\Controller\\CatalogueController::chercheProduit")) }} 
+            </div> 
 			{# {% include 'catalogue/cherche.html.twig' %}  #}
-			{{ render(controller("App\\Controller\\CatalogueController::chercheProduit")) }} 
+			
 		 
 			
             <ul class="navbar-nav ms-auto">
@@ -43,12 +42,16 @@
 				<li class="nav-item mx-2">
                     <a class="nav-link" href="{{path('accueil')}}">Contact</a>
                 </li>
-                <li class="nav-item">
+				{# Afficher les Onglets Administration et Statistique pour l'utilisateur qui a un role Admin #}
+               {% if is_granted('ROLE_ADMIN') %}
+			    <li class="nav-item">
                     <a class="nav-link" href="{{path('admin')}}">Administration</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="{{path('chiffreAffaire')}}">Statistique</a>
                 </li>
+				
+			   {% endif %}
             </ul>
 			<div class="nav-item m-2">
                 <a class="nav-link" href="{{ path('connexion') }}">

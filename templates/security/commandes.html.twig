@@ -5,11 +5,14 @@
 
 {% block body %}
 	<div class="container col-md-6">
-
+<a href="{{ path('app_profil') }}" class=" text my-3">{{' < '}}profil</a>
 		<h4 class="text mt-4">Mes Commandes</h4>
 		<table class="table table-hover"></h4>
-		<a href="{{ path('app_profil') }}">{{' < '}}profil</a>
+		
 		<tbody>
+			{% if commandes is empty %}
+			<p class="text-warning mt-4">vous n'avez pas encors de commandes passées</p>
+			{% endif %}
 			{% for commande in commandes %}
 				<tr>
 					<td>
@@ -43,7 +46,7 @@
 								<div class="col-md-3">
 									<div
 										class="">
-										{# lien de téléchargement du bon de commande  #}
+										{# lien de téléchargement de bon de commande  #}
 										<td class="align-middle text-center">
 											<a href="{{path('bonCommande.pdf',{'id':commande.id})}}">bon de commande
 												<img src="{{asset('assets/images/telecharger.png')}}" alt="télécharger"></a>
@@ -72,6 +75,8 @@
 				</tr>
 			{% endfor %}
 
+				
+			
 		</tbody>
 	</table>
 </div>{% endblock %}

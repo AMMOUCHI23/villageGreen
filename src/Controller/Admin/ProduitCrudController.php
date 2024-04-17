@@ -36,7 +36,7 @@ class ProduitCrudController extends AbstractCrudController
             TextField::new('couleur'),
             BooleanField::new('actif'),
             IntegerField::new('quantite_stock'),
-            IntegerField::new('stock_alert'),
+            IntegerField::new('stock_alertgit pull'),
             BooleanField::new('actif'),
             NumberField::new('prix_achat'),
 

@@ -6,9 +6,10 @@
 {% block body %}
 	<div class="container">
 		<form method="post">
-			{% if error %}
-				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-			{% endif %}
+		{# Afficher un message d'erreur en cas de probleme d'authantification #}
+			<div class="mt-3">
+			{{ include('partiales/flash.html.twig') }}
+			</div>
 
 			{% if app.user %}
 				<div class="mb-3">
@@ -18,8 +19,8 @@
 				</div>
 			{% endif %}
 			<div class="row justify-content-center mt-5 ">
-				<div class="col-md-6 text-center">
-					<h1 class="h3 mb-3 font-weight-normal">Connexion à mon compte</h1>
+				<div class="col-md-6 ">
+					<h2 class=" mb-3 font-weight-normal">Connexion à mon compte</h2>
 				</div>
 			</div>
 
@@ -49,10 +50,13 @@
 			</div>
 
 			<div class="row mt-4  justify-content-center">
-				<div class="col-md-6  ">
-					<button class="btn  btn-outline-danger btn-lg" type="button">Annuler</button>
-                    <button class="btn btn-lg btn-primary  " type="submit">Me connecter</button>
-				</div>
+				<div class="col-md-3  my-2">
+					<a href="{{path('connexion')}}" class="btn  btn-outline-danger btn-lg">Annuler</a>
+					</div>
+                    
+				<div class="col-md-3 my-2 ">
+					<button class="btn btn-lg btn-primary text-end   " type="submit">Me connecter</button>
+					</div>
 
 			</div>
 

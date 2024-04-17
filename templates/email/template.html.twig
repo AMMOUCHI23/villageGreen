@@ -1,0 +1,21 @@
+{% apply inline_css %}
+ <style>
+  h1 {
+            color:green;
+        }
+          </style>
+<h3>Confirmation de votre commande numéro {{commande.id}}</h3>
+<p>
+<p>Votre commande a été passée avec succès. Merci de votre achat !</p>
+   
+</p>
+<h4>Récaputulatif de ma commande:</h4>
+<p>Numéro de ma commande : {{commande.id}} </p>
+<p>Total de ma commande : {{commande.getTotalCommande()}} euros </p>
+
+<p>Mode de paiement : {{ commande.modePaiement}} </p>
+<p>Adresse de livraison : {{ commande.adresseLivraison }} {{commande.CPLivraison}} {{commande.villeLivraison}} </p>
+
+{{ dump() }}
+
+{% endapply %}

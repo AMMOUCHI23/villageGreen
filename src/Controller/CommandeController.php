@@ -7,6 +7,7 @@ use App\Entity\LigneCommande;
 use App\Form\CommandeFormType;
 use App\Repository\ClientRepository;
 use App\Repository\ProduitRepository;
+use App\Service\MailService;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,7 +19,8 @@ use Symfony\Component\Routing\Attribute\Route;
 class CommandeController extends AbstractController
 {
     #[Route('/commande', name: 'app_commande')]
-    public function index(Request $request, RequestStack $requestStack, ClientRepository $cl,EntityManagerInterface $em,ProduitRepository $produitRepository): Response
+    public function index(Request $request, RequestStack $requestStack, ClientRepository $cl,EntityManagerInterface $em,
+    ProduitRepository $produitRepository, MailService $mailService): Response
     {
         $commandeForm = $this->createForm(CommandeFormType::class);
         $total=$requestStack->getSession()->get('total_panier');
@@ -56,6 +58,19 @@ class CommandeController extends AbstractController
         }
             $em->persist($commande);
             $em->flush($commande);   
+            
+            // envoyer un email de confirmation de la commande 
+            $expediteur = 'expediteur@example.com';
+            $destinataire =$this->getUser()->getEmail();
+            $sujet = 'Confirmation de la commande';
+            $message = '';
+            $htmlTemplate = 'email/template.html.twig'; // Chemin vers le modèle Twig de l'e-mail
+            $context = [
+                'commande' => $commande,
+                
+                // Ajoutez d'autres variables de contexte si nécessaire pour votre modèle Twig
+            ];
+            $mailService->sendMail($expediteur, $destinataire, $sujet, $message, $htmlTemplate, $context);
              // supprimer le panier dans la sission 
              $requestStack->getSession()->remove("panier");
 

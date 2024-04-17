@@ -43,24 +43,35 @@ class RegistrationController extends AbstractController
                 )
 
             );
-            //creer un nouveau client 
+            // Ajouter le role Client pour le nouveau utilisateur
+            $user->setRoles(['ROLE_CLIENT']);
+
+            // Enregestrer le nouveau utilisateur d
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            //Récupérer l'id du nouveau
+           $id= $user->getId();
+
+           
+            //Créer un nouveau client 
             $client = new Client();
             $client->setUtilisateur($user)
                 ->setType("particulier")
                 ->setCoefficient(1.6)
                 ->setReduction(1)
-                ->setReferenceClient("C01");
+                ->setReferenceClient("C".$id); // la référence des clients particulier commence toujours avec la lettre C suivi de l'id de l'utilisateur
             //récupéré l'employé
             $employe = $emp->findOneById(2);
             $client->setEmploye($employe);
 
 
 
-            $entityManager->persist($user);
+            
             $entityManager->persist($client);
             $entityManager->flush();
 
-            // generate a signed url and email it to the user
+            // envoyer un e-mail eu nouveau client pour vérifier l'addresse mail
             $this->emailVerifier->sendEmailConfirmation(
                 'app_verify_email',
                 $user,
@@ -73,7 +84,7 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('accueil');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [

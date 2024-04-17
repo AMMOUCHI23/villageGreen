@@ -25,6 +25,10 @@ class SecurityController extends AbstractController
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
+        if ($error) {
+            // Ajouter un message flash en cas d'erreur d'authentification
+            $this->addFlash('danger', 'Addresse email ou mot de passe invalide');
+        }
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
@@ -53,7 +57,6 @@ class SecurityController extends AbstractController
     {
         $utilisateur =$this->getUser(); 
    
-       // dd($commandes);
     
     return $this->render('security/profil.html.twig', [
         'utilisateur'=> $utilisateur,

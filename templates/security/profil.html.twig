@@ -10,7 +10,7 @@
 			{{ utilisateur.prenom }}</h3>
 		<div>
 			<h4 class="text mt-3">Mes Coordonnées</h4>
-			<p class="text-primary m-3 ">
+			<p class="text-primary m-3">
 				<strong>Nom:</strong>
 				{{ utilisateur.nom }}</p>
 			<p class="text-primary m-3">
@@ -22,25 +22,25 @@
 			<p class="text-primary m-3">
 				<strong>Email:</strong>
 				{{ utilisateur.email }}</p>
-			<p></p>
 		</div>
-		<h4>Mes Commandes</h4>
-		<a href="{{path('commandes')}}">Afficher mes commandes</a>
-		</div>
+		{# Afficher l'onglet commande juste pour les Clients pas pour les administrateurs #}
+		{% if is_granted('ROLE_CLIENT') and not is_granted('ROLE_ADMIN')  %}
+			<h4>Mes Commandes</h4>
+			<a href="{{ path('commandes') }}">Afficher mes commandes</a>
 
 		
-			<div class="col mt-4 ">
-				<a href="{{path('app_login')}}">
-					<button class="btn text-info btn-lg  " type="button">Modifier mes coordonées
-					</button>
+		<div class="row mt-4">
+			<div class="col">
+				<a href="{{ path('app_login') }}">
+					<button class="btn text-info btn-lg" type="button">Modifier mes coordonnées</button>
 				</a>
 			</div>
-			<div class="col mt-4 d-flex justify-content-end">
+			{% endif %}
+			<div class="col d-flex justify-content-end">
 				<a href="{{ path('app_logout') }}">
 					<button type="submit" class="btn btn-danger btn-lg">Déconnexion</button>
 				</a>
-
 			</div>
-
 		</div>
-	{% endblock %}
+	</div>
+{% endblock %}
