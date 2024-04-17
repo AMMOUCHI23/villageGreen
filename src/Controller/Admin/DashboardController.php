@@ -47,7 +47,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('Gestion des fournisseurs'),
             MenuItem::linkToCrud('Fournisseurs', 'fa fa-landmark', Fournisseur::class),
             MenuItem::section('Gestion des commandes'),
-            MenuItem::linkToCrud('Commande', 'fa fa-sort', Commande::class)
+            MenuItem::linkToCrud('Commandes', 'fa fa-sort', Commande::class)
         ];
     }
 }

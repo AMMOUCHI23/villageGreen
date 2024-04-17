@@ -3,8 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Produit;
+use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -29,15 +31,21 @@ class ProduitCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('reference')->hideWhenUpdating(),
             ImageField::new('photo')
-            ->setUploadDir('public/assets/images/Bureau/')
-            ->setBasePath('/assets/images/Bureau/Bureaux'),
+            ->setUploadDir('public/assets/images/imagesAdmin')
+            ->setBasePath('/assets/images/imagesAdmin'),
             TextField::new('libelle'),
             TextField::new('dimenssion'),
             TextField::new('couleur'),
             BooleanField::new('actif'),
             IntegerField::new('quantite_stock'),
-            IntegerField::new('stock_alertgit pull'),
-            BooleanField::new('actif'),
+            IntegerField::new('stock_alert'),
+            AssociationField::new('fournisseur'),
+            AssociationField::new('Categorie')
+            ->setQueryBuilder(
+                function(QueryBuilder $qb) {
+                    return $qb->where("entity.parent is notnull");
+                }
+            ),
             NumberField::new('prix_achat'),
 
 
