@@ -1,0 +1,10 @@
+<h4 class="card-title ">Récapitulatif</h4>
+<p class="card-text mt-4">Sous-total HT : {{totalHT}} €
+</p>
+<p class="card-text mt-4">TVA : 20%</p>
+<hr>
+<p class="card-text mt-4">Sous-total TTC : {% set StotalTTC = totalHT *1.2 %}{{StotalTTC}}  €</p>
+<p class="card-text mt-4">Frais de livraison : 45 €</p>
+<hr>
+<p class="card-text mt-4">Total à payer : {{StotalTTC +45.00}}  €</p>
+

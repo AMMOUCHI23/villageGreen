@@ -17,8 +17,7 @@
 		<div class="row">
 			<div class="col-md-8">
 
-
-				{{ form_start(commandeForm) }}
+ {{ form_start(commandeForm, {'attr': {'novalidate': 'novalidate'}}) }}
 				<div class="row mt-2">
 					<small class=" mt-3">* Champs obligatoires</small>
 				</div>
@@ -73,8 +72,8 @@
 			<div class="card col-md-4 border-success    mb-3 mx-4" style="max-width: 20rem;right: 20px">
 
 					<div class="card-body ">
-						{% include 'partiales/recapitulatif.html.twig' %}
-						<button type="submit" class="btn btn-success mt-3 ">Payer ma commande ({{total}} €)</button>
+						{% include 'commande/recapitulatif.html.twig' %}
+						<button type="submit" class="btn btn-success mt-3 ">Payer ma commande ({{totalTTC}} €)</button>
 						
 
 					</div>

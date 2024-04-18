@@ -1,6 +1,6 @@
 {% apply inline_css %}
  <style>
-  h1 {
+  h3 {
             color:green;
         }
           </style>
@@ -16,6 +16,5 @@
 <p>Mode de paiement : {{ commande.modePaiement}} </p>
 <p>Adresse de livraison : {{ commande.adresseLivraison }} {{commande.CPLivraison}} {{commande.villeLivraison}} </p>
 
-{{ dump() }}
 
 {% endapply %}

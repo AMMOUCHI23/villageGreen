@@ -6,15 +6,14 @@
 {% block body %}
 	<div class="container justify-content-center mt-5">
 
-		{% for flash_error in app.flashes('verify_email_error') %}
-			<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-		{% endfor %}
+		<div class="my-3">
+{{ include('partiales/flash.html.twig') }}
+</div>
 
 		<h1 class="text-center mb-5">Créer votre compte</h1>
 
-		{{ form_errors(registrationForm) }}
-
-		{{ form_start(registrationForm) }}
+		{# {{ form_errors(registrationForm) }} #}
+{{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
         <div class="row mt-2">
         <small class="d-flex justify-content-end mb-2">* Champs obligatoires</small>
         </div>
@@ -27,6 +26,7 @@
 		<div class="row d-flex mt-2">
 			<div class="col-md-6">
 				{{ form_row(registrationForm.nom) }}
+				
 			</div>
 			<div class="col-md-6">
 				{{ form_row(registrationForm.prenom) }}
@@ -73,9 +73,13 @@
 			</div>
 
 		</div>
-       <div class="row mt-2">
-       {{ form_row(registrationForm.agreeTerms) }}
+       <div class="row mt-2 ">
+	   <div class="col-md-6  ">
+       {# {{ form_row(registrationForm.agreeTerms) }} #}
+	   <small>En validant ce formulaire, je déclare avoir lu et accepté les Conditions Générales d'Utilisation, pris connaissance de la politique de confidentialité et je certifie être âgé(e) d'au moins 18 ans.
+</small>
        </div>
+	   </div>
 		<div class="row d-flex mt-3 ">
 			<div class="col-md-6 ">
             <a href="{{path('connexion')}}"><button type="button" class="btn btn-outline-danger btn-lg">Annuler</button></a>

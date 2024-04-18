@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -20,8 +21,10 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
     #[ORM\Column(length: 180)]
+    #[Assert\NotBlank (message: "le champ email ne peut pas etre vide")]
+    #[Assert\Email(message: 'l\'email {{ value }} n\'est pas valide',
+    )]
     private ?string $email = null;
 
     /**
@@ -34,12 +37,28 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank (message: "le champ mot de passe ne peut pas etre vide")]
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank (message: "le champ nom ne peut pas etre vide")]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'votre nom doit avoir minimum {{ limit }} caractères',
+        maxMessage: 'votre nom ne doit pas dépassé {{ limit }} caractères',
+    )]
+
     private ?string $nom = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank (message: "le champ prénom ne peut pas etre vide")]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'votre prénom doit avoir minimum {{ limit }} caractères',
+        maxMessage: 'votre prénom ne doit pas dépassé {{ limit }} caractères',
+    )]
     private ?string $prenom = null;
 
 
@@ -53,6 +72,14 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeInterface $dateNaissance = null;
 
     #[ORM\Column(length: 10, nullable: true)]
+    #[Assert\NotBlank (message: "le champ téléphone ne peut pas etre vide")]
+    #[Assert\Regex('/^0[1-9]/', message:'le numéro de téléphone doit commencer avec 0 ')]
+    #[Assert\Length(
+        min: 10,
+        max: 10,
+        exactMessage: 'votre numéro de téléphone doit avoir éxactement {{ limit }} chiffres',
+        
+    )]
     private ?string $telephone = null;
 
     #[ORM\Column(type: 'boolean')]
@@ -62,12 +89,22 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $sexe = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank (message: "le champ adresse ne peut pas etre vide")]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 5, nullable: true)]
+    #[Assert\NotBlank (message: "le champ code postale ne peut pas etre vide")]
+    #[Assert\Regex('/^[1-9]/', message:'le code postal doit avoir 5 chiffres ')]
+    #[Assert\Length(
+        min: 5,
+        max: 5,
+        exactMessage: 'votre code postal doit avoir éxactement {{ limit }} chiffres',
+        
+    )]
     private ?string $CP = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank (message: "le champ ville ne peut pas etre vide")]
     private ?string $ville = null;
 
 

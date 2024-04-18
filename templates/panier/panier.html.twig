@@ -77,9 +77,9 @@
 				<div class="card col-md-4 border-success    mb-3 mx-4" style="max-width: 20rem;right: 20px">
 
 					<div class="card-body ">
-						{% include 'partiales/recapitulatif.html.twig' %}
-						<a href="{{path('app_commande')}}" class="btn btn-primary mt-3">Valider mon panier ({{total}}
-							€)
+						{% include 'commande/recapitulatif.html.twig' %}
+						<a href="{{path('app_commande')}}" class="btn btn-primary mt-3">Valider mon panier {{(totalHT *1.2) + 45.00 }}
+							€
 						</a>
 
 					</div>

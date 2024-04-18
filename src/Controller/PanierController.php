@@ -18,14 +18,14 @@ class PanierController extends AbstractController
         $panier = $requestStack->getSession()->get("panier", []);
         $panierDetails = [];
         $coeficient = 1.6; //Coeficient de vente 
-        $total=0;
+        $totalHT=0;
         // Récupérer les détails de chaque produit dans le panier
         foreach ($panier as $produitId => $quantite) { 
             $produit = $produitRepository->find($produitId );
             
             if ($produit) {
                 $prix=$produit->getPrixAchat()*1.6;
-                $total += $prix  * $quantite;
+                $totalHT += $prix  * $quantite;
                 $panierDetails[] = [
                     'produit' => $produit,
                     'quantite' => $quantite,
@@ -33,11 +33,11 @@ class PanierController extends AbstractController
                 ];
             }
         }
-        $requestStack->getSession()->set('total_panier', $total);
+        $requestStack->getSession()->set('totalHT', $totalHT);
         
         return $this->render('panier/panier.html.twig', [
             'panierDetails' => $panierDetails,
-            'total'=>$total
+            'totalHT'=>$totalHT
         ]);
 
     }

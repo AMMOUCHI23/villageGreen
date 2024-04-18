@@ -23,19 +23,21 @@ class CommandeController extends AbstractController
     ProduitRepository $produitRepository, MailService $mailService): Response
     {
         $commandeForm = $this->createForm(CommandeFormType::class);
-        $total=$requestStack->getSession()->get('total_panier');
+        $totalHT=$requestStack->getSession()->get('totalHT');
+        $fraisLivraison=45.00; // frais de livraison
+        $totalTTC= ($totalHT * 1.2) + $fraisLivraison; // ajouter la TVA DE 20% et les frais de livraison
         $utilisateur=$this->getUser(); 
-      
+        
         $commandeForm->handleRequest($request);
         
          if ($commandeForm->isSubmitted() && $commandeForm->isValid()) { 
             $commande=$commandeForm->getData();
 
              $commande->setDateCommande(new DateTime())
-                      ->setTotalCommande($total)
+                      ->setTotalCommande($totalTTC) 
                       ->setStatut("en cours de vérification")
                       ->setPayee(1)
-                      ->setTotalPaye($total);
+                      ->setTotalPaye($totalTTC);
                      
             $utilisateur=$this->getUser();
             $client = $cl->findOneBy(['utilisateur' => $utilisateur]);
@@ -67,24 +69,28 @@ class CommandeController extends AbstractController
             $htmlTemplate = 'email/template.html.twig'; // Chemin vers le modèle Twig de l'e-mail
             $context = [
                 'commande' => $commande,
-                
-                // Ajoutez d'autres variables de contexte si nécessaire pour votre modèle Twig
+    
             ];
             $mailService->sendMail($expediteur, $destinataire, $sujet, $message, $htmlTemplate, $context);
              // supprimer le panier dans la sission 
              $requestStack->getSession()->remove("panier");
 
              // Ajouter un message flash de succès
-             $this->addFlash('success', 'Votre commande a été passée avec succès.'); 
+             $this->addFlash('success', 'Votre commande a été passée avec succès, vous allez recevoir un mail de confirmation'); 
+
+             return $this->redirectToRoute('accueil'); // redirection sur la page accueil
+
+             
     }
           
         //     $commande->setDateCommande(new DateTime())
         //             ->setTotalCommande()
         //             ->setAdresseLivraison()
-    
+   
         return $this->render('commande/index.html.twig', [
             'commandeForm'=>$commandeForm,
-            'total'=>$total
+            'totalHT'=>$totalHT,
+            'totalTTC'=>$totalTTC
         ]);
     }
 }

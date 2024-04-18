@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
@@ -29,21 +30,41 @@ class Commande
     private ?string $total_commande = null;
 
     #[ORM\Column(length: 70)]
+    #[Assert\NotBlank (message: "le champ adresse ne peut pas etre vide")]
     private ?string $adresse_livraison = null;
 
     #[ORM\Column(length: 5)]
+    #[Assert\NotBlank (message: "le champ code postale ne peut pas etre vide")]
+    #[Assert\Regex('/^[1-9]/', message:'le code postal doit avoir 5 chiffres ')]
+    #[Assert\Length(
+        min: 5,
+        max: 5,
+        exactMessage: 'votre code postal doit avoir éxactement {{ limit }} chiffres',
+        
+    )]
     private ?string $cp_livraison = null;
-
+    
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank (message: "le champ ville ne peut pas etre vide")]
     private ?string $ville_livraison = null;
 
     #[ORM\Column(length: 70)]
+    #[Assert\NotBlank (message: "le champ adresse ne peut pas etre vide")]
     private ?string $adresse_facturation = null;
 
     #[ORM\Column(length: 5)]
+    #[Assert\NotBlank (message: "le champ code postale ne peut pas etre vide")]
+    #[Assert\Regex('/^[1-9]/', message:'le code postal doit avoir 5 chiffres ')]
+    #[Assert\Length(
+        min: 5,
+        max: 5,
+        exactMessage: 'votre code postal doit avoir éxactement {{ limit }} chiffres',
+        
+    )]
     private ?string $cp_facturation = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank (message: "le champ ville ne peut pas etre vide")]
     private ?string $ville_facturation = null;
 
     #[ORM\Column(length: 30)]
