@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         {% for produit in categorie.produits %}
             <div class="card  col-sm-6 col-md-3 m-2">
-        <img src="{{ asset('assets/images/' ~ produit.getCategorie().getParent().getNomCategorie()   ~ '/' ~ produit.getCategorie().getNomCategorie() ~ '/' ~ produit.getPhoto()) }}" class="card-img-top" alt="{{ produit.getLibelle() }}">
+        <img src="{{ asset('assets/images/' ~ produit.getCategorie().getParent().getNomCategorie()   ~ '/' ~ produit.getCategorie().getNomCategorie() ~ '/' ~ produit.getPhoto()) }}" class="card-img-top img-fluid" alt="{{ produit.getLibelle() }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ produit.libelle }}</h5>
                     <a href="{{ path('details_produit', {id: produit.id})}}">
@@ -21,7 +21,7 @@
                     </a>
                     {# afficher les prix en appliquant les le coefficient de vente pour les particuliers #}
                     <h4 class="prix">{{ produit.prixAchat * 1.6  }} €</h4>
-                    <a href="{{ path('ajoutPanier', {'id': produit.id}) }}" class="btn btn-primary mx-3">Ajouter au panier</a>
+                    <a href="{{ path('ajoutPanier', {'id': produit.id}) }}" class="btn btn-primary mt-3">Ajouter au panier</a>
                 </div>
             </div>
         {% endfor %}

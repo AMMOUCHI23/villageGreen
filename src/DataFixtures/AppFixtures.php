@@ -154,7 +154,7 @@ class AppFixtures extends Fixture
 
         // produit 1
         $pr107 = new Produit();
-        $pr107->setReference("REF107")
+        $pr107->setReference("R00107")
             ->setLibelle("BESTA")
             ->setDimenssion("180x42x39 cm")
             ->setCouleur("blanchi/Selsviken")
@@ -169,7 +169,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr107);
         // produit 2
         $pr108 = new Produit();
-        $pr108->setReference("REF108")
+        $pr108->setReference("R00108")
             ->setLibelle("BURS")
             ->setDimenssion("180x41x49 cm")
             ->setCouleur("blanc")
@@ -185,7 +185,7 @@ class AppFixtures extends Fixture
 
         // produit 3
         $pr109 = new Produit();
-        $pr109->setReference("REF109")
+        $pr109->setReference("R00109")
             ->setLibelle("HEMNES")
             ->setDimenssion("148x47x57 cm")
             ->setCouleur("blanc brun")
@@ -201,7 +201,7 @@ class AppFixtures extends Fixture
 
         // produit 4
         $pr110 = new Produit();
-        $pr110->setReference("REF110")
+        $pr110->setReference("R00110")
             ->setLibelle("BRIMNES")
             ->setDimenssion("180x41x53 cm")
             ->setCouleur("blanc")
@@ -217,7 +217,7 @@ class AppFixtures extends Fixture
 
         // produit 5
         $pr111 = new Produit();
-        $pr111->setReference("REF111")
+        $pr111->setReference("R00111")
             ->setLibelle("SKRUVBY")
             ->setDimenssion("156x38x60 cm")
             ->setCouleur("bleu noir")
@@ -233,7 +233,7 @@ class AppFixtures extends Fixture
 
         // produit 6
         $pr112 = new Produit();
-        $pr112->setReference("REF112")
+        $pr112->setReference("R00112")
             ->setLibelle("LACK")
             ->setDimenssion("120x42x48 cm")
             ->setCouleur("blanc")
@@ -256,7 +256,7 @@ class AppFixtures extends Fixture
         //Les produits de la catégorie canapé
         // produit 1
         $pr113 = new Produit();
-        $pr113->setReference("REF113")
+        $pr113->setReference("R00113")
             ->setLibelle("Canape FRIHETEN")
             ->setDimenssion("4 places")
             ->setCouleur("gris")
@@ -272,7 +272,7 @@ class AppFixtures extends Fixture
 
         // produit 2
         $pr114 = new Produit();
-        $pr114->setReference("REF114")
+        $pr114->setReference("R00114")
             ->setLibelle("Canape PARUP")
             ->setDimenssion("2 places")
             ->setCouleur("gris/brun")
@@ -288,7 +288,7 @@ class AppFixtures extends Fixture
 
         // produit 3
         $pr115 = new Produit();
-        $pr115->setReference("REF115")
+        $pr115->setReference("R00115")
             ->setLibelle("Canape EKTORP")
             ->setDimenssion("3 places")
             ->setCouleur("bleu foncé")
@@ -304,7 +304,7 @@ class AppFixtures extends Fixture
 
         // produit 4
         $pr116 = new Produit();
-        $pr116->setReference("REF116")
+        $pr116->setReference("R00116")
             ->setLibelle("Canape VIMLE")
             ->setDimenssion("3 places")
             ->setCouleur("bige")
@@ -320,7 +320,7 @@ class AppFixtures extends Fixture
 
         // produit 5
         $pr117 = new Produit();
-        $pr117->setReference("REF117")
+        $pr117->setReference("R00117")
             ->setLibelle("Canape ASKEBY")
             ->setDimenssion("2 places")
             ->setCouleur("gris foncé")
@@ -336,7 +336,7 @@ class AppFixtures extends Fixture
 
         // produit 6
         $pr118 = new Produit();
-        $pr118->setReference("REF118")
+        $pr118->setReference("R00118")
             ->setLibelle("Canape KLIPPAN")
             ->setDimenssion("3 places")
             ->setCouleur("gris foncé")
@@ -359,7 +359,7 @@ class AppFixtures extends Fixture
         //Les produits de lasous catégorie chaises
         // produit 1
         $pr119 = new Produit();
-        $pr119->setReference("REF113")
+        $pr119->setReference("R00113")
             ->setLibelle("BERGMUND")
             ->setDimenssion("52x41x95 cm")
             ->setCouleur("gris")
@@ -374,7 +374,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr119);
         // produit 2
         $pr120 = new Produit();
-        $pr120->setReference("REF120")
+        $pr120->setReference("R00120")
             ->setLibelle("Canape")
             ->setDimenssion("52x41x95 cm")
             ->setCouleur("vert clair")
@@ -390,7 +390,7 @@ class AppFixtures extends Fixture
 
         // produit 3
         $pr121 = new Produit();
-        $pr121->setReference("REF121")
+        $pr121->setReference("R00121")
             ->setLibelle("BALTSAR")
             ->setDimenssion("52x41x95 cm")
             ->setCouleur("blanc")
@@ -406,7 +406,7 @@ class AppFixtures extends Fixture
 
         // produit 4
         $pr122 = new Produit();
-        $pr122->setReference("REF122")
+        $pr122->setReference("R00122")
             ->setLibelle("TOBIAS")
             ->setDimenssion("52x41x95 cm")
             ->setCouleur("transparent/chromé")
@@ -422,7 +422,7 @@ class AppFixtures extends Fixture
 
         // produit 5
         $pr123 = new Produit();
-        $pr123->setReference("REF123")
+        $pr123->setReference("R00123")
             ->setLibelle("NILSOVE")
             ->setDimenssion("52x41x95 cm")
             ->setCouleur("rotin blan")
@@ -438,7 +438,7 @@ class AppFixtures extends Fixture
 
         // produit 6
         $pr124 = new Produit();
-        $pr124->setReference("REF124")
+        $pr124->setReference("R00124")
             ->setLibelle("LUSTEBO")
             ->setDimenssion("52x41x95 cm")
             ->setCouleur("beige")
@@ -491,7 +491,7 @@ class AppFixtures extends Fixture
         //les produits de la sous catégorie buffets
         // produit 1
         $pr89 = new Produit();
-        $pr89->setReference("REF089")
+        $pr89->setReference("R00089")
             ->setLibelle("Buffet SKRUVBY")
             ->setDimenssion("120x38x90 cm")
             ->setCouleur("blanc")
@@ -506,7 +506,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr89);
         // produit 2
         $pr90 = new Produit();
-        $pr90->setReference("REF090")
+        $pr90->setReference("R00090")
             ->setLibelle("Buffet FJALLBO")
             ->setDimenssion("120x38x90 cm")
             ->setCouleur("noir")
@@ -521,7 +521,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr90);
         // produit 3
         $pr91 = new Produit();
-        $pr91->setReference("REF091")
+        $pr91->setReference("R00091")
             ->setLibelle("Buffet TULLSTORP")
             ->setDimenssion("99x35x89 cm")
             ->setCouleur("gris")
@@ -536,7 +536,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr91);
         // produit 4
         $pr92 = new Produit();
-        $pr92->setReference("REF092")
+        $pr92->setReference("R00092")
             ->setLibelle("Buffet IDASEN")
             ->setDimenssion("120x140 cm")
             ->setCouleur("gris/vert")
@@ -551,7 +551,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr92);
         // produit 5
         $pr93 = new Produit();
-        $pr93->setReference("REF093")
+        $pr93->setReference("R00093")
             ->setLibelle("Buffet LANESUND")
             ->setDimenssion("161x47x81 cm")
             ->setCouleur("gris brun")
@@ -566,7 +566,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr93);
         // produit 6
         $pr94 = new Produit();
-        $pr94->setReference("REF094")
+        $pr94->setReference("R00094")
             ->setLibelle("Buffet BAGGEBO")
             ->setDimenssion("160x78x92 cm")
             ->setCouleur("blanc")
@@ -589,7 +589,7 @@ class AppFixtures extends Fixture
         //Les produits de la sous catégorie dessertes
         // produit 1
         $pr95 = new Produit();
-        $pr95->setReference("REF095")
+        $pr95->setReference("R00095")
             ->setLibelle("Desserte FORHOJA")
             ->setDimenssion("100x43 cm")
             ->setCouleur("maron")
@@ -605,7 +605,7 @@ class AppFixtures extends Fixture
 
         // produit 2
         $pr96 = new Produit();
-        $pr96->setReference("REF096")
+        $pr96->setReference("R00096")
             ->setLibelle("Desserte BROR")
             ->setDimenssion("100x43 cm")
             ->setCouleur("noir/bois")
@@ -621,7 +621,7 @@ class AppFixtures extends Fixture
 
         // produit 3
         $pr97 = new Produit();
-        $pr97->setReference("REF097")
+        $pr97->setReference("R00097")
             ->setLibelle("Desserte NISSAFORS")
             ->setDimenssion("50.5x30x83 cm")
             ->setCouleur("noir")
@@ -636,7 +636,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr97);
         // produit 4
         $pr98 = new Produit();
-        $pr98->setReference("REF098")
+        $pr98->setReference("R00098")
             ->setLibelle("Desserte GRILLSKAR")
             ->setDimenssion("39x61 cm")
             ->setCouleur("noir")
@@ -652,7 +652,7 @@ class AppFixtures extends Fixture
 
         // produit 5
         $pr99 = new Produit();
-        $pr99->setReference("REF095")
+        $pr99->setReference("R00095")
             ->setLibelle("Desserte KUNGSFORS")
             ->setDimenssion("60x40 cm")
             ->setCouleur("acier inoxydable")
@@ -668,7 +668,7 @@ class AppFixtures extends Fixture
 
         // produit 6
         $pr100 = new Produit();
-        $pr100->setReference("REF100")
+        $pr100->setReference("R00100")
             ->setLibelle("Desserte ENHET")
             ->setDimenssion("123x63.5x91 cm")
             ->setCouleur("blanc")
@@ -697,7 +697,7 @@ class AppFixtures extends Fixture
 
         // produit 1
         $pr101 = new Produit();
-        $pr101->setReference("REF101")
+        $pr101->setReference("R00101")
             ->setLibelle("Table JOKKMOKK")
             ->setDimenssion("118x74x74 cm")
             ->setCouleur("maron")
@@ -713,7 +713,7 @@ class AppFixtures extends Fixture
 
         // produit 2
         $pr102 = new Produit();
-        $pr102->setReference("REF102")
+        $pr102->setReference("R00102")
             ->setLibelle("Table STEFAN")
             ->setDimenssion("125x60x75 cm")
             ->setCouleur("blanc")
@@ -729,7 +729,7 @@ class AppFixtures extends Fixture
 
         // produit 3
         $pr103 = new Produit();
-        $pr103->setReference("REF103")
+        $pr103->setReference("R00103")
             ->setLibelle("Table DOCKSTA")
             ->setDimenssion("125x60x75 cm")
             ->setCouleur("blanc")
@@ -745,7 +745,7 @@ class AppFixtures extends Fixture
 
         // produit 4
         $pr104 = new Produit();
-        $pr104->setReference("REF104")
+        $pr104->setReference("R00104")
             ->setLibelle("Table SANDSBERG")
             ->setDimenssion("110x60x75 cm")
             ->setCouleur("noir")
@@ -761,7 +761,7 @@ class AppFixtures extends Fixture
 
         // produit 5
         $pr105 = new Produit();
-        $pr105->setReference("REF105")
+        $pr105->setReference("R00105")
             ->setLibelle("Table INGATORP")
             ->setDimenssion("110/155 cm")
             ->setCouleur("blanc")
@@ -777,7 +777,7 @@ class AppFixtures extends Fixture
 
         // produit 6
         $pr106 = new Produit();
-        $pr106->setReference("REF106")
+        $pr106->setReference("R00106")
             ->setLibelle("Table LISABO")
             ->setDimenssion("105x60x75 cm")
             ->setCouleur("maron")
@@ -806,7 +806,7 @@ class AppFixtures extends Fixture
         // Les produits de la sous catégorie armoire
         //Produit 1
         $pr35 = new Produit();
-        $pr35->setReference("REF035")
+        $pr35->setReference("R00035")
             ->setLibelle("Armoire_PLASTA")
             ->setDimenssion("160x57x181 cm")
             ->setCouleur("blanc")
@@ -822,7 +822,7 @@ class AppFixtures extends Fixture
 
         //Produit 2
         $pr36 = new Produit();
-        $pr36->setReference("REF036")
+        $pr36->setReference("R00036")
             ->setLibelle("Armoire  HASVIK")
             ->setDimenssion("160x60x145 cm")
             ->setCouleur("blanc")
@@ -839,7 +839,7 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr37 = new Produit();
-        $pr37->setReference("REF037")
+        $pr37->setReference("R00037")
             ->setLibelle("Armoire VISTHUS")
             ->setDimenssion("122x59x216 cm")
             ->setCouleur("blanc")
@@ -858,7 +858,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr38 = new Produit();
-        $pr38->setReference("REF035")
+        $pr38->setReference("R00035")
             ->setLibelle("armoire BERGSBO")
             ->setDimenssion("250x60x201 cm")
             ->setCouleur("maron")
@@ -874,7 +874,7 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr39 = new Produit();
-        $pr39->setReference("REF035")
+        $pr39->setReference("R00035")
             ->setLibelle("armoire AULI")
             ->setDimenssion("122x59x216 cm")
             ->setCouleur("blanc")
@@ -890,7 +890,7 @@ class AppFixtures extends Fixture
 
         //Produit 6
         $pr40 = new Produit();
-        $pr40->setReference("REF040")
+        $pr40->setReference("R00040")
             ->setLibelle("Armoire MEHAMN")
             ->setDimenssion("200x44x236 cm")
             ->setCouleur("blanc et maron")
@@ -913,7 +913,7 @@ class AppFixtures extends Fixture
         // Les produits de la sous catégorie commode
         //Produit 1
         $pr41 = new Produit();
-        $pr41->setReference("REF041")
+        $pr41->setReference("R00041")
             ->setLibelle("Commode MALM")
             ->setDimenssion("80x78x110 cm")
             ->setCouleur("blanc")
@@ -928,7 +928,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr41);
         //Produit 2
         $pr42 = new Produit();
-        $pr42->setReference("REF042")
+        $pr42->setReference("R00042")
             ->setLibelle("commode KULLEN")
             ->setDimenssion("140x72x80 cm")
             ->setCouleur("blanc")
@@ -944,13 +944,13 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr43 = new Produit();
-        $pr43->setReference("REF041")
+        $pr43->setReference("R00043")
             ->setLibelle("Commode HEMNES")
             ->setDimenssion("160x96x145 cm")
             ->setCouleur("blanc")
             ->setDescription("Une commode de style classique en bois massif qui offre un aspect traditionnel mais des fonctionnalités modernes. Dans les tiroirs à fermeture silencieuse vous pourrez ranger toutes vos affaires. Psst ! Pensez à fixer votre meuble au mur.")
             ->setPrixAchat(250)
-            ->setPhoto("bureau_MICKE.jpg")
+            ->setPhoto("commodes_HEMNES.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
@@ -960,7 +960,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr44 = new Produit();
-        $pr44->setReference("REF044")
+        $pr44->setReference("R00044")
             ->setLibelle("Commode HAUGA")
             ->setDimenssion("138x84x120 cm")
             ->setCouleur("blanc")
@@ -976,7 +976,7 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr45 = new Produit();
-        $pr45->setReference("REF045")
+        $pr45->setReference("R00045")
             ->setLibelle("Commode SONGESAND")
             ->setDimenssion("161x81x90 cm")
             ->setCouleur("blanc")
@@ -993,7 +993,7 @@ class AppFixtures extends Fixture
 
         //Produit 6
         $pr46 = new Produit();
-        $pr46->setReference("REF046")
+        $pr46->setReference("R00046")
             ->setLibelle("Commode vVIHALS")
             ->setDimenssion("165x47x90 cm")
             ->setCouleur("blanc")
@@ -1017,7 +1017,7 @@ class AppFixtures extends Fixture
         // Les produits de la sous catégorie lit
         //Produit 1
         $pr47 = new Produit();
-        $pr47->setReference("REF047")
+        $pr47->setReference("R00047")
             ->setLibelle("Lit MALM")
             ->setDimenssion("140x200 cm")
             ->setCouleur("blanc")
@@ -1033,7 +1033,7 @@ class AppFixtures extends Fixture
 
         //Produit 2
         $pr48 = new Produit();
-        $pr48->setReference("REF048")
+        $pr48->setReference("R00048")
             ->setLibelle("Lit HEMNES")
             ->setDimenssion("160x220 cm")
             ->setCouleur("blanc")
@@ -1049,7 +1049,7 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr49 = new Produit();
-        $pr49->setReference("REF049")
+        $pr49->setReference("R00049")
             ->setLibelle("Lit IDANAS")
             ->setDimenssion("140x200 cm")
             ->setCouleur("maron")
@@ -1065,7 +1065,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr50 = new Produit();
-        $pr50->setReference("REF050")
+        $pr50->setReference("R00050")
             ->setLibelle("Lit HOGA")
             ->setDimenssion("90x200 cm")
             ->setCouleur("blanc")
@@ -1082,7 +1082,7 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr51 = new Produit();
-        $pr51->setReference("REF051")
+        $pr51->setReference("R00051")
             ->setLibelle("Lit ASKVOLL")
             ->setDimenssion("140x200 cm")
             ->setCouleur("blanc")
@@ -1098,7 +1098,7 @@ class AppFixtures extends Fixture
 
         //Produit 6
         $pr52 = new Produit();
-        $pr52->setReference("REF052")
+        $pr52->setReference("R00052")
             ->setLibelle("Lit LYNGOR")
             ->setDimenssion("140x200 cm")
             ->setCouleur("blanc")
@@ -1123,13 +1123,13 @@ class AppFixtures extends Fixture
         // Les produits de la sous catégorie Matelas
         //Produit 1
         $pr53 = new Produit();
-        $pr53->setReference("REF053")
-            ->setLibelle("Matelats VALEVAG")
+        $pr53->setReference("R00053")
+            ->setLibelle("Matelas VALEVAG")
             ->setDimenssion("160x200x24 cm")
             ->setCouleur("blanc")
             ->setDescription("Un matelas ferme de 24 cm d'épaisseur avec ressorts ensachés individuellement. Les zones de confort permettent une bonne répartition du poids et un soutien moelleux au niveau des hanches et épaules. Une épaisse couche de mousse ajoute du confort.")
             ->setPrixAchat(220)
-            ->setPhoto("matelats_VALEVAG.jpg")
+            ->setPhoto("matelas_VALEVAG.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
@@ -1139,7 +1139,7 @@ class AppFixtures extends Fixture
 
         //Produit 2
         $pr54 = new Produit();
-        $pr54->setReference("REF054")
+        $pr54->setReference("R00054")
             ->setLibelle("Matelas ABYGDA")
             ->setDimenssion("160x200x20 cm")
             ->setCouleur("blanc")
@@ -1155,7 +1155,7 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr55 = new Produit();
-        $pr55->setReference("REF055")
+        $pr55->setReference("R00055")
             ->setLibelle("Matelas VAGSTRANDA")
             ->setDimenssion("160x200x28 cm")
             ->setCouleur("blanc")
@@ -1171,7 +1171,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr56 = new Produit();
-        $pr56->setReference("REF056")
+        $pr56->setReference("R00056")
             ->setLibelle("Matelas AGOTNES")
             ->setDimenssion("90x200x15 cm")
             ->setCouleur("gris")
@@ -1187,7 +1187,7 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr57 = new Produit();
-        $pr57->setReference("REF057")
+        $pr57->setReference("R00057")
             ->setLibelle("Matelas VADSO")
             ->setDimenssion("140x200x20 cm")
             ->setCouleur("gris")
@@ -1199,11 +1199,11 @@ class AppFixtures extends Fixture
             ->setStockAlert(5)
             ->setCategorie($categorie34)
             ->setFournisseur($fournisseur5);
-        $manager->persist($pr56);
+        $manager->persist($pr57);
 
         //Produit 6
         $pr58 = new Produit();
-        $pr58->setReference("REF058")
+        $pr58->setReference("R00058")
             ->setLibelle("Matelas VATNESTROM")
             ->setDimenssion("160x200x30 cm")
             ->setCouleur("blanc")
@@ -1236,7 +1236,7 @@ class AppFixtures extends Fixture
         // Les produits de la sous catégorie armoire
         //Produit 1
         $pr59 = new Produit();
-        $pr59->setReference("REF059")
+        $pr59->setReference("R00059")
             ->setLibelle("armoire PLATSA")
             ->setDimenssion("120x42x123 cm")
             ->setCouleur("bleu-vert")
@@ -1252,7 +1252,7 @@ class AppFixtures extends Fixture
 
         //Produit 2
         $pr60 = new Produit();
-        $pr60->setReference("REF060")
+        $pr60->setReference("R00060")
             ->setLibelle("Armoire SMASTAD")
             ->setDimenssion("60x42x181 cm")
             ->setCouleur("blanc")
@@ -1268,7 +1268,7 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr61 = new Produit();
-        $pr61->setReference("REF061")
+        $pr61->setReference("R00061")
             ->setLibelle("Armoire SUNDVIK")
             ->setDimenssion("80x50x171 cm")
             ->setCouleur("blanc")
@@ -1284,7 +1284,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr62 = new Produit();
-        $pr62->setReference("REF062")
+        $pr62->setReference("R00062")
             ->setLibelle("Armoire SMAGORA")
             ->setDimenssion("80x50x187 cm")
             ->setCouleur("blanc")
@@ -1302,7 +1302,7 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr63 = new Produit();
-        $pr63->setReference("REF063")
+        $pr63->setReference("R00063")
             ->setLibelle("Armoire GODISHUS")
             ->setDimenssion("60x51x178 cm")
             ->setCouleur("blanc")
@@ -1318,7 +1318,7 @@ class AppFixtures extends Fixture
 
         //Produit 6
         $pr64 = new Produit();
-        $pr64->setReference("REF064")
+        $pr64->setReference("R00064")
             ->setLibelle("Armoire BUSUNGE")
             ->setDimenssion("60x80x139 cm")
             ->setCouleur("blanc")
@@ -1344,7 +1344,7 @@ class AppFixtures extends Fixture
         // les produits de la sous catégorie Table à langer
         //Produit 1
         $pr65 = new Produit();
-        $pr65->setReference("REF065")
+        $pr65->setReference("R00065")
             ->setLibelle("Table SUNDVIK")
             ->setDimenssion("99x79x50 cm")
             ->setCouleur("blanc")
@@ -1360,7 +1360,7 @@ class AppFixtures extends Fixture
 
         //Produit 2
         $pr66 = new Produit();
-        $pr66->setReference("REF066")
+        $pr66->setReference("R00066")
             ->setLibelle("table SMASTAD")
             ->setDimenssion("90x79x100 cm")
             ->setCouleur("blanc")
@@ -1376,7 +1376,7 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr67 = new Produit();
-        $pr67->setReference("REF067")
+        $pr67->setReference("R00067")
             ->setLibelle("Table SNIGLAR")
             ->setDimenssion("72x53x139 cm")
             ->setCouleur("maron")
@@ -1392,7 +1392,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr68 = new Produit();
-        $pr68->setReference("REF068")
+        $pr68->setReference("R00068")
             ->setLibelle("Table GULLIVER")
             ->setDimenssion("82x54x95 cm")
             ->setCouleur("blanc")
@@ -1408,7 +1408,7 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr69 = new Produit();
-        $pr69->setReference("REF069")
+        $pr69->setReference("R00069")
             ->setLibelle("Table ALSKVARD")
             ->setDimenssion("82x54x95 cm")
             ->setCouleur("blanc")
@@ -1424,7 +1424,7 @@ class AppFixtures extends Fixture
 
         //Produit 6
         $pr70 = new Produit();
-        $pr70->setReference("REF070")
+        $pr70->setReference("R00070")
             ->setLibelle("Table MYLLRA")
             ->setDimenssion("82x54x97 cm")
             ->setCouleur("blanc")
@@ -1448,7 +1448,7 @@ class AppFixtures extends Fixture
         //Les produits de la sous catégorie lits bébé
         //Produit 1
         $pr71 = new Produit();
-        $pr71->setReference("REF071")
+        $pr71->setReference("R00071")
             ->setLibelle("Lit SUNDVIK")
             ->setDimenssion("60x120 cm")
             ->setCouleur("blanc")
@@ -1465,7 +1465,7 @@ class AppFixtures extends Fixture
 
         //Produit 2
         $pr72 = new Produit();
-        $pr72->setReference("REF072")
+        $pr72->setReference("R00072")
             ->setLibelle("Lit GONATT")
             ->setDimenssion("60x120 cm")
             ->setCouleur("blanc")
@@ -1482,7 +1482,7 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr73 = new Produit();
-        $pr73->setReference("REF072")
+        $pr73->setReference("R00072")
             ->setLibelle("Lit MYLLRA")
             ->setDimenssion("60x120 cm")
             ->setCouleur("blanc")
@@ -1499,7 +1499,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr74 = new Produit();
-        $pr74->setReference("REF074")
+        $pr74->setReference("R00074")
             ->setLibelle("Lit ALSKVARD")
             ->setDimenssion("60x120 cm")
             ->setCouleur("blanc")
@@ -1516,13 +1516,13 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr75 = new Produit();
-        $pr75->setReference("REF075")
+        $pr75->setReference("R00075")
             ->setLibelle("Lit SNIGLAR")
             ->setDimenssion("60x120 cm")
             ->setCouleur("maron")
             ->setDescription("Votre bébé pourra dormir confortablement et en toute sécurité dans ce berceau. Fabriqué en hêtre massif, un matériau solide et résistant.")
             ->setPrixAchat(30)
-            ->setPhoto("lit_MICKE.jpg")
+            ->setPhoto("lit_SNIGLAR.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
@@ -1533,7 +1533,7 @@ class AppFixtures extends Fixture
 
         //Produit 6
         $pr76 = new Produit();
-        $pr76->setReference("REF076")
+        $pr76->setReference("R00076")
             ->setLibelle("Lit SMAGORA")
             ->setDimenssion("60x120 cm")
             ->setCouleur("blanc")
@@ -1560,7 +1560,7 @@ class AppFixtures extends Fixture
 
         //Produit 1
         $pr77 = new Produit();
-        $pr77->setReference("REF077")
+        $pr77->setReference("R00077")
             ->setLibelle("Lit SLAKT")
             ->setDimenssion("90x200 cm")
             ->setCouleur("blanc")
@@ -1576,7 +1576,7 @@ class AppFixtures extends Fixture
 
         //Produit 2
         $pr78 = new Produit();
-        $pr78->setReference("REF078")
+        $pr78->setReference("R00078")
             ->setLibelle("Lit MALM")
             ->setDimenssion("90x200 cm")
             ->setCouleur("blanc")
@@ -1593,7 +1593,7 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr79 = new Produit();
-        $pr79->setReference("REF079")
+        $pr79->setReference("R00079")
             ->setLibelle("Lit MONDAL")
             ->setDimenssion("90x200 cm")
             ->setCouleur("blanc")
@@ -1613,7 +1613,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr80 = new Produit();
-        $pr80->setReference("REF080")
+        $pr80->setReference("R00080")
             ->setLibelle("Lit NEIDEN")
             ->setDimenssion("90x200 cm")
             ->setCouleur("pin")
@@ -1629,7 +1629,7 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr81 = new Produit();
-        $pr81->setReference("REF081")
+        $pr81->setReference("R00081")
             ->setLibelle("Lit KURA")
             ->setDimenssion("90x200 cm")
             ->setCouleur("blanc/pin")
@@ -1645,7 +1645,7 @@ class AppFixtures extends Fixture
 
         //Produit 6
         $pr82 = new Produit();
-        $pr82->setReference("REF082")
+        $pr82->setReference("R00082")
             ->setLibelle("Lit MYDAL")
             ->setDimenssion("90x200 cm")
             ->setCouleur("blanc")
@@ -1660,16 +1660,16 @@ class AppFixtures extends Fixture
         $manager->persist($pr82);
 
         $categorie45 = new Categorie;
-        $categorie45->setNomCategorie("Matelats");
+        $categorie45->setNomCategorie("Matelas");
         $categorie45->setPhoto("matelas.jpg");
         $categorie45->setParent($categorie4);
         $manager->persist($categorie45);
 
-        // Les produits de la sous catégorie matelat
+        // Les produits de la sous catégorie matelas
 
         //Produit 1
         $pr83 = new Produit();
-        $pr83->setReference("REF083")
+        $pr83->setReference("R00083")
             ->setLibelle("Matelas HIMLAVALV")
             ->setDimenssion("60x120x10 cm")
             ->setCouleur("blanc")
@@ -1685,7 +1685,7 @@ class AppFixtures extends Fixture
 
         //Produit 2
         $pr84 = new Produit();
-        $pr84->setReference("REF084")
+        $pr84->setReference("R00084")
             ->setLibelle("Matelas UNDERLIG")
             ->setDimenssion("70x160 cm")
             ->setCouleur("blanc")
@@ -1701,13 +1701,13 @@ class AppFixtures extends Fixture
 
         //Produit 3
         $pr85 = new Produit();
-        $pr85->setReference("REF085")
-            ->setLibelle("Matelat DROMMANDE")
+        $pr85->setReference("R00085")
+            ->setLibelle("Matelas DROMMANDE")
             ->setDimenssion("60x120x1 cm")
             ->setCouleur("blanc")
             ->setDescription("Le coeur du matelas DRÖMMANDE est composé de ressorts ensachés et enveloppés d'un mélange de fibres de coco et de latex naturel. Résultat : un matelas résilient et sûr, qui laisse l'air circuler et garantit un sommeil confortable à votre bébé.")
             ->setPrixAchat(120)
-            ->setPhoto("matelat_DROMMANDE.jpg")
+            ->setPhoto("matelas_DROMMANDE.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
@@ -1717,7 +1717,7 @@ class AppFixtures extends Fixture
 
         //Produit 4
         $pr86 = new Produit();
-        $pr86->setReference("REF086")
+        $pr86->setReference("R00086")
             ->setLibelle("Matelas OMSINT")
             ->setDimenssion("80x200 cm")
             ->setCouleur("blanc")
@@ -1733,7 +1733,7 @@ class AppFixtures extends Fixture
 
         //Produit 5
         $pr87 = new Produit();
-        $pr87->setReference("REF087")
+        $pr87->setReference("R00087")
             ->setLibelle("Matelas KRUMMELUR")
             ->setDimenssion("60x120x8 cm")
             ->setCouleur("blanc")
@@ -1749,7 +1749,7 @@ class AppFixtures extends Fixture
 
         //Produit 6
         $pr88 = new Produit();
-        $pr88->setReference("REF088")
+        $pr88->setReference("R00088")
             ->setLibelle("Matelas SKONAST")
             ->setDimenssion("60x120x8 cm")
             ->setCouleur("blanc")
@@ -1780,7 +1780,7 @@ class AppFixtures extends Fixture
         //les produits de la sous categorie bureau
         // Produit 1
         $pr11 = new Produit();
-        $pr11->setReference("REF011")
+        $pr11->setReference("R00011")
             ->setLibelle("Bureau 03 tiroirs")
             ->setDimenssion("113x42x73 cm")
             ->setCouleur("blanc")
@@ -1796,7 +1796,7 @@ class AppFixtures extends Fixture
 
         // Produit 2
         $pr12 = new Produit();
-        $pr12->setReference("REF012")
+        $pr12->setReference("R00012")
             ->setLibelle("Bureau d'angle")
             ->setDimenssion("120x60x80 cm")
             ->setCouleur("blanc et maron")
@@ -1814,7 +1814,7 @@ class AppFixtures extends Fixture
 
         // Produit 3
         $pr13 = new Produit();
-        $pr13->setReference("REF013")
+        $pr13->setReference("R00013")
             ->setLibelle("bureau gaming")
             ->setDimenssion("150x42x83 cm")
             ->setCouleur("blanc et maron")
@@ -1831,7 +1831,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr13);
         // Produit 4
         $pr14 = new Produit();
-        $pr14->setReference("REF014")
+        $pr14->setReference("R00014")
             ->setLibelle("Bureau et étagère")
             ->setDimenssion("120x50x144 cm")
             ->setCouleur("blanc et maron")
@@ -1847,7 +1847,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr14);
         // Produit 5
         $pr15 = new Produit();
-        $pr15->setReference("REF015")
+        $pr15->setReference("R00015")
             ->setLibelle("bureau ZAPY")
             ->setDimenssion("160x60x145 cm")
             ->setCouleur("blanc")
@@ -1862,7 +1862,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr15);
         // Produit 6
         $pr16 = new Produit();
-        $pr16->setReference("REF016")
+        $pr16->setReference("R00016")
             ->setLibelle("bureau MICKE")
             ->setDimenssion("100x100x142 cm")
             ->setCouleur("blanc")
@@ -1884,7 +1884,7 @@ class AppFixtures extends Fixture
         //les produits de sous catégorie chaise
         // Produit 1
         $pr17 = new Produit();
-        $pr17->setReference("REF017")
+        $pr17->setReference("R00017")
             ->setLibelle("chaise MILLBERGET")
             ->setDimenssion("70x60x128 cm")
             ->setCouleur("noir")
@@ -1900,7 +1900,7 @@ class AppFixtures extends Fixture
 
         // Produit 2
         $pr18 = new Produit();
-        $pr18->setReference("REF018")
+        $pr18->setReference("R00018")
             ->setLibelle("chaise JARVFJALLET")
             ->setDimenssion("68x68x140 cm")
             ->setCouleur("noir")
@@ -1916,7 +1916,7 @@ class AppFixtures extends Fixture
 
         // Produit 3
         $pr19 = new Produit();
-        $pr19->setReference("REF019")
+        $pr19->setReference("R00019")
             ->setLibelle("chaise HATTEFJALL")
             ->setDimenssion("68x60x114 cm")
             ->setCouleur("blanc")
@@ -1932,7 +1932,7 @@ class AppFixtures extends Fixture
 
         // Produit 4
         $pr20 = new Produit();
-        $pr20->setReference("REF020")
+        $pr20->setReference("R00020")
             ->setLibelle("chaise GRUPPSPEL")
             ->setDimenssion("68x68x114 cm")
             ->setCouleur("blanc")
@@ -1948,7 +1948,7 @@ class AppFixtures extends Fixture
 
         // Produit 5
         $pr21 = new Produit();
-        $pr21->setReference("REF021")
+        $pr21->setReference("R00021")
             ->setLibelle("chaise_TOSSBERG")
             ->setDimenssion("67x67x100 cm")
             ->setCouleur("blanc")
@@ -1964,7 +1964,7 @@ class AppFixtures extends Fixture
 
         // Produit 6
         $pr22 = new Produit();
-        $pr22->setReference("REF022")
+        $pr22->setReference("R00022")
             ->setLibelle("Chaise STYRSPEL")
             ->setDimenssion("60x60x145 cm")
             ->setCouleur("mauve")
@@ -1987,7 +1987,7 @@ class AppFixtures extends Fixture
         //les produits de sous catégorie etagére
         // Produit 1
         $pr23 = new Produit();
-        $pr23->setReference("REF023")
+        $pr23->setReference("R00023")
             ->setLibelle("Etagere BEKANT")
             ->setDimenssion("120x134x45 cm")
             ->setCouleur("blanc")
@@ -2004,7 +2004,7 @@ class AppFixtures extends Fixture
 
         // Produit 2
         $pr24 = new Produit();
-        $pr24->setReference("REF024")
+        $pr24->setReference("R00024")
             ->setLibelle("Etagère SKRUVBY")
             ->setDimenssion("130x140x40 cm")
             ->setCouleur("blanc et maron")
@@ -2020,7 +2020,7 @@ class AppFixtures extends Fixture
 
         // Produit 3
         $pr25 = new Produit();
-        $pr25->setReference("REF025")
+        $pr25->setReference("R00025")
             ->setLibelle("Etagère KALLAX")
             ->setDimenssion("160x60x145 cm")
             ->setCouleur("maron")
@@ -2036,7 +2036,7 @@ class AppFixtures extends Fixture
 
         // Produit 4
         $pr26 = new Produit();
-        $pr26->setReference("REF016")
+        $pr26->setReference("R00016")
             ->setLibelle("Etagère VITTSJO")
             ->setDimenssion("202x36x175 cm")
             ->setCouleur("noir")
@@ -2052,7 +2052,7 @@ class AppFixtures extends Fixture
 
         // Produit 5
         $pr27 = new Produit();
-        $pr27->setReference("REF027")
+        $pr27->setReference("R00027")
             ->setLibelle("Etagère BESTA")
             ->setDimenssion("120x42x202 cm")
             ->setCouleur("blanc")
@@ -2068,7 +2068,7 @@ class AppFixtures extends Fixture
 
         // Produit 6
         $pr28 = new Produit();
-        $pr28->setReference("REF028")
+        $pr28->setReference("R00028")
             ->setLibelle("Etagère PLATSA")
             ->setDimenssion("300x42x281 cm")
             ->setCouleur("blanc")
@@ -2085,15 +2085,15 @@ class AppFixtures extends Fixture
 
 
         $categorie54 = new Categorie;
-        $categorie54->setNomCategorie("Accessoires_de_Bureau");
+        $categorie54->setNomCategorie("Accessoires_Bureau");
         $categorie54->setPhoto("accessoires.jpg");
         $categorie54->setParent($categorie5);
         $manager->persist($categorie54);
         //les produits de sous catégorie Accessoires de Bureau
         // Produit 1
         $pr29 = new Produit();
-        $pr29->setReference("REF029")
-            ->setLibelle(" Rangement de Bureau")
+        $pr29->setReference("R00029")
+            ->setLibelle("Rangement de Bureau")
             ->setDimenssion("12x14x22cm  cm")
             ->setCouleur("noir")
             ->setDescription("Économie d'espace de bricolage: L'organisateur de tiroir de bureau est facile à garder les stylos, les règles, les ciseaux, les livres, les fichiers, les trombones, etc. tout en un seul endroit; également bon pour organiser les maquillages et les petits articles ménagers.")
@@ -2107,7 +2107,7 @@ class AppFixtures extends Fixture
         $manager->persist($pr29);
         // Produit 2
         $pr30 = new Produit();
-        $pr30->setReference("REF030")
+        $pr30->setReference("R00030")
             ->setLibelle("Lampe de Bureau LED")
             ->setDimenssion("15x14x22cm cm")
             ->setCouleur("blanc")
@@ -2125,7 +2125,7 @@ class AppFixtures extends Fixture
 
         // Produit 3
         $pr31 = new Produit();
-        $pr31->setReference("REF031")
+        $pr31->setReference("R00031")
             ->setLibelle("Kit nettoyage Clavier")
             ->setDimenssion("6x6x14cm")
             ->setCouleur("blanc et orange")
@@ -2141,7 +2141,7 @@ class AppFixtures extends Fixture
 
         // Produit 4
         $pr32 = new Produit();
-        $pr32->setReference("REF032")
+        $pr32->setReference("R00032")
             ->setLibelle("Tapis de Bureau")
             ->setDimenssion("160x60x145 cm")
             ->setCouleur("blanc")
@@ -2157,13 +2157,13 @@ class AppFixtures extends Fixture
 
         // Produit 5
         $pr33 = new Produit();
-        $pr33->setReference("REF033")
+        $pr33->setReference("R00033")
             ->setLibelle("Rangement Courriers")
             ->setDimenssion("30x30x50 cm")
             ->setCouleur("noir")
             ->setDescription("Plateau de bureau solide avec tiroirs, idéal pour le rangement de documents, conçu avec un support à 3 tiroirs, fabriqué en plastique de haute qualité et en maille métallique, aspect élégant, organisateur durable pour les documents et plus encore")
             ->setPrixAchat(6)
-            ->setPhoto("rangement_courriers_.jpg")
+            ->setPhoto("rangement_courriers.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
@@ -2173,7 +2173,7 @@ class AppFixtures extends Fixture
 
         // Produit 6
         $pr34 = new Produit();
-        $pr34->setReference("REF034")
+        $pr34->setReference("R00034")
             ->setLibelle("Support Tablette")
             ->setDimenssion("160x60x145 cm")
             ->setCouleur("argent")
@@ -2196,114 +2196,133 @@ class AppFixtures extends Fixture
         /**Sous Catégories Salle de bain */
 
         $categorie61 = new Categorie;
-        $categorie61->setNomCategorie("Armoirs");
+        $categorie61->setNomCategorie("Armoires");
         $categorie61->setPhoto("armoires.jpg");
         $categorie61->setParent($categorie6);
         $manager->persist($categorie61);
 
-        //les produits de la sous catégorie armoirs
+        //les produits de la sous catégorie armoires
         // Produit 1
-        $pr89 = new Produit();
-        $pr89->setReference("REF089")
-            ->setLibelle("")
-            ->setDimenssion("60x120x8 cm")
-            ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(40)
-            ->setPhoto(".jpg")
+        $pr125 = new Produit();
+        $pr125->setReference("000125")
+            ->setLibelle("ENHET")
+            ->setDimenssion("30x32x180 cm")
+            ->setCouleur("blanc/miroir")
+            ->setDescription("La série ENHET permet d'apporter un coup de fraîcheur dans votre cuisine, salle de bain ou buanderie. L'élément haut offre un large espace de rangement sur un petit espace au sol. La porte blanche apporte de la luminosité à la pièce.")
+            ->setPrixAchat(80)
+            ->setPhoto("ENHET.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
             ->setCategorie($categorie61)
-            ->setFournisseur($fournisseur2);
-        $manager->persist($pr89);
+            ->setFournisseur($fournisseur3);
+        $manager->persist($pr125);
 
-        // Produit 2
-        $pr90 = new Produit();
-        $pr90->setReference("REF090")
-            ->setLibelle("")
-            ->setDimenssion("60x120x8 cm")
+         // Produit 2
+         $pr126 = new Produit();
+         $pr126->setReference("000126")
+             ->setLibelle("MOSSJON")
+             ->setDimenssion("36x18x102 cm")
+             ->setCouleur("anthracite")
+             ->setDescription("Envie d'exposer des choses et d'en cacher d'autres ? L'élément mural MOSSJÖN avec une tablette ouverte et une porte en verre nervuré est la solution idéale pour vous.")
+             ->setPrixAchat(40)
+             ->setPhoto("MOSSJON.jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie61)
+             ->setFournisseur($fournisseur3);
+         $manager->persist($pr126);
+
+          // Produit 3
+        $pr127 = new Produit();
+        $pr127->setReference("R00127")
+            ->setLibelle("ENHAC")
+            ->setDimenssion("60x17x75 cm")
             ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(40)
-            ->setPhoto(".jpg")
+            ->setDescription("Une ou deux portes miroir au-dessus du lavabo permettent de se raser ou de se maquiller en toute simplicité le matin. Facile à associer à d'autres meubles, tandis que le miroir agrandit la pièce.")
+            ->setPrixAchat(50)
+            ->setPhoto("ENHAC.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
             ->setCategorie($categorie61)
-            ->setFournisseur($fournisseur2);
-        $manager->persist($pr90);
+            ->setFournisseur($fournisseur3);
+        $manager->persist($pr127);
 
-        // Produit 3
-        $pr89 = new Produit();
-        $pr89->setReference("REF089")
-            ->setLibelle("")
-            ->setDimenssion("60x120x8 cm")
+         // Produit 4
+         $pr128 = new Produit();
+         $pr128->setReference("R00128")
+             ->setLibelle("FAXALVEN")
+             ->setDimenssion("80x15x95 cm")
+             ->setCouleur("chêne")
+             ->setDescription("Un joli élément avec miroir qui donne une note chaleureuse avec son aspect bois et un éclairage intégré qui apporte de la lumière à votre espace et vous aide au quotidien.")
+             ->setPrixAchat(120)
+             ->setPhoto("FAXALVEN.jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie61)
+             ->setFournisseur($fournisseur3);
+         $manager->persist($pr128);
+
+          // Produit 5
+        $pr129 = new Produit();
+        $pr129->setReference("R00129")
+            ->setLibelle("TANNFORSEN")
+            ->setDimenssion("60x15x95 cm")
             ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(40)
-            ->setPhoto(".jpg")
+            ->setDescription("Avec des détails classiques comme les panneaux biseautés, la série de salles de bain TÄNNFORSEN vous permet d'affirmer votre style. Cet élément peu profonde avec miroir vous aide à vous préparer pour la")
+            ->setPrixAchat(120)
+            ->setPhoto("TANNFORSEN.jpg")
             ->setActif(true)
             ->setQuantiteStock(30)
             ->setStockAlert(5)
             ->setCategorie($categorie61)
-            ->setFournisseur($fournisseur2);
-        $manager->persist($pr89);
+            ->setFournisseur($fournisseur3);
+        $manager->persist($pr129);
 
-        // Produit 4
-        $pr89 = new Produit();
-        $pr89->setReference("REF089")
-            ->setLibelle("")
-            ->setDimenssion("60x120x8 cm")
-            ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(40)
-            ->setPhoto(".jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie61)
-            ->setFournisseur($fournisseur2);
-        $manager->persist($pr89);
+         // Produit 6
+         $pr130 = new Produit();
+         $pr130->setReference("R00130")
+             ->setLibelle("HEMNES")
+             ->setDimenssion("49x31x200 cm")
+             ->setCouleur("blanc")
+             ->setDescription("Ce grand miroir vous permet d’admirer votre tenue de la tête aux pieds. Il agrandit le pièce, et l'intérieur du meuble est assez spacieux pour que vous y rangiez serviettes et produits de beauté.")
+             ->setPrixAchat(130)
+             ->setPhoto("HEMNES.jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie61)
+             ->setFournisseur($fournisseur3);
+         $manager->persist($pr130);
 
-        // Produit 5
-        $pr89 = new Produit();
-        $pr89->setReference("REF089")
-            ->setLibelle("")
-            ->setDimenssion("60x120x8 cm")
-            ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(40)
-            ->setPhoto(".jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie61)
-            ->setFournisseur($fournisseur2);
-        $manager->persist($pr89);
-
-        // Produit 6
-        $pr89 = new Produit();
-        $pr89->setReference("REF089")
-            ->setLibelle("")
-            ->setDimenssion("60x120x8 cm")
-            ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(40)
-            ->setPhoto(".jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie61)
-            ->setFournisseur($fournisseur2);
-        $manager->persist($pr89);
-
+      
 
         $categorie62 = new Categorie;
         $categorie62->setNomCategorie("Meubles_Lavabos");
         $categorie62->setPhoto("meubles_lavabos.jpg");
         $categorie62->setParent($categorie6);
         $manager->persist($categorie62);
+
+        //Les produits de la catégorie Meubles_Lavabos
+
+         // Produit 1
+         $pr131 = new Produit();
+         $pr131->setReference("R00131")
+             ->setLibelle("")
+             ->setDimenssion("49x31x200 cm")
+             ->setCouleur("blanc")
+             ->setDescription("")
+             ->setPrixAchat(130)
+             ->setPhoto(".jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie62)
+             ->setFournisseur($fournisseur3);
+         $manager->persist($pr131);
 
         $categorie63 = new Categorie;
         $categorie63->setNomCategorie("Rangements");

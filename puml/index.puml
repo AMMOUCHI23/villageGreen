@@ -62,6 +62,15 @@ class Utilisateur {
 	ville
 }
 
+class ResetPasswordRequest {
+	id
+	**user**
+	selector
+	hashedToken
+	requestedAt
+	expiresAt
+}
+
 class Produit {
 	id
 	reference

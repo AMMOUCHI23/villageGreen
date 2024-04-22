@@ -91,7 +91,7 @@ class CatalogueController extends AbstractController
                 
                 if (empty($produits)) {
                     // Ajouter un message flash si aucun produit n'est trouvé
-                    $this->addFlash('warning', 'Aucun produit trouvé pour cette recherche.');
+                    $this->addFlash('warning', 'Aucun produit trouvé pour votre recherche: '.$search);
                 }
                 
                 return $this->render('catalogue/cherchePage.html.twig', [

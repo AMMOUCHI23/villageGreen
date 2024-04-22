@@ -7,6 +7,7 @@ use App\Entity\Utilisateur;
 use App\Form\RegistrationFormType;
 use App\Repository\EmployeRepository;
 use App\Security\EmailVerifier;
+use App\Service\SecurisationService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,14 +29,37 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, EmployeRepository $emp): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, EmployeRepository $emp, SecurisationService $secu): Response
     {
         $user = new Utilisateur();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+
+            //récupérer et vérirfier le nom 
+            $nom = $form->getData()->getNom();
+            $nom = $secu->securisation($nom);
+            $user->setNom($nom);
+
+            //récupérer et vérirfier le prenom 
+            $prenom = $form->getData()->getPrenom();
+            $prenom = $secu->securisation($prenom);
+            $user->setNom($prenom);
+
+
+            //récupérer et vérirfier l'adresse
+            $adresse = $form->getData()->getAdresse();
+            $adresse = $secu->securisation($adresse);
+            $user->setNom($adresse);
+
+              //récupérer et vérirfier le nom de la ville
+              $ville = $form->getData()->getVille();
+              $ville = $secu->securisation($ville);
+              $user->setNom($ville);
+  
+
+
+            // recupérer et hasher le mot de passe
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -51,23 +75,23 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             //Récupérer l'id du nouveau
-           $id= $user->getId();
+            $id = $user->getId();
 
-           
+
             //Créer un nouveau client 
             $client = new Client();
             $client->setUtilisateur($user)
                 ->setType("particulier")
                 ->setCoefficient(1.6)
                 ->setReduction(1)
-                ->setReferenceClient("C".$id); // la référence des clients particulier commence toujours avec la lettre C suivi de l'id de l'utilisateur
+                ->setReferenceClient("C" . $id); // la référence des clients particulier commence toujours avec la lettre C suivi de l'id de l'utilisateur
             //récupéré l'employé
             $employe = $emp->findOneById(2);
             $client->setEmploye($employe);
 
 
 
-            
+
             $entityManager->persist($client);
             $entityManager->flush();
 

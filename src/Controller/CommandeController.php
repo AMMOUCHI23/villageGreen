@@ -8,6 +8,7 @@ use App\Form\CommandeFormType;
 use App\Repository\ClientRepository;
 use App\Repository\ProduitRepository;
 use App\Service\MailService;
+use App\Service\SecurisationService;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +21,7 @@ class CommandeController extends AbstractController
 {
     #[Route('/commande', name: 'app_commande')]
     public function index(Request $request, RequestStack $requestStack, ClientRepository $cl,EntityManagerInterface $em,
-    ProduitRepository $produitRepository, MailService $mailService): Response
+    ProduitRepository $produitRepository, MailService $mailService, SecurisationService $secu): Response
     {
         $commandeForm = $this->createForm(CommandeFormType::class);
         $totalHT=$requestStack->getSession()->get('totalHT');
@@ -32,6 +33,27 @@ class CommandeController extends AbstractController
         
          if ($commandeForm->isSubmitted() && $commandeForm->isValid()) { 
             $commande=$commandeForm->getData();
+
+            //récupérer et vérirfier l'adresse de livraison 
+            $adresseLivraison = $commandeForm->getData()->getAdresseLivraison();
+            $adresseLivraison = $secu->securisation($adresseLivraison);
+            $commande->setAdresseLivraison($adresseLivraison);
+
+             //récupérer et vérirfier la ville de livraison 
+             $villeLivraison = $commandeForm->getData()->getVilleLivraison();
+             $villeLivraison = $secu->securisation($villeLivraison);
+             $commande->setVilleLivraison($villeLivraison);
+
+              //récupérer et vérirfier l'adresse de facturation 
+            $adresseFacturation = $commandeForm->getData()->getAdresseFacturation();
+            $adresseFacturation = $secu->securisation($adresseFacturation);
+            $commande->setAdresseFacturation($adresseFacturation);
+
+             //récupérer et vérirfier la ville de facturation 
+             $villeFacturation = $commandeForm->getData()->getVilleFacturation();
+             $villeFacturation = $secu->securisation($villeFacturation);
+             $commande->setVilleFacturation($villeFacturation);
+ 
 
              $commande->setDateCommande(new DateTime())
                       ->setTotalCommande($totalTTC) 
