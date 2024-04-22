@@ -2311,18 +2311,97 @@ class AppFixtures extends Fixture
          // Produit 1
          $pr131 = new Produit();
          $pr131->setReference("R00131")
-             ->setLibelle("")
-             ->setDimenssion("49x31x200 cm")
+             ->setLibelle("ENHET")
+             ->setDimenssion("64x33x65 cm")
              ->setCouleur("blanc")
-             ->setDescription("")
+             ->setDescription("La série ENHET permet d'apporter un coup de fraîcheur dans la salle de bain. Cet élément pour lavabo avec tablettes est idéal pour ranger des serviettes. Les portes blanches sont faciles à nettoyer.")
              ->setPrixAchat(130)
-             ->setPhoto(".jpg")
+             ->setPhoto("ENHET.jpg")
              ->setActif(true)
              ->setQuantiteStock(30)
              ->setStockAlert(5)
              ->setCategorie($categorie62)
              ->setFournisseur($fournisseur3);
          $manager->persist($pr131);
+
+          // Produit 2
+          $pr132 = new Produit();
+          $pr132->setReference("R00132")
+              ->setLibelle("BACKSJON")
+              ->setDimenssion("82x49x71 cm")
+              ->setCouleur("marbré")
+              ->setDescription("Les meubles ÄNGSJÖN ont un aspect moderne et un design épuré. Ce meuble lavabo avec plateau et vasque semi-encastrée apporte une touche personnelle et élégante à votre salle de bain.")
+              ->setPrixAchat(250)
+              ->setPhoto("BACKSJON.jpg")
+              ->setActif(true)
+              ->setQuantiteStock(30)
+              ->setStockAlert(5)
+              ->setCategorie($categorie62)
+              ->setFournisseur($fournisseur3);
+          $manager->persist($pr132);
+
+           // Produit 3
+         $pr133 = new Produit();
+         $pr133->setReference("R00133")
+             ->setLibelle("TORNVIKEN")
+             ->setDimenssion("82x49x79 cm")
+             ->setCouleur("blan/noir")
+             ->setDescription("Les meubles HAVBÄCK ont un design simple et épuré. Personnalisez ce meuble lavabo avec plateau et vasque à poser arrondie en y ajoutant les poignées ou boutons de votre choix.")
+             ->setPrixAchat(180)
+             ->setPhoto("TORNVIKEN.jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie62)
+             ->setFournisseur($fournisseur3);
+         $manager->persist($pr133);
+
+          // Produit 4
+          $pr134 = new Produit();
+          $pr134->setReference("R00134")
+              ->setLibelle("HEMNES")
+              ->setDimenssion("102x49x89 cm")
+              ->setCouleur("blanc")
+              ->setDescription("Simple avec un petit air artisanal scandinave, mais des fonctionnalités modernes comme un tiroir à fermeture silencieuse et une étagère pratique pour vos serviettes éponge.")
+              ->setPrixAchat(280)
+              ->setPhoto("HEMNES.jpg")
+              ->setActif(true)
+              ->setQuantiteStock(30)
+              ->setStockAlert(5)
+              ->setCategorie($categorie62)
+              ->setFournisseur($fournisseur3);
+          $manager->persist($pr134);
+           // Produit 5
+         $pr135 = new Produit();
+         $pr135->setReference("R00135")
+             ->setLibelle("ODENSVIK")
+             ->setDimenssion("83x49x64 cm")
+             ->setCouleur("blanc")
+             ->setDescription("La finition blanc brillant apporte une touche de fraîcheur et permet de commencer la journée du bon pied. Les tiroirs sont grands et permettent de ranger tous vos indispensables.")
+             ->setPrixAchat(250)
+             ->setPhoto("ODENSVIK.jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie62)
+             ->setFournisseur($fournisseur3);
+         $manager->persist($pr135);
+         
+         // Produit 6
+         $pr136 = new Produit();
+         $pr136->setReference("R00136")
+             ->setLibelle("OXMYREN")
+             ->setDimenssion("122x49x77 cm")
+             ->setCouleur("chêne/noir")
+             ->setDescription("Surprenant et tout simplement magnifique. Ici, vous disposez de 3 tiroirs pour y ranger tout ce dont vous avez besoin, d'un bel espace où disposer des objets décoratifs et d'un lavabo en verre qui fait vraiment son effet.")
+             ->setPrixAchat(350)
+             ->setPhoto("OXMYREN.jpg")
+             ->setActif(true)
+             ->setQuantiteStock(30)
+             ->setStockAlert(5)
+             ->setCategorie($categorie62)
+             ->setFournisseur($fournisseur3);
+         $manager->persist($pr136);
 
         $categorie63 = new Categorie;
         $categorie63->setNomCategorie("Rangements");

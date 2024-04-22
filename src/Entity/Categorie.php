@@ -1,24 +1,38 @@
 <?php
 
 namespace App\Entity;
-
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
 use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
+#[ApiResource(
+       operations: [
+           new Get(normalizationContext: ['groups' => 'conference:ite']),
+           new GetCollection(normalizationContext: ['groups' => 'conference:list'])
+        ],
+        order: ['year' => 'DESC', 'city' => 'ASC'],
+        paginationEnabled: false,
+    )]
 class Categorie
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['conference:list', 'conference:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['conference:list', 'conference:item'])]
     private ?string $nom_categorie = null;
 
     #[ORM\Column(length: 70, nullable: true)]
+    #[Groups(['conference:list', 'conference:item'])]
     private ?string $photo = null;
 
     #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'Categorie')]
