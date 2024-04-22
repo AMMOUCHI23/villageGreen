@@ -144,12 +144,108 @@ class AppFixtures extends Fixture
         $categorie1->setPhoto("sejour.jpg");
         $manager->persist($categorie1);
 
-        /*Sous Catégories Séjours */
-        $categorie11 = new Categorie;
-        $categorie11->setNomCategorie("Buffets");
-        $categorie11->setPhoto("buffets.jpg");
-        $categorie11->setParent($categorie1);
-        $manager->persist($categorie11);
+        // sous catégorie meubles_TV
+        $categorie15 = new Categorie;
+        $categorie15->setNomCategorie("Meubles_TV");
+        $categorie15->setPhoto("meubles_tv.jpg");
+        $categorie15->setParent($categorie1);
+        $manager->persist($categorie15);
+
+
+        // produit 1
+        $pr107 = new Produit();
+        $pr107->setReference("REF107")
+            ->setLibelle("BESTA")
+            ->setDimenssion("180x42x39 cm")
+            ->setCouleur("blanchi/Selsviken")
+            ->setDescription("Le banc TV BESTÅ combine fonctionnalité et look moderne. Il offre un grand espace de rangement et permet de cacher les câbles qui ont tendance à s'emmêler et à récolter la poussière.")
+            ->setPrixAchat(150)
+            ->setPhoto("BESTA.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie15)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr107);
+        // produit 2
+        $pr108 = new Produit();
+        $pr108->setReference("REF108")
+            ->setLibelle("BURS")
+            ->setDimenssion("180x41x49 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Le banc TV BESTÅ est parfait pour accueillir votre télévision et tous les équipements multimédia qui vont avec. Les tiroirs spacieux offrent de nombreux espaces de rangement pour les DVD et jeux vidéo. Et l'espace est parfaitement rangé !")
+            ->setPrixAchat(160)
+            ->setPhoto("BURS.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie15)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr108);
+
+        // produit 3
+        $pr109 = new Produit();
+        $pr109->setReference("REF109")
+            ->setLibelle("HEMNES")
+            ->setDimenssion("148x47x57 cm")
+            ->setCouleur("blanc brun")
+            ->setDescription("Quoi de plus beau qu'un meuble fabriqué en pin massif, un matériau qui embellit avec le temps. Vous aimez ? Si ce produit vous plaît, vous pouvez le combiner avec d'autres meubles de la série HEMNES.")
+            ->setPrixAchat(160)
+            ->setPhoto("HEMNES.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie15)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr109);
+
+        // produit 4
+        $pr110 = new Produit();
+        $pr110->setReference("REF110")
+            ->setLibelle("BRIMNES")
+            ->setDimenssion("180x41x53 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Quand le coin télé est bien rangé, il est plus facile d'organiser une soirée série ! Vous pouvez ranger vos jeux, télécommandes et accessoires dans les grands tiroirs et passer les câbles dans les trous situés à l'arrière.")
+            ->setPrixAchat(80)
+            ->setPhoto("BRIMNES.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie15)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr110);
+
+        // produit 5
+        $pr111 = new Produit();
+        $pr111->setReference("REF111")
+            ->setLibelle("SKRUVBY")
+            ->setDimenssion("156x38x60 cm")
+            ->setCouleur("bleu noir")
+            ->setDescription("La série SKRUVBY offre un aspect traditionnel avec des rangements indépendants qui peuvent être coordonnées. Le dessus du banc TV motif chêne présente des bords profilés qui apportent une touche chaleureuse et naturelle à la pièce.")
+            ->setPrixAchat(50)
+            ->setPhoto("SKRUVBY.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie15)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr111);
+
+        // produit 6
+        $pr112 = new Produit();
+        $pr112->setReference("REF112")
+            ->setLibelle("LACK")
+            ->setDimenssion("120x42x48 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Tout ce dont vous avez besoin pour un coin télé ordonné ! De grands espaces de rangement qui cachent aussi les câbles. Optez pour une combinaison tout faite ou créez la vôtre. Ce que vous voyez là n'est que l'une des nombreuses combinaisons possibles.")
+            ->setPrixAchat(90)
+            ->setPhoto("LACK.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie15)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr112);
 
         $categorie12 = new Categorie;
         $categorie12->setNomCategorie("Canapés");
@@ -157,29 +253,226 @@ class AppFixtures extends Fixture
         $categorie12->setParent($categorie1);
         $manager->persist($categorie12);
 
+        //Les produits de la catégorie canapé
+        // produit 1
+        $pr113 = new Produit();
+        $pr113->setReference("REF113")
+            ->setLibelle("Canape FRIHETEN")
+            ->setDimenssion("4 places")
+            ->setCouleur("gris")
+            ->setDescription("Après une bonne nuit de sommeil, votre chambre redevient facilement un salon. Le rangement sous l'assise est facile d'accès et large ce qui permet de ranger de nombreux draps, coussins ou livres.")
+            ->setPrixAchat(400)
+            ->setPhoto("canape_FRIHETEN.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie12)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr113);
+
+        // produit 2
+        $pr114 = new Produit();
+        $pr114->setReference("REF114")
+            ->setLibelle("Canape PARUP")
+            ->setDimenssion("2 places")
+            ->setCouleur("gris/brun")
+            ->setDescription("Est-ce que vous croyez au coup de foudre ? Design moderne, montage rapide, entretien facile grâce à la housse amovible lavable en machine. Comment ne pas craquer pour le canapé PÄRUP ? Profitez-en")
+            ->setPrixAchat(300)
+            ->setPhoto("canape_PARUP.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie12)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr114);
+
+        // produit 3
+        $pr115 = new Produit();
+        $pr115->setReference("REF115")
+            ->setLibelle("Canape EKTORP")
+            ->setDimenssion("3 places")
+            ->setCouleur("bleu foncé")
+            ->setDescription("épais et confortables. Les housses sont faciles à changer, alors achetez-en une ou deux de plus pour pouvoir alterner en fonction de vos envies ou de la saison.")
+            ->setPrixAchat(320)
+            ->setPhoto("canape_EKTORP.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie12)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr115);
+
+        // produit 4
+        $pr116 = new Produit();
+        $pr116->setReference("REF116")
+            ->setLibelle("Canape VIMLE")
+            ->setDimenssion("3 places")
+            ->setCouleur("bige")
+            ->setDescription("Les canapés VIMLE sont composés de modules qui peuvent être combinés comme vous le souhaitez pour créer un canapé sur mesure. Il répond ainsi à vos besoins, s'adapte à votre espace et peut même s'agrandir en même temps que la famille.")
+            ->setPrixAchat(500)
+            ->setPhoto("canape_VIMLE.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie12)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr116);
+
+        // produit 5
+        $pr117 = new Produit();
+        $pr117->setReference("REF117")
+            ->setLibelle("Canape ASKEBY")
+            ->setDimenssion("2 places")
+            ->setCouleur("gris foncé")
+            ->setDescription("Canapé compact et lit dans un même produit ! Pratique quand votre enfant invite un ami à dormir ou quand vos invités décident finalement de rester dormir. Pour utiliser le lit, il suffit de retirer les coussins, de déplier l'assise et de s'installer.")
+            ->setPrixAchat(120)
+            ->setPhoto("canape_ASKEBY.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie12)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr117);
+
+        // produit 6
+        $pr118 = new Produit();
+        $pr118->setReference("REF118")
+            ->setLibelle("Canape KLIPPAN")
+            ->setDimenssion("3 places")
+            ->setCouleur("gris foncé")
+            ->setDescription("Ce canapé peut être formé comme vous le souhaitez pour meubler au mieux votre intérieur. Vous pouvez choisir le nombre de places, le design et les fonctions, et ajouter des éléments à mesure que votre famille et que votre intérieur grandissent.")
+            ->setPrixAchat(450)
+            ->setPhoto("canape_KLIPPAN.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie12)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr118);
+
         $categorie13 = new Categorie;
         $categorie13->setNomCategorie("Chaises");
         $categorie13->setPhoto("chaises.jpg");
         $categorie13->setParent($categorie1);
         $manager->persist($categorie13);
 
-        $categorie14 = new Categorie;
-        $categorie14->setNomCategorie("Décorations");
-        $categorie14->setPhoto("decorations.jpg");
-        $categorie14->setParent($categorie1);
-        $manager->persist($categorie14);
+        //Les produits de lasous catégorie chaises
+        // produit 1
+        $pr119 = new Produit();
+        $pr119->setReference("REF113")
+            ->setLibelle("BERGMUND")
+            ->setDimenssion("52x41x95 cm")
+            ->setCouleur("gris")
+            ->setDescription("Grâce à nos recherches et au développement de nouvelles techniques, la chaise vous offre un confort optimal. Pour changer son style, il suffit de remplacer la housse grise par une housse d'une autre couleur ou d'un autre modèle.")
+            ->setPrixAchat(50)
+            ->setPhoto("BERGMUND.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie13)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr119);
+        // produit 2
+        $pr120 = new Produit();
+        $pr120->setReference("REF120")
+            ->setLibelle("Canape")
+            ->setDimenssion("52x41x95 cm")
+            ->setCouleur("vert clair")
+            ->setDescription("Cette chaise rembourrée est particulièrement confortable pour diverses activités : travailler, bricoler ou manger. Choisissez votre couleur préférée pour personnaliser votre pièce.")
+            ->setPrixAchat(20)
+            ->setPhoto("KARLPETTER.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie13)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr120);
 
-        $categorie15 = new Categorie;
-        $categorie15->setNomCategorie("Meubles_TV");
-        $categorie15->setPhoto("meubles_tv.jpg");
-        $categorie15->setParent($categorie1);
-        $manager->persist($categorie15);
+        // produit 3
+        $pr121 = new Produit();
+        $pr121->setReference("REF121")
+            ->setLibelle("BALTSAR")
+            ->setDimenssion("52x41x95 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Fonctionnalité et style à la fois ! Cette chaise pivotante blanche attire les regards. Elle est si confortable que vous n'aurez pas envie de sortir de table. Elle pivote facilement pour se lever.")
+            ->setPrixAchat(90)
+            ->setPhoto("BALTSAR.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie13)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr121);
 
-        $categorie16 = new Categorie;
-        $categorie16->setNomCategorie("Tapis");
-        $categorie16->setPhoto("tapis.jpg");
-        $categorie16->setParent($categorie1);
-        $manager->persist($categorie16);
+        // produit 4
+        $pr122 = new Produit();
+        $pr122->setReference("REF122")
+            ->setLibelle("TOBIAS")
+            ->setDimenssion("52x41x95 cm")
+            ->setCouleur("transparent/chromé")
+            ->setDescription("Cette chaise transparente reflète son environnement, s'imprègne des couleurs de la pièce et semble flotter. Avec son siège flexible, elle vous donnera l'impression de flotter aussi !")
+            ->setPrixAchat(60)
+            ->setPhoto("TOBIAS.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie13)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr122);
+
+        // produit 5
+        $pr123 = new Produit();
+        $pr123->setReference("REF123")
+            ->setLibelle("NILSOVE")
+            ->setDimenssion("52x41x95 cm")
+            ->setCouleur("rotin blan")
+            ->setDescription("Cette chaise est tissée à la main, ce qui la rend unique avec ses bords arrondis et ses motifs minutieux.")
+            ->setPrixAchat(80)
+            ->setPhoto("NILSOVE.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie13)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr123);
+
+        // produit 6
+        $pr124 = new Produit();
+        $pr124->setReference("REF124")
+            ->setLibelle("LUSTEBO")
+            ->setDimenssion("52x41x95 cm")
+            ->setCouleur("beige")
+            ->setDescription("Cette chaise rembourrée et flexible vous permettra d'être assis confortablement pour parler avec vos invités pendant des heures. Et si vous faites une tache, pas d'inquiétude, la housse est amovible.")
+            ->setPrixAchat(90)
+            ->setPhoto("LUSTEBO.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie13)
+            ->setFournisseur($fournisseur7);
+        $manager->persist($pr124);
+
+        
+        // /*Sous Catégories Séjours */
+        // $categorie11 = new Categorie;
+        // $categorie11->setNomCategorie("Buffets");
+        // $categorie11->setPhoto("buffets.jpg");
+        // $categorie11->setParent($categorie1);
+        // $manager->persist($categorie11);
+
+        // $categorie14 = new Categorie;
+        // $categorie14->setNomCategorie("Décorations");
+        // $categorie14->setPhoto("decorations.jpg");
+        // $categorie14->setParent($categorie1);
+        // $manager->persist($categorie14);
+
+
+
+        // $categorie16 = new Categorie;
+        // $categorie16->setNomCategorie("Tapis");
+        // $categorie16->setPhoto("tapis.jpg");
+        // $categorie16->setParent($categorie1);
+        // $manager->persist($categorie16);
 
 
         /**Catégorie Cuisine */
@@ -195,24 +488,308 @@ class AppFixtures extends Fixture
         $categorie21->setParent($categorie2);
         $manager->persist($categorie21);
 
+        //les produits de la sous catégorie buffets
+        // produit 1
+        $pr89 = new Produit();
+        $pr89->setReference("REF089")
+            ->setLibelle("Buffet SKRUVBY")
+            ->setDimenssion("120x38x90 cm")
+            ->setCouleur("blanc")
+            ->setDescription("La série SKRUVBY propose des éléments assortis de style traditionnel. Le buffet se compose d'un plateau avec un motif chêne chaleureux, de tablettes, d'un tiroir et d'un espace de rangement dissimulé derrière des portes rainurées.")
+            ->setPrixAchat(90)
+            ->setPhoto("buffet_SKRUVBY.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie21)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr89);
+        // produit 2
+        $pr90 = new Produit();
+        $pr90->setReference("REF090")
+            ->setLibelle("Buffet FJALLBO")
+            ->setDimenssion("120x38x90 cm")
+            ->setCouleur("noir")
+            ->setDescription("Un buffet léger mais stable de style rustique, qui convient aussi bien dans un salon que dans une salle à manger. Le métal lui donne un côté industriel et le bois massif rend chaque produit unique.")
+            ->setPrixAchat(120)
+            ->setPhoto("buffet_FJALLBO.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie21)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr90);
+        // produit 3
+        $pr91 = new Produit();
+        $pr91->setReference("REF091")
+            ->setLibelle("Buffet TULLSTORP")
+            ->setDimenssion("99x35x89 cm")
+            ->setCouleur("gris")
+            ->setDescription("Vous aimeriez trouver une nouvelle façon de meubler votre salon ? Le buffet TULLSTORP aux lignes épurées est en métal et comporte des portes biseautées et des rangements ouverts. Créez un contraste intéressant avec des boîtes en fibre naturelle.")
+            ->setPrixAchat(70)
+            ->setPhoto("buffet_TULLSTORP.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie21)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr91);
+        // produit 4
+        $pr92 = new Produit();
+        $pr92->setReference("REF092")
+            ->setLibelle("Buffet IDASEN")
+            ->setDimenssion("120x140 cm")
+            ->setCouleur("gris/vert")
+            ->setDescription("Si vous aimez avoir vos affaires à portée de main et les protéger de la poussière, optez pour un rangement avec portes vitrées. Vous n'avez pas besoin de beaucoup d'espace pour l'ouvrir, car les portes sont coulissantes.")
+            ->setPrixAchat(180)
+            ->setPhoto("buffet_IDASEN.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie21)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr92);
+        // produit 5
+        $pr93 = new Produit();
+        $pr93->setReference("REF093")
+            ->setLibelle("Buffet LANESUND")
+            ->setDimenssion("161x47x81 cm")
+            ->setCouleur("gris brun")
+            ->setDescription("Un meuble qui dispose d'espace pour exposer et ranger vos objets. Ajoutez quelque chose de joli sur le dessus pour compléter le tout et profitez d'une solution de rangement solide, pratique et esthétique.")
+            ->setPrixAchat(320)
+            ->setPhoto("buffet_LANESUND.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie21)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr93);
+        // produit 6
+        $pr94 = new Produit();
+        $pr94->setReference("REF094")
+            ->setLibelle("Buffet BAGGEBO")
+            ->setDimenssion("160x78x92 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Un design épuré parfaitement assorti à votre intérieur ou aux autres meubles de la série BAGGEBO. Idéal pour la salle à manger ou l'entrée, ce buffet se compose de rangements ouverts et fermés qui peuvent contenir des objets de toutes tailles.")
+            ->setPrixAchat(30)
+            ->setPhoto("buffet_BAGGEBO.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie21)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr94);
+
         $categorie22 = new Categorie;
         $categorie22->setNomCategorie("Dessertes");
         $categorie22->setPhoto("dessertes.jpg");
         $categorie22->setParent($categorie2);
         $manager->persist($categorie22);
 
-        $categorie23 = new Categorie;
-        $categorie23->setNomCategorie("Etagères_Murales");
-        $categorie23->setPhoto("etagères_murales.jpg");
-        $categorie23->setParent($categorie2);
-        $manager->persist($categorie23);
+        //Les produits de la sous catégorie dessertes
+        // produit 1
+        $pr95 = new Produit();
+        $pr95->setReference("REF095")
+            ->setLibelle("Desserte FORHOJA")
+            ->setDimenssion("100x43 cm")
+            ->setCouleur("maron")
+            ->setDescription("Offre un espace de rangement supplémentaire dans votre cuisine.")
+            ->setPrixAchat(80)
+            ->setPhoto("desserte_FORHOJA.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie22)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr95);
+
+        // produit 2
+        $pr96 = new Produit();
+        $pr96->setReference("REF096")
+            ->setLibelle("Desserte BROR")
+            ->setDimenssion("100x43 cm")
+            ->setCouleur("noir/bois")
+            ->setDescription("Solide, résistant et adaptable, ce système de rangement en métal est facile à monter, à compléter selon vos besoins et résiste à l'humidité, à la saleté et aux charges lourdes.")
+            ->setPrixAchat(130)
+            ->setPhoto("desserte_BROR.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie22)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr96);
+
+        // produit 3
+        $pr97 = new Produit();
+        $pr97->setReference("REF097")
+            ->setLibelle("Desserte NISSAFORS")
+            ->setDimenssion("50.5x30x83 cm")
+            ->setCouleur("noir")
+            ->setDescription("Cette desserte s'insère dans les plus petits espaces et peut être déplacée très facilement. Elle peut servir de rangement supplémentaire pour les ustensiles de cuisine, les accessoires de bureau, les clés et les téléphones portables.")
+            ->setPrixAchat(10)
+            ->setPhoto("desserte_NISSAFORS.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie22)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr97);
+        // produit 4
+        $pr98 = new Produit();
+        $pr98->setReference("REF098")
+            ->setLibelle("Desserte GRILLSKAR")
+            ->setDimenssion("39x61 cm")
+            ->setCouleur("noir")
+            ->setDescription("Ce solide petit îlot de cuisine est facile à placer près du barbecue comme surface de travail supplémentaire. Ayez vos ustensiles à portée de main sur les tablettes pour pouvoir préparer facilement les aliments sur le plateau en acier inoxydable.")
+            ->setPrixAchat(50)
+            ->setPhoto("desserte_GRILLSKAR.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie22)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr98);
+
+        // produit 5
+        $pr99 = new Produit();
+        $pr99->setReference("REF095")
+            ->setLibelle("Desserte KUNGSFORS")
+            ->setDimenssion("60x40 cm")
+            ->setCouleur("acier inoxydable")
+            ->setDescription("Comme dans une cuisine de restaurant, nous avons privilégié les matériaux résistants et les rangements muraux et pratiques qui permettent aux cuisiniers amateurs d'exprimer leur créativité.")
+            ->setPrixAchat(70)
+            ->setPhoto("desserte_KUNGSFORS.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie22)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr99);
+
+        // produit 6
+        $pr100 = new Produit();
+        $pr100->setReference("REF100")
+            ->setLibelle("Desserte ENHET")
+            ->setDimenssion("123x63.5x91 cm")
+            ->setCouleur("blanc")
+            ->setDescription("La série ENHET permet d'apporter un coup de fraîcheur dans la cuisine. Cet îlot central attire tous les regards que vous l'utilisiez pour cuisiner, déballer les courses ou servir l'apéro.")
+            ->setPrixAchat(120)
+            ->setPhoto("desserte_ENHET.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie22)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr100);
+
+        // $categorie23 = new Categorie;
+        // $categorie23->setNomCategorie("Etagères_Murales");
+        // $categorie23->setPhoto("etagères_murales.jpg");
+        // $categorie23->setParent($categorie2);
+        // $manager->persist($categorie23);
 
         $categorie24 = new Categorie;
         $categorie24->setNomCategorie("Tables_et_Chaises");
         $categorie24->setPhoto("tables_et_chaises.jpg");
         $categorie24->setParent($categorie2);
         $manager->persist($categorie24);
+        //les produits de la sous catégorie tables et chaises
 
+        // produit 1
+        $pr101 = new Produit();
+        $pr101->setReference("REF101")
+            ->setLibelle("Table JOKKMOKK")
+            ->setDimenssion("118x74x74 cm")
+            ->setCouleur("maron")
+            ->setDescription("Une combinaison de chaises et table parfaite pour un coin repas dans la cuisine ou la salle à manger. Le pin massif vieillit bien et résistera aux nombreux repas et activités de la famille.")
+            ->setPrixAchat(150)
+            ->setPhoto("table_JOKKMOKK.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie24)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr101);
+
+        // produit 2
+        $pr102 = new Produit();
+        $pr102->setReference("REF102")
+            ->setLibelle("Table STEFAN")
+            ->setDimenssion("125x60x75 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Le bois est un matérieau naturel et les variations d'aspect du plateau et des pieds font de chaque table une pièce unique.")
+            ->setPrixAchat(140)
+            ->setPhoto("table_STEFAN.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie24)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr102);
+
+        // produit 3
+        $pr103 = new Produit();
+        $pr103->setReference("REF103")
+            ->setLibelle("Table DOCKSTA")
+            ->setDimenssion("125x60x75 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Une table ronde permet à chacun d'être assis face aux autres. Si vous manquez de place, il suffit d'ajouter une rallonge. Son design traditionnel est accompagné de détails travaillés, comme les pieds tournés.")
+            ->setPrixAchat(280)
+            ->setPhoto("table_DOCKSTA.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie24)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr103);
+
+        // produit 4
+        $pr104 = new Produit();
+        $pr104->setReference("REF104")
+            ->setLibelle("Table SANDSBERG")
+            ->setDimenssion("110x60x75 cm")
+            ->setCouleur("noir")
+            ->setDescription("L'alliance du style et du confort. Cette chaise rembourrée est parfaite pour être confortablement installé lors d'un long repas, passer de bons moments en famille ou entre amis ou, se détendre seul")
+            ->setPrixAchat(110)
+            ->setPhoto("table_SANDSBERG.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie24)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr104);
+
+        // produit 5
+        $pr105 = new Produit();
+        $pr105->setReference("REF105")
+            ->setLibelle("Table INGATORP")
+            ->setDimenssion("110/155 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Avec son design simple, cette table à manger se fondra parfaitement dans le décor de votre pièce. Cerise sur le gâteau : sa rallonge, simple à installer, vous permettra d'inviter des amis sans vous soucier du manque de place à table !")
+            ->setPrixAchat(320)
+            ->setPhoto("table_INGATORP.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie24)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr105);
+
+        // produit 6
+        $pr106 = new Produit();
+        $pr106->setReference("REF106")
+            ->setLibelle("Table LISABO")
+            ->setDimenssion("105x60x75 cm")
+            ->setCouleur("maron")
+            ->setDescription("Une table ronde favorise la conversation entre les convives. L’association du bois et des formes arrondies contribuent à créer une atmosphère chaleureuse et agréable. S’adapte à toutes les pièces de la maison.")
+            ->setPrixAchat(180)
+            ->setPhoto("table_LISABO.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie24)
+            ->setFournisseur($fournisseur9);
+        $manager->persist($pr106);
         /**Catégorie chambre adulte */
         $categorie3 = new Categorie();
         $categorie3->setNomCategorie("Chambre_Adulte");
@@ -997,24 +1574,24 @@ class AppFixtures extends Fixture
             ->setFournisseur($fournisseur5);
         $manager->persist($pr77);
 
-         //Produit 2
-         $pr78 = new Produit();
-         $pr78->setReference("REF078")
-             ->setLibelle("Lit MALM")
-             ->setDimenssion("90x200 cm")
-             ->setCouleur("blanc")
-             ->setDescription("Un design épuré. Esthétique de tous les côtés vous pouvez le placer au milieu d'une pièce ou avec la tête de lit contre le mur. Si vous avez besoin de place pour ranger des couettes ou des oreillers, ajoutez-y les rangements MALM sur roulettes.")
-             ->setPrixAchat(90)
-             ->setPhoto("lit_MALM.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie44)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr78);
+        //Produit 2
+        $pr78 = new Produit();
+        $pr78->setReference("REF078")
+            ->setLibelle("Lit MALM")
+            ->setDimenssion("90x200 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Un design épuré. Esthétique de tous les côtés vous pouvez le placer au milieu d'une pièce ou avec la tête de lit contre le mur. Si vous avez besoin de place pour ranger des couettes ou des oreillers, ajoutez-y les rangements MALM sur roulettes.")
+            ->setPrixAchat(90)
+            ->setPhoto("lit_MALM.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie44)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr78);
 
 
-          //Produit 3
+        //Produit 3
         $pr79 = new Produit();
         $pr79->setReference("REF079")
             ->setLibelle("Lit MONDAL")
@@ -1034,23 +1611,23 @@ class AppFixtures extends Fixture
             ->setFournisseur($fournisseur5);
         $manager->persist($pr79);
 
-         //Produit 4
-         $pr80 = new Produit();
-         $pr80->setReference("REF080")
-             ->setLibelle("Lit NEIDEN")
-             ->setDimenssion("90x200 cm")
-             ->setCouleur("pin")
-             ->setDescription("Le bois massif non traité a du charme mais vous pouvez aussi le personnaliser avec une couche de teinture, de peinture ou de cire. La structure est assez haute pour placer des boîtes de rangement en dessous.")
-             ->setPrixAchat(40)
-             ->setPhoto("lit_NEIDEN.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie44)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr80);
+        //Produit 4
+        $pr80 = new Produit();
+        $pr80->setReference("REF080")
+            ->setLibelle("Lit NEIDEN")
+            ->setDimenssion("90x200 cm")
+            ->setCouleur("pin")
+            ->setDescription("Le bois massif non traité a du charme mais vous pouvez aussi le personnaliser avec une couche de teinture, de peinture ou de cire. La structure est assez haute pour placer des boîtes de rangement en dessous.")
+            ->setPrixAchat(40)
+            ->setPhoto("lit_NEIDEN.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie44)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr80);
 
-          //Produit 5
+        //Produit 5
         $pr81 = new Produit();
         $pr81->setReference("REF081")
             ->setLibelle("Lit KURA")
@@ -1066,21 +1643,21 @@ class AppFixtures extends Fixture
             ->setFournisseur($fournisseur5);
         $manager->persist($pr81);
 
-         //Produit 6
-         $pr82 = new Produit();
-         $pr82->setReference("REF082")
-             ->setLibelle("Lit MYDAL")
-             ->setDimenssion("90x200 cm")
-             ->setCouleur("blanc")
-             ->setDescription("Ce lit superposé, à petit prix, est fabriqué en bois massif, un matériau solide qui dure de nombreuses années et peut-être recyclé le jour où votre enfant quitte le nid.")
-             ->setPrixAchat(110)
-             ->setPhoto("lit_MYDAL.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie44)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr82);
+        //Produit 6
+        $pr82 = new Produit();
+        $pr82->setReference("REF082")
+            ->setLibelle("Lit MYDAL")
+            ->setDimenssion("90x200 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Ce lit superposé, à petit prix, est fabriqué en bois massif, un matériau solide qui dure de nombreuses années et peut-être recyclé le jour où votre enfant quitte le nid.")
+            ->setPrixAchat(110)
+            ->setPhoto("lit_MYDAL.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie44)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr82);
 
         $categorie45 = new Categorie;
         $categorie45->setNomCategorie("Matelats");
@@ -1090,101 +1667,101 @@ class AppFixtures extends Fixture
 
         // Les produits de la sous catégorie matelat
 
-         //Produit 1
-         $pr83 = new Produit();
-         $pr83 ->setReference("REF083")
-             ->setLibelle("Matelas HIMLAVALV")
-             ->setDimenssion("60x120x10 cm")
-             ->setCouleur("blanc")
-             ->setDescription("Les jeunes enfants mouillent souvent leur lit. Cela peut être un problème, tout comme la poussière ou les allergies. C’est pour cela que ce matelas peut se rincer à l’eau et sécher à l’air libre et que sa housse est amovible et lavable en machine.")
-             ->setPrixAchat(60)
-             ->setPhoto("matelas_HIMLAVALV.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie45)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr83);
+        //Produit 1
+        $pr83 = new Produit();
+        $pr83->setReference("REF083")
+            ->setLibelle("Matelas HIMLAVALV")
+            ->setDimenssion("60x120x10 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Les jeunes enfants mouillent souvent leur lit. Cela peut être un problème, tout comme la poussière ou les allergies. C’est pour cela que ce matelas peut se rincer à l’eau et sécher à l’air libre et que sa housse est amovible et lavable en machine.")
+            ->setPrixAchat(60)
+            ->setPhoto("matelas_HIMLAVALV.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie45)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr83);
 
-         //Produit 2
-         $pr84 = new Produit();
-         $pr84 ->setReference("REF084")
-             ->setLibelle("Matelas UNDERLIG")
-             ->setDimenssion("70x160 cm")
-             ->setCouleur("blanc")
-             ->setDescription("Votre enfant a besoin d'un endroit confortable et à la bonne taille pour se sentir en sécurité la nuit. Le matelas UNDERLIG s'adapte parfaitement à nos lits pour enfant et permet à votre bambin de dormir dans son premier lit de grand.")
-             ->setPrixAchat(40)
-             ->setPhoto("matelas_UNDERLIG.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie45)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr84);
+        //Produit 2
+        $pr84 = new Produit();
+        $pr84->setReference("REF084")
+            ->setLibelle("Matelas UNDERLIG")
+            ->setDimenssion("70x160 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Votre enfant a besoin d'un endroit confortable et à la bonne taille pour se sentir en sécurité la nuit. Le matelas UNDERLIG s'adapte parfaitement à nos lits pour enfant et permet à votre bambin de dormir dans son premier lit de grand.")
+            ->setPrixAchat(40)
+            ->setPhoto("matelas_UNDERLIG.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie45)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr84);
 
-         //Produit 3
-         $pr85 = new Produit();
-         $pr85 ->setReference("REF085")
-             ->setLibelle("Matelat DROMMANDE")
-             ->setDimenssion("60x120x1 cm")
-             ->setCouleur("blanc")
-             ->setDescription("Le coeur du matelas DRÖMMANDE est composé de ressorts ensachés et enveloppés d'un mélange de fibres de coco et de latex naturel. Résultat : un matelas résilient et sûr, qui laisse l'air circuler et garantit un sommeil confortable à votre bébé.")
-             ->setPrixAchat(120)
-             ->setPhoto("matelat_DROMMANDE.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie45)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr85);
+        //Produit 3
+        $pr85 = new Produit();
+        $pr85->setReference("REF085")
+            ->setLibelle("Matelat DROMMANDE")
+            ->setDimenssion("60x120x1 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Le coeur du matelas DRÖMMANDE est composé de ressorts ensachés et enveloppés d'un mélange de fibres de coco et de latex naturel. Résultat : un matelas résilient et sûr, qui laisse l'air circuler et garantit un sommeil confortable à votre bébé.")
+            ->setPrixAchat(120)
+            ->setPhoto("matelat_DROMMANDE.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie45)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr85);
 
-         //Produit 4
-         $pr86 = new Produit();
-         $pr86 ->setReference("REF086")
-             ->setLibelle("Matelas OMSINT")
-             ->setDimenssion("80x200 cm")
-             ->setCouleur("blanc")
-             ->setDescription("Ce matelas de 12 cm d'épaisseur, en 3 parties, est composé de ressorts ensachés individuellement et recouverts d'une épaisse couche de mousse. S'adapte à la taille de votre enfant et au lit extensible, de 130 à 165 ou 200 cm.")
-             ->setPrixAchat(120)
-             ->setPhoto("matelas_OMSINT.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie45)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr86);
+        //Produit 4
+        $pr86 = new Produit();
+        $pr86->setReference("REF086")
+            ->setLibelle("Matelas OMSINT")
+            ->setDimenssion("80x200 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Ce matelas de 12 cm d'épaisseur, en 3 parties, est composé de ressorts ensachés individuellement et recouverts d'une épaisse couche de mousse. S'adapte à la taille de votre enfant et au lit extensible, de 130 à 165 ou 200 cm.")
+            ->setPrixAchat(120)
+            ->setPhoto("matelas_OMSINT.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie45)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr86);
 
-         //Produit 5
-         $pr87 = new Produit();
-         $pr87 ->setReference("REF087")
-             ->setLibelle("Matelas KRUMMELUR")
-             ->setDimenssion("60x120x8 cm")
-             ->setCouleur("blanc")
-             ->setDescription("Nos matelas pour bébé sont fabriqués avec des matériaux durables et sûrs. Ils ont été testés et ne contiennent aucune substance pouvant présenter un danger pour la peau ou la santé de votre bébé. Tout le monde dormira sur ses deux oreilles. ")
-             ->setPrixAchat(25)
-             ->setPhoto("matelas_KRUMMELUR.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie45)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr87);
+        //Produit 5
+        $pr87 = new Produit();
+        $pr87->setReference("REF087")
+            ->setLibelle("Matelas KRUMMELUR")
+            ->setDimenssion("60x120x8 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Nos matelas pour bébé sont fabriqués avec des matériaux durables et sûrs. Ils ont été testés et ne contiennent aucune substance pouvant présenter un danger pour la peau ou la santé de votre bébé. Tout le monde dormira sur ses deux oreilles. ")
+            ->setPrixAchat(25)
+            ->setPhoto("matelas_KRUMMELUR.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie45)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr87);
 
-         //Produit 6
-         $pr88 = new Produit();
-         $pr88 ->setReference("REF088")
-             ->setLibelle("Matelas SKONAST")
-             ->setDimenssion("60x120x8 cm")
-             ->setCouleur("blanc")
-             ->setDescription("Nos matelas pour bébé sont fabriqués avec des matériaux durables et sûrs. Ils ont été testés et ne contiennent aucune substance pouvant présenter un danger pour la peau ou la santé de votre bébé. Tout le monde dormira sur ses deux oreilles.")
-             ->setPrixAchat(40)
-             ->setPhoto("matelas_SKONAST.jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie45)
-             ->setFournisseur($fournisseur5);
-         $manager->persist($pr88);
+        //Produit 6
+        $pr88 = new Produit();
+        $pr88->setReference("REF088")
+            ->setLibelle("Matelas SKONAST")
+            ->setDimenssion("60x120x8 cm")
+            ->setCouleur("blanc")
+            ->setDescription("Nos matelas pour bébé sont fabriqués avec des matériaux durables et sûrs. Ils ont été testés et ne contiennent aucune substance pouvant présenter un danger pour la peau ou la santé de votre bébé. Tout le monde dormira sur ses deux oreilles.")
+            ->setPrixAchat(40)
+            ->setPhoto("matelas_SKONAST.jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie45)
+            ->setFournisseur($fournisseur5);
+        $manager->persist($pr88);
 
         /**Ctégorie Bureau */
         $categorie5 = new Categorie();
@@ -1627,7 +2204,7 @@ class AppFixtures extends Fixture
         //les produits de la sous catégorie armoirs
         // Produit 1
         $pr89 = new Produit();
-        $pr89 ->setReference("REF089")
+        $pr89->setReference("REF089")
             ->setLibelle("")
             ->setDimenssion("60x120x8 cm")
             ->setCouleur("blanc")
@@ -1641,25 +2218,25 @@ class AppFixtures extends Fixture
             ->setFournisseur($fournisseur2);
         $manager->persist($pr89);
 
-         // Produit 2
-         $pr90 = new Produit();
-         $pr90 ->setReference("REF090")
-             ->setLibelle("")
-             ->setDimenssion("60x120x8 cm")
-             ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(40)
-             ->setPhoto(".jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie61)
-             ->setFournisseur($fournisseur2);
-         $manager->persist($pr90);
+        // Produit 2
+        $pr90 = new Produit();
+        $pr90->setReference("REF090")
+            ->setLibelle("")
+            ->setDimenssion("60x120x8 cm")
+            ->setCouleur("blanc")
+            ->setDescription("")
+            ->setPrixAchat(40)
+            ->setPhoto(".jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie61)
+            ->setFournisseur($fournisseur2);
+        $manager->persist($pr90);
 
-          // Produit 3
+        // Produit 3
         $pr89 = new Produit();
-        $pr89 ->setReference("REF089")
+        $pr89->setReference("REF089")
             ->setLibelle("")
             ->setDimenssion("60x120x8 cm")
             ->setCouleur("blanc")
@@ -1673,25 +2250,9 @@ class AppFixtures extends Fixture
             ->setFournisseur($fournisseur2);
         $manager->persist($pr89);
 
-         // Produit 4
-         $pr89 = new Produit();
-         $pr89 ->setReference("REF089")
-             ->setLibelle("")
-             ->setDimenssion("60x120x8 cm")
-             ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(40)
-             ->setPhoto(".jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie61)
-             ->setFournisseur($fournisseur2);
-         $manager->persist($pr89);
-
-          // Produit 5
+        // Produit 4
         $pr89 = new Produit();
-        $pr89 ->setReference("REF089")
+        $pr89->setReference("REF089")
             ->setLibelle("")
             ->setDimenssion("60x120x8 cm")
             ->setCouleur("blanc")
@@ -1705,21 +2266,37 @@ class AppFixtures extends Fixture
             ->setFournisseur($fournisseur2);
         $manager->persist($pr89);
 
-         // Produit 6
-         $pr89 = new Produit();
-         $pr89 ->setReference("REF089")
-             ->setLibelle("")
-             ->setDimenssion("60x120x8 cm")
-             ->setCouleur("blanc")
-             ->setDescription("")
-             ->setPrixAchat(40)
-             ->setPhoto(".jpg")
-             ->setActif(true)
-             ->setQuantiteStock(30)
-             ->setStockAlert(5)
-             ->setCategorie($categorie61)
-             ->setFournisseur($fournisseur2);
-         $manager->persist($pr89);
+        // Produit 5
+        $pr89 = new Produit();
+        $pr89->setReference("REF089")
+            ->setLibelle("")
+            ->setDimenssion("60x120x8 cm")
+            ->setCouleur("blanc")
+            ->setDescription("")
+            ->setPrixAchat(40)
+            ->setPhoto(".jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie61)
+            ->setFournisseur($fournisseur2);
+        $manager->persist($pr89);
+
+        // Produit 6
+        $pr89 = new Produit();
+        $pr89->setReference("REF089")
+            ->setLibelle("")
+            ->setDimenssion("60x120x8 cm")
+            ->setCouleur("blanc")
+            ->setDescription("")
+            ->setPrixAchat(40)
+            ->setPhoto(".jpg")
+            ->setActif(true)
+            ->setQuantiteStock(30)
+            ->setStockAlert(5)
+            ->setCategorie($categorie61)
+            ->setFournisseur($fournisseur2);
+        $manager->persist($pr89);
 
 
         $categorie62 = new Categorie;
@@ -1748,166 +2325,166 @@ class AppFixtures extends Fixture
 
         /**Ajouter des produits */
         // Produit 1
-        $pr1 = new Produit();
-        $pr1->setReference("REF001")
-            ->setLibelle("Buffet")
-            ->setDimenssion("")
-            ->setCouleur("maron")
-            ->setDescription("buffet avec 2 portes")
-            ->setPrixAchat(150)
-            ->setPhoto("Constructeur")
-            ->setActif(true)
-            ->setQuantiteStock(20)
-            ->setStockAlert(5)
-            ->setCategorie($categorie11)
-            ->setFournisseur($fournisseur1);
+        // $pr1 = new Produit();
+        // $pr1->setReference("REF001")
+        //     ->setLibelle("Buffet")
+        //     ->setDimenssion("")
+        //     ->setCouleur("maron")
+        //     ->setDescription("buffet avec 2 portes")
+        //     ->setPrixAchat(150)
+        //     ->setPhoto("Constructeur")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(20)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie11)
+        //     ->setFournisseur($fournisseur1);
 
-        $manager->persist($pr1);
+        // $manager->persist($pr1);
 
-        // Produit 2
-        $pr2 = new Produit();
-        $pr2->setReference("REF002")
-            ->setLibelle("Buffet MARCEAU")
-            ->setDimenssion("")
-            ->setCouleur("123 Rue des Meubles")
-            ->setDescription("contact@meublesexcellence.com")
-            ->setPrixAchat(352.20)
-            ->setPhoto("Constructeur")
-            ->setActif(true)
-            ->setQuantiteStock(10)
-            ->setStockAlert(5)
-            ->setCategorie($categorie11)
-            ->setFournisseur($fournisseur1);
-        $manager->persist($pr2);
+        // // Produit 2
+        // $pr2 = new Produit();
+        // $pr2->setReference("REF002")
+        //     ->setLibelle("Buffet MARCEAU")
+        //     ->setDimenssion("")
+        //     ->setCouleur("123 Rue des Meubles")
+        //     ->setDescription("contact@meublesexcellence.com")
+        //     ->setPrixAchat(352.20)
+        //     ->setPhoto("Constructeur")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(10)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie11)
+        //     ->setFournisseur($fournisseur1);
+        // $manager->persist($pr2);
 
-        // Produit 3
-        $pr3 = new Produit();
-        $pr3->setReference("REF003")
-            ->setLibelle("Buffet OTELLO")
-            ->setDimenssion("")
-            ->setCouleur("blanc et maron")
-            ->setDescription("Buffet avec 4 portes")
-            ->setPrixAchat(249.99)
-            ->setPhoto("")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie11)
-            ->setFournisseur($fournisseur1);
-        $manager->persist($pr3);
+        // // Produit 3
+        // $pr3 = new Produit();
+        // $pr3->setReference("REF003")
+        //     ->setLibelle("Buffet OTELLO")
+        //     ->setDimenssion("")
+        //     ->setCouleur("blanc et maron")
+        //     ->setDescription("Buffet avec 4 portes")
+        //     ->setPrixAchat(249.99)
+        //     ->setPhoto("")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(30)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie11)
+        //     ->setFournisseur($fournisseur1);
+        // $manager->persist($pr3);
 
-        // Produit 4
-        $pr3 = new Produit();
-        $pr3->setReference("REF004")
-            ->setLibelle("Buffet CALAIS")
-            ->setDimenssion("1800 mm")
-            ->setCouleur("blanc ")
-            ->setDescription("Buffet avec 4 porte et 3 tiroirs")
-            ->setPrixAchat(299.99)
-            ->setPhoto("buffet_CALAIS.jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie11)
-            ->setFournisseur($fournisseur1);
-        $manager->persist($pr3);
+        // // Produit 4
+        // $pr3 = new Produit();
+        // $pr3->setReference("REF004")
+        //     ->setLibelle("Buffet CALAIS")
+        //     ->setDimenssion("1800 mm")
+        //     ->setCouleur("blanc ")
+        //     ->setDescription("Buffet avec 4 porte et 3 tiroirs")
+        //     ->setPrixAchat(299.99)
+        //     ->setPhoto("buffet_CALAIS.jpg")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(30)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie11)
+        //     ->setFournisseur($fournisseur1);
+        // $manager->persist($pr3);
 
         // Produit 5
-        $pr5 = new Produit();
-        $pr5->setReference("REF005")
-            ->setLibelle("Canapé MARTENS")
-            ->setDimenssion("")
-            ->setCouleur("gris")
-            ->setDescription("Canapé d'angle de 3 places")
-            ->setPrixAchat(350)
-            ->setPhoto("buffet_CALAIS.jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie12)
-            ->setFournisseur($fournisseur6);
-        $manager->persist($pr5);
+        // $pr5 = new Produit();
+        // $pr5->setReference("REF005")
+        //     ->setLibelle("Canapé MARTENS")
+        //     ->setDimenssion("")
+        //     ->setCouleur("gris")
+        //     ->setDescription("Canapé d'angle de 3 places")
+        //     ->setPrixAchat(350)
+        //     ->setPhoto("buffet_CALAIS.jpg")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(30)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie12)
+        //     ->setFournisseur($fournisseur6);
+        // $manager->persist($pr5);
 
-        // Produit 6
-        $pr6 = new Produit();
-        $pr6->setReference("REF006")
-            ->setLibelle("Canapé LOMOCO")
-            ->setDimenssion("")
-            ->setCouleur("beige")
-            ->setDescription("Canapé d'angle de 4 places")
-            ->setPrixAchat(420)
-            ->setPhoto("buffet_CALAIS.jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie12)
-            ->setFournisseur($fournisseur6);
-        $manager->persist($pr6);
+        // // Produit 6
+        // $pr6 = new Produit();
+        // $pr6->setReference("REF006")
+        //     ->setLibelle("Canapé LOMOCO")
+        //     ->setDimenssion("")
+        //     ->setCouleur("beige")
+        //     ->setDescription("Canapé d'angle de 4 places")
+        //     ->setPrixAchat(420)
+        //     ->setPhoto("buffet_CALAIS.jpg")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(30)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie12)
+        //     ->setFournisseur($fournisseur6);
+        // $manager->persist($pr6);
 
 
-        // Produit 7
-        $pr7 = new Produit();
-        $pr7->setReference("REF007")
-            ->setLibelle("Chaise bureau")
-            ->setDimenssion("")
-            ->setCouleur("beige")
-            ->setDescription("Canapé d'angle de 4 places")
-            ->setPrixAchat(75)
-            ->setPhoto("buffet_CALAIS.jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie52)
-            ->setFournisseur($fournisseur4);
-        $manager->persist($pr7);
+        // // Produit 7
+        // $pr7 = new Produit();
+        // $pr7->setReference("REF007")
+        //     ->setLibelle("Chaise bureau")
+        //     ->setDimenssion("")
+        //     ->setCouleur("beige")
+        //     ->setDescription("Canapé d'angle de 4 places")
+        //     ->setPrixAchat(75)
+        //     ->setPhoto("buffet_CALAIS.jpg")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(30)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie52)
+        //     ->setFournisseur($fournisseur4);
+        // $manager->persist($pr7);
 
-        // Produit 8
-        $pr8 = new Produit();
-        $pr8->setReference("REF008")
-            ->setLibelle("Chaise LOMOCO")
-            ->setDimenssion("")
-            ->setCouleur("beige")
-            ->setDescription("Canapé d'angle de 4 places")
-            ->setPrixAchat(62.35)
-            ->setPhoto("buffet_CALAIS.jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie52)
-            ->setFournisseur($fournisseur4);
-        $manager->persist($pr8);
+        // // Produit 8
+        // $pr8 = new Produit();
+        // $pr8->setReference("REF008")
+        //     ->setLibelle("Chaise LOMOCO")
+        //     ->setDimenssion("")
+        //     ->setCouleur("beige")
+        //     ->setDescription("Canapé d'angle de 4 places")
+        //     ->setPrixAchat(62.35)
+        //     ->setPhoto("buffet_CALAIS.jpg")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(30)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie52)
+        //     ->setFournisseur($fournisseur4);
+        // $manager->persist($pr8);
 
-        // Produit 9
-        $pr9 = new Produit();
-        $pr9->setReference("REF009")
-            ->setLibelle("Etagère LOMOCO")
-            ->setDimenssion("")
-            ->setCouleur("maron")
-            ->setDescription("")
-            ->setPrixAchat(45.60)
-            ->setPhoto("buffet_CALAIS.jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie23)
-            ->setFournisseur($fournisseur2);
-        $manager->persist($pr9);
+        // // Produit 9
+        // $pr9 = new Produit();
+        // $pr9->setReference("REF009")
+        //     ->setLibelle("Etagère LOMOCO")
+        //     ->setDimenssion("")
+        //     ->setCouleur("maron")
+        //     ->setDescription("")
+        //     ->setPrixAchat(45.60)
+        //     ->setPhoto("buffet_CALAIS.jpg")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(30)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie23)
+        //     ->setFournisseur($fournisseur2);
+        // $manager->persist($pr9);
 
-        // Produit 10
-        $pr10 = new Produit();
-        $pr10->setReference("REF010")
-            ->setLibelle("Etagère MONGO")
-            ->setDimenssion("")
-            ->setCouleur("blanc")
-            ->setDescription("")
-            ->setPrixAchat(57.22)
-            ->setPhoto("buffet_CALAIS.jpg")
-            ->setActif(true)
-            ->setQuantiteStock(30)
-            ->setStockAlert(5)
-            ->setCategorie($categorie23)
-            ->setFournisseur($fournisseur2);
-        $manager->persist($pr10);
+        // // Produit 10
+        // $pr10 = new Produit();
+        // $pr10->setReference("REF010")
+        //     ->setLibelle("Etagère MONGO")
+        //     ->setDimenssion("")
+        //     ->setCouleur("blanc")
+        //     ->setDescription("")
+        //     ->setPrixAchat(57.22)
+        //     ->setPhoto("buffet_CALAIS.jpg")
+        //     ->setActif(true)
+        //     ->setQuantiteStock(30)
+        //     ->setStockAlert(5)
+        //     ->setCategorie($categorie23)
+        //     ->setFournisseur($fournisseur2);
+        // $manager->persist($pr10);
 
         //*************************************************************Ajouter des utilisateurs
 
@@ -2110,7 +2687,7 @@ class AppFixtures extends Fixture
         $lCommande1->setLibelle("Buffet")
             ->setQuantite(1)
             ->setPrixVente(250)
-            ->setProduit($pr1)
+            ->setProduit($pr11)
             ->setCommande($commande1);
         $manager->persist($lCommande1);
 
@@ -2119,7 +2696,7 @@ class AppFixtures extends Fixture
         $lCommande1->setLibelle("Canapé LOMOCO")
             ->setQuantite(1)
             ->setPrixVente(600)
-            ->setProduit($pr6)
+            ->setProduit($pr12)
             ->setCommande($commande1);
         $manager->persist($lCommande1);
 
@@ -2135,23 +2712,23 @@ class AppFixtures extends Fixture
             ->setCommande($commande1);
         $manager->persist($livraison1);
         //*************************************************************Ajouter des lignes de livraison
-        //Ligne_Livraison 1    
+        // //Ligne_Livraison 1    
         $ligneLivraison1 = new LigneLivraison();
         $ligneLivraison1->setLibelle("Buffet")
             ->setQuantiteLivree(1)
             ->setPrixVente(250)
             ->setLivraison($livraison1)
-            ->setProduit($pr1);
+            ->setProduit($pr11);
         $manager->persist($ligneLivraison1);
 
 
-        //Ligne_Livraison 1  
+        //Ligne_Livraison 2  
         $ligneLivraison2 = new LigneLivraison();
         $ligneLivraison2->setLibelle("Canapé LOMOCO")
             ->setQuantiteLivree(1)
             ->setPrixVente(600)
             ->setLivraison($livraison1)
-            ->setProduit($pr6);
+            ->setProduit($pr12);
         $manager->persist($ligneLivraison2);
 
         $manager->flush();
