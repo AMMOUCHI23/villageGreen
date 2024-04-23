@@ -13,35 +13,37 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 #[ApiResource(
        operations: [
-           new Get(normalizationContext: ['groups' => 'conference:ite']),
-           new GetCollection(normalizationContext: ['groups' => 'conference:list'])
+           new Get(normalizationContext: ['groups' => 'categorie:item']),
+           new GetCollection(normalizationContext: ['groups' => 'categorie:list'])
         ],
-        order: ['year' => 'DESC', 'city' => 'ASC'],
-        paginationEnabled: false,
+         order: ['parent' => Null],
+         paginationEnabled: false,
     )]
 class Categorie
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['conference:list', 'conference:item'])]
+    #[Groups(['categorie:list', 'categorie:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups(['conference:list', 'conference:item'])]
+    #[Groups(['categorie:list', 'categorie:item'])]
     private ?string $nom_categorie = null;
 
     #[ORM\Column(length: 70, nullable: true)]
-    #[Groups(['conference:list', 'conference:item'])]
+    #[Groups(['categorie:list', 'categorie:item'])]
     private ?string $photo = null;
 
     #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'Categorie')]
     private Collection $produits;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
+    #[Groups(['categorie:list', 'categorie:item'])]
     private ?self $parent = null;
 
     #[ORM\OneToMany(targetEntity: self::class, mappedBy: 'parent')]
+   
     private Collection $categories;
 
     public function __construct()

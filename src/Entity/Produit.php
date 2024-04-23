@@ -2,45 +2,65 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Repository\ProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
+#[ApiResource(
+    operations: [
+        new Get(normalizationContext: ['groups' => 'produit:item']),
+        new GetCollection(normalizationContext: ['groups' => 'produit:list'])
+     ],
+      order: ['libelle' ],
+      paginationEnabled: false,
+ )]
 class Produit
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 6)]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?string $reference = null;
 
     #[ORM\Column(length: 70)]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?string $libelle = null;
 
     #[ORM\Column(length: 50, nullable: true)]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?string $dimenssion = null;
 
     #[ORM\Column(length: 50, nullable: true)]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?string $couleur = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
     private ?string $prix_achat = null;
 
     #[ORM\Column(length: 70)]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?string $photo = null;
 
     #[ORM\Column]
     private ?bool $actif = null;
 
     #[ORM\Column]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?int $quantite_stock = null;
 
     #[ORM\Column]
