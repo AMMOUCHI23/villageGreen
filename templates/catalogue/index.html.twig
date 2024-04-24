@@ -3,24 +3,41 @@
 {% block title %}Sous Catégories{% endblock %}
 
 {% block body %}
-<div class="container text-center text-primary my-5">
-    <h1 class="text-center ">{{ categorie.nomCategorie }}</h1>
+<div class="container text-center my-5">
+    <h1 class="text-center text-primary">{{ categorie.nomCategorie }}</h1>
     <div class="row justify-content-center">
         {% for sousCategorie in categorie.categories %}
-            <div class="col-6 col-md-2 my-4 survol">
-                <a href="{{ path('produits', {id: sousCategorie.id}) }}">
-                    <img class="img-thumbnail  rounded-circle " src="{{ asset('assets/images/'~ sousCategorie.getParent().getNomCategorie()  ~ '/' ~ sousCategorie.photo) }}" style="height: 200px;">
+            <div class="col-3 col-md-2 my-4 survol">
+                <a href="" class="sousCategory" data-id="{{ sousCategorie.id }}">
+                    <img class="img-thumbnail rounded-circle" src="{{ asset('assets/images/' ~ sousCategorie.getParent().getNomCategorie()  ~ '/' ~ sousCategorie.photo) }}" style="height: 200px;">
                 </a>
                 <h3 class="nomCategorie my-2">{{ sousCategorie.nomCategorie }}</h3>
             </div>
-         
         {% endfor %}
-
-        
-
-       
-        {# {{ render(controller("App\\Controller\\CatalogueController::afficheProduits")) }}  #}
     </div>
-  
+    <div id="listeProduit">
+        <p>liste de produit</p>
+    </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function () {
+    $('.sousCategory').click(function (e) { 
+        e.preventDefault();
+        const sousCategorieId = $(this).data('id');
+        console.log(typeof sousCategorieId);
+        $.ajax({
+            url: '{{ path("produits", { id: 2 }) }}', 
+            type: 'GET',
+            data: { id: sousCategorieId },
+            success: function(response) {
+                $('#listeProduit').html(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+});
+</script>
 {% endblock %}
