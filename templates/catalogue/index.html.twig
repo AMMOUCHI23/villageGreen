@@ -16,26 +16,32 @@
         {% endfor %}
     </div>
     <div id="listeProduit">
+    
         <p>liste de produit</p>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
+//script pour afficher les produits des sous catégories
+//attendre le chargement de fichier
 $(document).ready(function () {
-    $('.sousCategory').click(function (e) { 
+    //cliquer automatiquement sur la première sous catégorie
+    $('.sousCategory').first().click(function (e) { 
+        //charger la page juste une fois
         e.preventDefault();
-        const sousCategorieId = $(this).data('id');
-        console.log(typeof sousCategorieId);
+        //récupérer l'id de la sous catégorie cliquée
+        var sousCategorieId = $(this).data('id');
+        /*requete ajax pour récupérer la liste des produits de la sous catégorie
+        et les insérer dans la div*/
         $.ajax({
-            url: '{{ path("produits", { id: 2 }) }}', 
+            //j'ai utiliser la fonction replace() pour remplacer la variable de twig avec celle de js
+            url: '{{ path('produits', { id: 'sousCategorieId'|default(2) }) }}'.replace('sousCategorieId', sousCategorieId),
             type: 'GET',
             data: { id: sousCategorieId },
             success: function(response) {
                 $('#listeProduit').html(response);
             },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
+          
         });
     });
 });
