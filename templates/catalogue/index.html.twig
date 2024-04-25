@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="container text-center my-5">
-    <h1 class="text-center text-primary">{{ categorie.nomCategorie }}</h1>
+    {# <h1 class="text-center text-primary">{{ categorie.nomCategorie }}</h1> #}
     <div class="row justify-content-center">
         {% for sousCategorie in categorie.categories %}
             <div class="col-3 col-md-2 my-4 survol">
@@ -17,7 +17,6 @@
     </div>
     <div id="listeProduit">
     
-        <p>liste de produit</p>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -25,8 +24,8 @@
 //script pour afficher les produits des sous catégories
 //attendre le chargement de fichier
 $(document).ready(function () {
-    //cliquer automatiquement sur la première sous catégorie
-    $('.sousCategory').first().click(function (e) { 
+    // charger les données en cliquant sur une sous catégorie
+    $('.sousCategory').click(function (e) { 
         //charger la page juste une fois
         e.preventDefault();
         //récupérer l'id de la sous catégorie cliquée
@@ -35,7 +34,7 @@ $(document).ready(function () {
         et les insérer dans la div*/
         $.ajax({
             //j'ai utiliser la fonction replace() pour remplacer la variable de twig avec celle de js
-            url: '{{ path('produits', { id: 'sousCategorieId'|default(2) }) }}'.replace('sousCategorieId', sousCategorieId),
+            url: '{{ path('produits', { id: 'sousCategorieId' }) }}'.replace('sousCategorieId', sousCategorieId),
             type: 'GET',
             data: { id: sousCategorieId },
             success: function(response) {
@@ -44,6 +43,9 @@ $(document).ready(function () {
           
         });
     });
+
+     //cliquer automatiquement sur la première sous catégorie
+     $('.sousCategory').first().trigger('click');
 });
 </script>
 {% endblock %}

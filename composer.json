@@ -101,6 +101,13 @@
             "php bin/console d:s:u --force --complete",
             "php bin/console d:f:l --append",
             "php bin/console make:puml"
+        ],
+        "tests": [
+            "php bin/console --env=test d:d:d --force",
+            "php bin/console --env=test d:d:c",
+            "php bin/console --env=test d:s:u --force --complete",
+            "php bin/console --env=test d:f:l --append",
+            "php bin/phpunit"
         ]
     },
     "conflict": {
