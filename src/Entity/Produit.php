@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 #[ApiResource(
@@ -35,6 +36,7 @@ class Produit
 
     #[ORM\Column(length: 70)]
     #[Groups(['produit:list', 'produit:item'])]
+    #[Assert\Regex("/^[a-zA-Z\s]+$/")]
     private ?string $libelle = null;
 
     #[ORM\Column(length: 50, nullable: true)]
