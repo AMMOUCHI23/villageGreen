@@ -11,11 +11,14 @@ class AuthentificationTest extends PantherTestCase
         $client = static::createPantherClient();
         $crawler = $client->request('GET', '/login');
         $form = $crawler->selectButton("Me connecter")->form();
-        $form['email'] = 'bily-f@hotmail.fr'; // Assurez-vous que le nom du champ email est correct
-        $form['password'] = '123456'; // Assurez-vous que le nom du champ mot de passe est correct
+        $form['email'] = 'bily-f@hotmail.fr';
+        $form['password'] = '123456'; 
+        sleep(5);
         $crawler = $client->submit($form);
-        sleep(1);
 
-        $this->assertResponseIsSuccessful();
+        sleep(5);
+
+        // $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('body','Nos Catégories');
     }
 }
