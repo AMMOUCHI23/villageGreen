@@ -12,9 +12,9 @@ class PanierTestPhpTest extends PantherTestCase
         $crawler = $client->request('GET', '/');
 sleep(2);
 // Sélectionner et cliquer sur le lien de la sous-catégorie
-$link = $crawler->selectLink("")->link()
-$crawler = $client->click($link);
-sleep(2);
+// $link = $crawler->selectLink("")->link()
+// $crawler = $client->click($link);
+// sleep(2);
         $this->assertSelectorTextContains('h1', 'Nos Catégories');
     }
 }

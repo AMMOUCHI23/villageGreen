@@ -10,7 +10,7 @@ class AuthentificationTest extends PantherTestCase
     {
         $client = static::createPantherClient();
         $crawler = $client->request('GET', '/login');
-        $form = $crawler->selectButton("Me connecter")->form();
+        $form = $crawler->selectButton("Me connecter")->form();-
         $form['email'] = 'bily-f@hotmail.fr';
         $form['password'] = '123456'; 
         sleep(5);
