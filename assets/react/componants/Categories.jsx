@@ -1,48 +1,54 @@
-import React, { useEffect, useState } from 'react';
-//import { Container, Row, Col, Image } from 'react-bootstrap'; // Assurez-vous que vous avez installé react-bootstrap et que vous importez correctement les composants nécessaires
+import { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import {  Outlet, useNavigate } from "react-router-dom";
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
+    const [listeCategories, setlisteCategories] = useState([]);
+    const navigate=useNavigate();
+    
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await fetch("https://127.0.0.1:8000/api/categories?_limit=3");
+                if (!response.ok) {
+                    throw new Error("erreur de chargement des catégories");
+                }
+                const data = await response.json();
+                setlisteCategories(data['hydra:member'].filter(categorie => !categorie.parent));
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://127.0.0.1:8000/api/categories');
-        if (response.ok) { // Vérifiez si la réponse est ok avant de traiter les données
-          const data = await response.json(); // Convertissez la réponse en JSON
-          setCategories(data['hydra:member']);
-        } else {
-          throw new Error('Failed to fetch categories');
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  return (
-    <Container className="categories text-center text-primary my-4">
-      <h1 className="my-4">Nos Catégories des plats</h1>
-      <Row className="justify-content-center">
-        {categories.map((category) => (
-          <Col key={category['@id']} sm={6} md={3} className="categories custom-div m-3">
-            <a href="#">
-              <Image
-                src={`assets/img/category/${category.image}`}
-                alt={category.libelle}
-                thumbnail
-                width={400}
-                height={400}
-              />
-            </a>
-            <h3 className="nomCategorie my-2">{category.libelle}</h3>
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
-};
+        fetchCategories();
+    }, []);
+    // fetch("https://127.0.0.1:8000/api/categories")
+    //     .then((response) => {
+    //         return response.json();
+    //     })
+    //     .then((data) => {
+    //         setlisteCategories(data['hydra:member'
+    //         ].filter(categorie => !categorie.parent));
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+    return (
+        <Container className=" text-center text-primary my-5">
+            <h1 className="text-center">Nos Catégories</h1>
+            <Row className="justify-content-center d-flex">
+                {listeCategories.map((categorie) => (
+                    <Col sm={6} md={3} className="my-4 survol" key={categorie.id} onClick={()=>navigate(`/react/categorie/${categorie.id}`)}>
+<img className="img-thumbnail rounded-circle" src={`./assets/images/${categorie.photo}`} alt={categorie.nom_categorie} />
+                        <h3 className="nomCategorie my-2">{categorie.nom_categorie}</h3>
+                        <Outlet/>
+                    </Col>
+                ))}
+            </Row>
+          
+        </Container>
+        
+    );
+}
 
 export default Categories;

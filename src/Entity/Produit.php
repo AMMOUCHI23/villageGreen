@@ -52,6 +52,7 @@ class Produit
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?string $prix_achat = null;
 
     #[ORM\Column(length: 70)]
@@ -74,6 +75,7 @@ class Produit
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['produit:list', 'produit:item'])]
     private ?Categorie $Categorie = null;
 
     #[ORM\OneToMany(targetEntity: LigneCommande::class, mappedBy: 'Produit')]
