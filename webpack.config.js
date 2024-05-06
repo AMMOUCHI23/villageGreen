@@ -9,7 +9,8 @@ Encore
     
     .setPublicPath('/build')
    
-    .addEntry('app', './assets/react/index.js')
+    .addEntry('app-react', './assets/react/index.js')
+  
     .addStyleEntry('styles', './assets/styles/styles.css')
 
     

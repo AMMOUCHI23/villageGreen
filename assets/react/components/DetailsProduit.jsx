@@ -10,12 +10,12 @@ import { useParams } from 'react-router-dom'
     useEffect(() => {
         const fetchProduit = async () => {
             try {
-                const response = await fetch("https://127.0.0.1:8000/api/produits");
+                const response = await fetch("/api/produits");
                 if (!response.ok) {
                     throw new Error("erreur de chargement des détails du produit");
                 }
                 const data = await response.json();
-                setDetailProduit(data['hydra:member'].filter(produit => produit.id === parseInt(produitId)));
+                setDetailProduit(data.filter(produit => produit.id === parseInt(produitId)));
             } catch (error) {
                 console.error(error);
             }
@@ -32,13 +32,13 @@ import { useParams } from 'react-router-dom'
         <Row className="justify-content-center mt-4">
             {detailProduit.map(produit => (  
                 <>
-                    <Col md={4} className="mx-3">
+                    <Col md={4} className="mx-3" key={produit.id}>
                         <img src="/assets/images/cuisine.jpg" className="card-img-top mt-4" alt={produit.libelle} />
                     </Col>
                     <Col md={5} className="mx-3">
                         <h2 className="text">{produit.libelle}</h2>
-                        <p>dimension: {produit.dimension}</p>
-                        <p>coleur: {produit.coleur}</p>
+                        <p>dimension: {produit.dimenssion}</p>
+                        <p>coleur: {produit.couleur}</p>
                         <h4 className="prix py-3">{produit.prix_achat} €</h4>
                         <h5 className="text-primary mt-3">Description :</h5>
                         <p>{produit.description}</p>

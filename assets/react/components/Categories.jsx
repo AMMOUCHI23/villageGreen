@@ -1,22 +1,25 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import {  Outlet, useNavigate } from "react-router-dom";
 
 const Categories = () => {
     const [listeCategories, setlisteCategories] = useState([]);
+    const [nomCategorieParent, setNomCategorieParent]=useState("");
     const navigate=useNavigate();
     
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("https://127.0.0.1:8000/api/categories?_limit=3");
+                const response = await fetch("/api/categories");
+               
                 if (!response.ok) {
                     throw new Error("erreur de chargement des catégories");
                 }
-                const data = await response.json();
-                setlisteCategories(data['hydra:member'].filter(categorie => !categorie.parent));
+                const data = await response.json()
+                setlisteCategories(data.filter(categorie => !categorie.parent));
+                
             } catch (error) {
-                console.error(error);
+                console.error(error)
             }
         };
 
