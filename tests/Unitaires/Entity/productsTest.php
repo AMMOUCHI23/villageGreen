@@ -3,9 +3,9 @@
 namespace App\Tests\Unitaires\Entity;
 
 use App\Entity\Categorie;
-use App\Entity\Fournisseur;
+
 use App\Entity\Produit;
-use Doctrine\ORM\Mapping\Entity;
+
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class productsTest extends KernelTestCase
