@@ -23,9 +23,16 @@ services:
       - 1025:1025
       - 8025:8025
 
-
-
-
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27023:27017
+    volumes:
+       - mongo_data:/data/db
+       
+volumes:
+  mongo_data:
 
 
 
