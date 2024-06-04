@@ -12,17 +12,17 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class AccueilController extends AbstractController
 {
-    // #[Route('/', name: 'accueil')]
-    // public function index(CategorieRepository $categorieRepository): Response
-    // {
+    #[Route('/', name: 'accueil')]
+    public function index(CategorieRepository $categorieRepository): Response
+    {
        
-    //     $categories = $categorieRepository->findBy(["parent" => null]);
-    //     //dd($categories);
+        $categories = $categorieRepository->findBy(["parent" => null]);
+        //dd($categories);
 
-    //     return $this->render('accueil/index.html.twig', [
-    //         "categories" => $categories
-    //     ]);
-    // }
+        return $this->render('accueil/index.html.twig', [
+            "categories" => $categories
+        ]);
+    }
 
 
        //Controlleur pour afficher les sous-categories  d'une categories

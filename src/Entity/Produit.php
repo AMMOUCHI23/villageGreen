@@ -84,6 +84,9 @@ class Produit
     #[ORM\OneToMany(targetEntity: LigneLivraison::class, mappedBy: 'Produit')]
     private Collection $ligneLivraisons;
 
+    #[ORM\Column(type: Types::DECIMAL, precision: 3, scale: 2, nullable: true)]
+    private ?string $remise = null;
+
     public function __construct()
     {
         $this->ligneCommandes = new ArrayCollection();
@@ -301,5 +304,17 @@ class Produit
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    public function getRemise(): ?string
+    {
+        return $this->remise;
+    }
+
+    public function setRemise(?string $remise): static
+    {
+        $this->remise = $remise;
+
+        return $this;
     }
 }

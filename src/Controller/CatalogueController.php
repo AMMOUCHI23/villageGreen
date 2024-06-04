@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class CatalogueController extends AbstractController
 {
     // afficher toutes les catégories parents
-    #[Route('/', name: 'accueil')]
+    #[Route('/catalogue', name: 'catalogue')]
     public function afficheCategorie(CategorieRepository $categorieRepository): Response
     {
 

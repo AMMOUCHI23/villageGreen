@@ -95,7 +95,7 @@ class RegistrationController extends AbstractController
             $entityManager->persist($client);
             $entityManager->flush();
 
-            // envoyer un e-mail eu nouveau client pour vérifier l'addresse mail
+            // envoyer un e-mail au nouveau client pour vérifier l'addresse mail
             $this->emailVerifier->sendEmailConfirmation(
                 'app_verify_email',
                 $user,

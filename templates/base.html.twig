@@ -20,8 +20,8 @@
 		{#la navbar #}
 		<nav class="navbar p_navbar navbar-expand-lg bg-danger-subtle fixedd-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{asset('assets/logo1.png')}}" class="img-fluid" id="logo" alt="logo" width="150 px" height="60">
+        <a class="navbar-brand" href="{{path('catalogue')}}">
+            <img src="{{asset('assets/images/logo1.png')}}" class="img-fluid" id="logo" alt="logo" width="150 px" height="60">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor04" aria-controls="navbarColor04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,10 +39,10 @@
                     <a class="nav-link" href="{{path('accueil')}}">Accueil</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="{{path('accueil')}}">Catalogue</a>
+                    <a class="nav-link" href="{{path('catalogue')}}">Catalogue</a>
                 </li>
 				<li class="nav-item mx-2">
-                    <a class="nav-link" href="{{path('accueil')}}">Contact</a>
+                    <a class="nav-link" href="{{path('contact')}}">Contact</a>
                 </li>
 				{# Afficher les Onglets Administration et Statistique pour l'utilisateur qui a un role Admin #}
                {% if is_granted('ROLE_ADMIN') %}
@@ -84,14 +84,14 @@
 				<div class="footer-content row mt-3">
 					<div class="col-md-4 m-3">
 						<h2>A propos de nous</h2>
-						<p>Au cœur d'Amiens, notre magasin VILLAGE GREEN propose des solutions de mobilier de qualité pour les professionnels et les particuliers. Fondée par [Nom du fondateur] avec une passion pour le design et l'artisanat.</p>
+						<p>Au cœur d'Amiens, notre magasin VILLAGE GREEN propose des solutions de mobilier de qualité pour les professionnels et les particuliers. Fondée par AFPA avec une passion pour le design et l'artisanat.</p>
 						<div class="contact">
 							<span>
 								<i class="fa fa-phone"></i>
 								09 72 72 39 36</span>
-							<span class="mx-2">
+							<a href="{{path('contact')}}"><span class="mx-2">
 								<i class="far fa-envelope "></i>
-								htedistrict@gmail.com</span>
+								Contact@VillageGreen</span></a>
 						</div>
 
 					</div>
@@ -111,7 +111,7 @@
 					<div class="footer-section social col-md-3 my-3">
 						<h2>Contactez-nous!</h2>
 						<ul>
-							<li><a href="">Nous contacter</a></li>
+							<li><a href="{{path('contact')}}">Nous contacter</a></li>
 						</ul>
 					</div>
 				</div>
@@ -120,8 +120,8 @@
 						<h2>L'entreprise</h2>
 
 						<ul>
-							<li><ahref="{{path('mentionsL')}}">Mentions Légales</a></li>
-							<li><ahref="{{path('politique')}}">Politique de confidentialité</a></li>
+							<li><a href="{{path('mentionsL')}}">Mentions Légales</a></li>
+							<li><a href="{{path('politique')}}">Politique de confidentialité</a></li>
 
 						</ul>
 					</div>
@@ -140,10 +140,10 @@
 					<div class="footer-section social col-md-3 mt-4">
 						<h2>Liens Rapide</h2>
 						<ul>
-							<li><ahref="{{path("accueil")}}">Accueil</a></li>
-							<li><a href="">Catégories</a></li>
-							<li><a href="">panier</a></li>
-							<li><a href="">Mon compte</a></li>
+							<li><a href="{{path("accueil")}}">Accueil</a></li>
+							<li><a href="{{path("catalogue")}}">Catégories</a></li>
+							<li><a href="{{path('panier')}}">panier</a></li>
+							<li><a href="{{path('connexion')}}">Mon compte</a></li>
 						</ul>
 					</div>
 				</div>
