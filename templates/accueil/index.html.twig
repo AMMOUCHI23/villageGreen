@@ -5,15 +5,63 @@
 
 {% block body %}
 	<div class="container text-center text-primary my-5">
-    <h1 class="text-center">Nos Catégories</h1>
-    <div class="row justify-content-center">
-        {% for categorie in categories %}
-            <div class="col-6 col-md-3 my-4 survol">
-                <a href="{{ path('Sous_categorie', {id: categorie.id}) }}" class="text-decoration-none"><img class="img-thumbnail rounded-circle" src="{{ asset('assets/images/' ~ categorie.photo) }}" style="height: 200px;">
-                <h3 class="nomCategorie my-2">{{ categorie.nomCategorie }}</h3></a>
-            </div>
-        {% endfor %}
-    </div>
-</div>
+		<div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
+			<div
+				class="carousel-inner justify-content-center">
+
+				<!-- Premier élément du carousel avec deux images -->
+				<div class="carousel-item active">
+					<div class="d-flex">
+						<img src="{{asset('assets/images/Séjour/buffets/buffet_SAHARA.jpg')}}" class="d-block w-50 img-thumbnail" alt="Cuisine 1">
+						<img src="{{asset('assets/images/Séjour/buffets/buffet_led.jpg')}}" class="d-block w-50 img-thumbnail" alt="Cuisine 2">
+						<img src="{{asset('assets/images/Séjour/canapés/canape_EKTORP.jpg')}}" class="d-block w-50 img-thumbnail" alt="Cuisine 2">
+					</div>
+				</div>
+
+				<!-- Deuxième élément du carousel avec deux images -->
+				<div class="carousel-item">
+					<div class="d-flex">
+
+						<img src="{{asset('assets/images/Chambre_Adulte/Armoires/armoire_AULI.jpg')}}" class="d-block w-50 img-thumbnail" alt="Cuisine 3">
+						<img src="{{asset('assets/images/Chambre_Adulte/Lits/lit_HOGA.jpg')}}" class="d-block w-50 img-thumbnail" alt="Cuisine 3">
+						<img src="{{asset('assets/images/Chambre_Adulte/Matelats/matelas_VATNESTROM.jpg')}}" class="d-block w-50 img-thumbnail" alt="Chambre Adulte">
+					</div>
+				</div>
+
+				<!-- Troisième élément du carousel avec deux images (placeholders à remplacer) -->
+				<div class="carousel-item">
+					<div class="d-flex">
+						<img src="{{asset('assets/images/Chambre_Enfant_Bébé/Lits_Bébé/lit_ALSKVARD.jpg')}}" class="d-block w-50 img-thumbnail" alt="Cuisine 3">
+						<img src="{{asset('assets/images/Cuisine/Tables_et_Chaises/table_DOCKSTA.jpg')}}" class="d-block w-50 img-thumbnail" alt="Cuisine 3">
+						<img src="{{asset('assets/images/Bureau/Chaises/chaise_STYRSPEL.jpg')}}" class="d-block w-50 img-thumbnail" alt="Cuisine 3">
+
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Bouton de contrôle précédent -->
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+
+			<!-- Bouton de contrôle suivant -->
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<h1 class="text-center mt-3">Nos Catégories</h1>
+		<div class="row justify-content-center">
+			{% for categorie in categories %}
+				<div class="col-6 col-md-3 my-4 survol">
+					<a href="{{ path('Sous_categorie', {id: categorie.id}) }}" class="text-decoration-none"><img class="img-thumbnail rounded-circle" src="{{ asset('assets/images/' ~ categorie.photo) }}" style="height: 200px;">
+						<h3 class="nomCategorie my-2">{{ categorie.nomCategorie }}</h3>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 
 {% endblock %}
