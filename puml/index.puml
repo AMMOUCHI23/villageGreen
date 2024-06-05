@@ -71,6 +71,16 @@ class ResetPasswordRequest {
 	expiresAt
 }
 
+class Contact {
+	id
+	nom
+	prenom
+	sujet
+	telephone
+	email
+	message
+}
+
 class Produit {
 	id
 	reference
@@ -87,6 +97,7 @@ class Produit {
 	**Categorie**
 	**ligneCommandes**
 	**ligneLivraisons**
+	remise
 }
 
 class LigneCommande {
@@ -96,6 +107,7 @@ class LigneCommande {
 	prix_vente
 	**Commande**
 	**Produit**
+	photo
 }
 
 class Commande {
@@ -117,6 +129,7 @@ class Commande {
 	**ligneCommandes**
 	**livraisons**
 	**Client**
+	image
 }
 
 class Categorie {
