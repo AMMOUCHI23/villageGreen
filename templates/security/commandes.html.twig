@@ -5,13 +5,13 @@
 
 {% block body %}
 	<div class="container col-md-6">
-<a href="{{ path('app_profil') }}" class=" text my-3">{{' < '}}profil</a>
+		<a href="{{ path('app_profil') }}" class=" text my-3">{{' < '}}profil</a>
 		<h4 class="text mt-4">Mes Commandes</h4>
 		<table class="table table-hover"></h4>
-		
+
 		<tbody>
 			{% if commandes is empty %}
-			<p class="text-warning mt-4">vous n'avez pas encors de commandes passées</p>
+				<p class="text mt-4">vous n'avez pas encore de commandes passées</p>
 			{% endif %}
 			{% for commande in commandes %}
 				<tr>
@@ -20,28 +20,30 @@
 							<div class="row g-0">
 								<div class="col-md-12">
 									<div class="">
-										<img src="..." class="img-fluid rounded-start" alt="...">
-									</div>
-									<div class="">
-										<div class="card-body">
-											<div class="d-flex justify-content-between">
-												<h5 class="card-title">
-													{{ commande.totalCommande }}
-													€</h5>
-												<p class="card-text ">
-													{{ commande.dateCommande |date("d/m/Y")}}</p>
-											</div>
+										<img src="{{asset('assets/images/imagesAdmin/'~commande.image)}}" class="imageCommande img-fluid rounded-start" alt="...">
 
+									</div>
+
+
+									<div class="card-body">
+										<div class="d-flex justify-content-between">
+											<h5 class="card-title">
+												{{ commande.totalCommande }}
+												€</h5>
 											<p class="card-text ">
-												{{ commande.statut }}</p>
-
-
-											<p class="card-text">N° commande :
-												{{ commande.id }}</p>
-
-											<a href="{{ path('detailsCommande',{'id':commande.id}) }} ">Détails{{'>'}}</a>
+												{{ commande.dateCommande |date("d/m/Y")}}</p>
 										</div>
+
+										<p class="card-text ">
+											{{ commande.statut }}</p>
+
+
+										<p class="card-text">N° commande :
+											{{ commande.id }}</p>
+
+										<a href="{{ path('detailsCommande',{'id':commande.id}) }} ">Détails{{'>'}}</a>
 									</div>
+
 								</div>
 								<div class="col-md-3">
 									<div
@@ -75,8 +77,7 @@
 				</tr>
 			{% endfor %}
 
-				
-			
+
 		</tbody>
 	</table>
 </div>{% endblock %}

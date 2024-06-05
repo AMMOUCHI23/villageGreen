@@ -24,7 +24,7 @@ class CatalogueController extends AbstractController
         $categories = $categorieRepository->findBy(["parent" => null]);
 
 
-        return $this->render('accueil/index.html.twig', [
+        return $this->render('catalogue/catalogue.html.twig', [
             "categories" => $categories
         ]);
     }

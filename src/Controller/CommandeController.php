@@ -77,8 +77,12 @@ class CommandeController extends AbstractController
                           ->setProduit( $produit)
                           ->setPrixVente( ($produit->getPrixAchat())*$coefficient)
                           ->setQuantite( $qu)
+                          ->setPhoto($produit->getPhoto())
                           ->setLibelle( $produit->getLibelle());
             $em->persist($ligneCommande);
+           //définir l'image de la commande
+            $commande->setImage($produit->getPhoto());
+
         }
             $em->persist($commande);
             $em->flush($commande);   
@@ -100,7 +104,7 @@ class CommandeController extends AbstractController
              // Ajouter un message flash de succès
              $this->addFlash('success', 'Votre commande a été passée avec succès, vous allez recevoir un mail de confirmation'); 
 
-             return $this->redirectToRoute('accueil'); // redirection sur la page accueil
+             return $this->redirectToRoute('catalogue'); // redirection sur la page accueil
 
              
     }

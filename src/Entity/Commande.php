@@ -89,6 +89,9 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?Client $Client = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
+
     public function __construct()
     {
         $this->ligneCommandes = new ArrayCollection();
@@ -336,6 +339,18 @@ class Commande
     public function setClient(?Client $Client): static
     {
         $this->Client = $Client;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

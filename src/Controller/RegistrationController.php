@@ -44,18 +44,18 @@ class RegistrationController extends AbstractController
             //récupérer et vérirfier le prenom 
             $prenom = $form->getData()->getPrenom();
             $prenom = $secu->securisation($prenom);
-            $user->setNom($prenom);
+            $user->setPrenom($prenom);
 
 
             //récupérer et vérirfier l'adresse
             $adresse = $form->getData()->getAdresse();
             $adresse = $secu->securisation($adresse);
-            $user->setNom($adresse);
+            $user->setAdresse($adresse);
 
               //récupérer et vérirfier le nom de la ville
               $ville = $form->getData()->getVille();
               $ville = $secu->securisation($ville);
-              $user->setNom($ville);
+              $user->setVille($ville);
   
 
 
