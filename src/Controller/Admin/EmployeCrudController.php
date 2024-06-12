@@ -37,7 +37,7 @@ class EmployeCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             AssociationField::new('Utilisateur'),
             TextField::new('poste'),
-            EmailField::new('email')->hideWhenUpdating(),
+            
 
 
         ];

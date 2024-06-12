@@ -1,11 +1,13 @@
-<h1>Hi! Please confirm your email!</h1>
+<h1>Finaliser la création de votre compte</h1>
 
-<p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+<p> 
+Bonjour, <br><br>
+    Pour finaliser la création de votre Espace Client Vllage Green, <br><br>
+    veuillez confirmer votre <b>adresse e-mail</b> en cliquant sur le lien ci-dessous <br>
+    <a href="{{ signedUrl|raw }}">valider mon adresse e-mail</a>.<br>
+    Ce lien ne sera valable qu'une {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.<br>
 </p>
-
+<p>A bientot.</p>
 <p>
-    Cheers!
+   l'équipe Village Green.
 </p>

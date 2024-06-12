@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
@@ -15,6 +16,13 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank (message: "le champ prénom ne peut pas etre vide")]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'votre prénom doit avoir minimum {{ limit }} caractères',
+        maxMessage: 'votre prénom ne doit pas dépassé {{ limit }} caractères',
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]

@@ -11,7 +11,7 @@
                 <a href="" class="sousCategory" data-id="{{ sousCategorie.id }}">
                     <img class="img-thumbnail rounded-circle" src="{{ asset('assets/images/' ~ sousCategorie.getParent().getNomCategorie()  ~ '/' ~ sousCategorie.photo) }}" style="height: 200px;">
                 </a>
-                <h3 class="nomCategorie my-2">{{ sousCategorie.nomCategorie }}</h3>
+                <h3 class="nomCategorie fs-6 fs-sm-4 fs-md-3 my-2">{{ sousCategorie.nomCategorie }}</h3>
             </div>
         {% endfor %}
     </div>

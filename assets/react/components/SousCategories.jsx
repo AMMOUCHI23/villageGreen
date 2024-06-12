@@ -6,7 +6,6 @@ const SousCategories = () => {
     const params = useParams();
     const categorieId = params.id;
     const [listeSousCategories, setListeSousCategories] = useState([]);
-    const [nomCategorieParent, setNomCategorieParent]=useState("");
     const navigate = useNavigate();
     useEffect(() => {
         const fetchCategories = async () => {
@@ -26,7 +25,7 @@ const SousCategories = () => {
         };
 
         fetchCategories();
-    }, []); // Ajout de categorieId comme dépendance pour déclencher useEffect lorsqu'il change
+    }, []); 
 
 
 

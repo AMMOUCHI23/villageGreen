@@ -87,7 +87,7 @@ class CommandeController extends AbstractController
             $em->persist($commande);
             $em->flush($commande);   
             
-            // envoyer un email de confirmation de la commande 
+            // envoyer un email de confirmation de la commande en utilisant le service 
             $expediteur = 'expediteur@example.com';
             $destinataire =$this->getUser()->getEmail();
             $sujet = 'Confirmation de la commande';

@@ -16,7 +16,7 @@
 			<h3 class="text-center text-primary my-3">Nos Produits suggérés pour votre recherche</h3>
 			<div class="row justify-content-center">
 				{% for produit in produits %}
-					<div class="card col-sm-6 col-md-3 m-2">
+					<div class="card col-5 col-md-3  m-2">
 						<img src="{{ asset('assets/images/' ~ produit.getCategorie().getParent().getNomCategorie() ~ '/' ~ produit.getCategorie().getNomCategorie() ~ '/' ~ produit.getPhoto()) }}" class="card-img-top" alt="{{ produit.getLibelle() }}">
 						<div class="card-body">
 							<h5 class="card-title">{{ produit.libelle }}</h5>

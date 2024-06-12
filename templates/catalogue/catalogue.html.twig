@@ -8,7 +8,7 @@
 		<h1 class="text-center text-primary mt-3">Nos Catégories</h1>
 		<div class="row justify-content-center">
 			{% for categorie in categories %}
-				<div class="col-6 col-md-3 my-4 survol">
+				<div class="col-10 col-sm-5 col-md-3  my-4 survol">
 					<a href="{{ path('Sous_categorie', {id: categorie.id}) }}" class="text-decoration-none"><img class="img-thumbnail rounded-circle" src="{{ asset('assets/images/' ~ categorie.photo) }}" style="height: 200px;">
 						<h3 class="nomCategorie my-2">{{ categorie.nomCategorie }}</h3>
 					</a>

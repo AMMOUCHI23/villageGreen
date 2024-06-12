@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import {  Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Categories = () => {
     const [listeCategories, setlisteCategories] = useState([]);
-    const [nomCategorieParent, setNomCategorieParent]=useState("");
     const navigate=useNavigate();
     
     useEffect(() => {
@@ -44,7 +43,7 @@ const Categories = () => {
                     <Col sm={6} md={3} className="my-4 survol" key={categorie.id} onClick={()=>navigate(`/react/categorie/${categorie.id}`)}>
 <img className="img-thumbnail rounded-circle" src={`./assets/images/${categorie.photo}`} alt={categorie.nom_categorie} />
                         <h3 className="nomCategorie my-2">{categorie.nom_categorie}</h3>
-                        <Outlet/>
+                        
                     </Col>
                 ))}
             </Row>

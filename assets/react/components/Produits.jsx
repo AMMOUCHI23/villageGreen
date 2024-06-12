@@ -9,7 +9,6 @@ const Produits = () => {
     const navigate=useNavigate();
 
     const [listeProduits, setListeProduits] = useState([]);
-    const [nomSousCategorie, setNomSousCategorie] = useState('');
     useEffect(() => {
         const fetchProduits = async () => {
             try {
@@ -30,7 +29,7 @@ const Produits = () => {
   return (
     <Container className=" mt-3">
     <Row className=" justify-content-center">
-     {/* <h1 className="text-center">{{ categorie.nomCategorie }}</h1>  */}
+     {/* <h1 className="text-center">{{ categorie.nomCategorie }}</h1>   */}
     </Row>
     
     <Row className=" justify-content-center">
