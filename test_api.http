@@ -1,0 +1,10 @@
+GET https://127.0.0.1:8000/api/categories
+
+###
+
+GET https://127.0.0.1:8000/api/produits
+
+###
+
+GET https://127.0.0.1:8000/api/produits/38
+

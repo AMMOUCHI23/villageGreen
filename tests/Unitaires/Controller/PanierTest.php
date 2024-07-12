@@ -43,17 +43,19 @@ class PanierTest extends PantherTestCase
 
         // Remplir et valider le formulaire de la commande
         $form = $crawler->selectButton('Payer ma commande')->form();
-        $form['adresse_livraison'] = '13 rue Charles August';
-        $form['cp_livraison'] = '80000';
-        $form['ville_livraison'] = 'Amiens';
-        $form['adresse_facturation'] = '13 rue Charles August';
-        $form['cp_facturation'] = '80000';
-        $form['ville_facturation'] = 'Amiens';
-        $crawler = $client->submit($form);
-
-        // Vérifier que la page de connexion s'affiche
-        $this->assertSelectorTextContains('h2', 'Connexion à mon compte');
-
+        $form['commande_form[adresse_livraison]'] = '13 rue Charles August';
+        $form['commande_form[cp_livraison]'] = '80000';
+        $form['commande_form[ville_livraison]'] = 'Amiens';
+        $form['commande_form[adresse_facturation]'] = '13 rue Charles August';
+        $form['commande_form[cp_facturation]'] = '80000';
+        $form['commande_form[ville_facturation]'] = 'Amiens';
         sleep(2);
+        $crawler = $client->submit($form);
+        sleep(2);
+
+        // Vérifier que la page catalogue est affichée
+        $this->assertSelectorTextContains('h1', 'Nos Catégories');
+
+       
     }
 }
